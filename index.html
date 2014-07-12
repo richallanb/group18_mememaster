@@ -26,25 +26,36 @@
       </form>
     </header>
    
-      <div id="MyMeme"><h4>My Memes</h4></div> <!-- shows only if user login-->
-      <div id="Featured"><h4>Popular Memes</h4>
+    <div id="MyMeme"><h4>My Memes</h4></div> <!-- shows only if user login-->
+    <div id="Featured"><h4>Popular Memes</h4>
+      <hr>  
         <article data-entry-id="seal">
           <header>
               <h2>
-                      <a href ="#">Hanging out with my friend and his brother in law whom I've never met</a>
+                <a href ="#">Hanging out with my friend and his brother in law whom I've never met</a>
               </h2>
           </header>
           <a href="seal.jpg" target="_blank">
               <img src="seal.jpg" alt="Hanging out with my friend and his brother in law whom I've never met">
-          </a>
+          </a><br>
+          <textarea name="notes">Notes</textarea><br>
+          <time>post time</time>
+          <form>
+            <input type="radio" id="rate1" value="1">
+            <input type="radio" id="rate2" value="2">
+            <input type="radio" id="rate3" value="3">
+            <input type="radio" id="rate4" value="4">
+            <input type="radio" id="rate5" value="5">
+          </form>
         </article>
+      <hr>
+    </div>
     
-     </div>
-    
-    
-    <div> test of emergency systems</div>
+   
       <form id="UploadMeme"><h4>Upload Meme</h4>
         <input type="image" name="memeimg" alt="Load Image">
+        <input type="text" name="tagcategory" placeholder="category">
+        <input type="text" name="tagkeyword" placeholder="keyword">
       </form>
     
     <footer>
