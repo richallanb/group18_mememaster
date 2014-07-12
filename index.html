@@ -12,24 +12,38 @@
         <ul>
           <li><a href="#">Create a MEME!</a></li>
           <li><a href="#UploadMeme">Upload a MEME!</a></li>
+          <li><a href="team/index.html">Download Chrome Extention</a></li>
           <li><a>Login</a></li>
         </ul>
       </nav>
       
-      <form id="search"><h5>Search</h5>
+      <form id="search" method="get" action="searchpage.html"><h5>Search</h5>
         <label>
           <input type="text" name="youwanttheme" placeholder="category">
         </label>
         <label>
           <input type="text" name="youwantsource" placeholder="keyword">
         </label>
-          <input type="button" name="searchbutton" href="searchpage.html">
+          <input type="submit" name="searchbutton" value="Clickable Button">
       </form>
     </header>
    
-    <div id="MyMeme"><h4>My Memes</h4></div> <!-- shows only if user login-->
-    <div id="Featured"><h4>Popular Memes</h4>
-      <hr>  
+    <div id="Featured">
+      <h4>Popular Memes</h4>
+        <article data-entry-id="seal">
+          <header>
+              <h2>
+                <a href ="#">Professor told us to build a html wireframe</a>
+              </h2>
+          </header>
+          <a href="onedoes.jpg" target="_blank">
+              <img src="onedoes.jpg" alt="Professor told us to build a html wireframe">
+          </a>
+        </article>
+      <hr>
+    </div> <!-- shows only if user login-->
+    
+      <div id="Memes"><h4>My Memes</h4>
         <article data-entry-id="seal">
           <header>
               <h2>
@@ -66,5 +80,6 @@
         <li><a href="team/index.html">Team Page</a></li>
       </ul>
     </footer>
+    <a href="#">Jump to Top</a>
   </body>
 </html>
