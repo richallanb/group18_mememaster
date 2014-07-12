@@ -2,17 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  <style>
-    body {
-        padding-top: 20px;
-        padding-bottom: 40px;
-        background-color:#06b6ff;
-        background-image:url('bgres.png');
-        background-repeat:no-repeat;
-        background-attachment:fixed;
-        background-position:bottom; 
-      }
-    </style>
+  
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,7 +14,13 @@
 
     <!-- Bootstrap core CSS -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
+    <style>
+    body {
+        padding-top: 20px;
+        padding-bottom: 40px;
+        background: #06b6ff url('bgres.png') no-repeat fixed bottom; 
+      }
+    </style>
     <!-- Custom styles for this template -->
     <link href="jumbotron-narrow.css" rel="stylesheet">
 
@@ -62,18 +58,20 @@
               <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Home</a></li>
                 <li><a href="#about" data-toggle="modal" data-target="#teamModal">About</a></li>
-                <li><a href="#contact">Contact</a></li>
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Resources<span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
                     <li><a href="#">Documentation</a></li>
                     <li><a href="https://github.com/cse134-135-2014/cse134_group18.git">Github</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li class="divider"></li>
-                    <li class="dropdown-header">Meme Master</li>
+                    <li><a href="#">Project Schedule</a></li>
+                    
+                  </ul></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Meme Master<span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
                     <li><a href="../index.html">Main Site</a></li>
                     <li class="bg-danger" ><a href="#" onclick="alert('Yet to be developed');">Chrome Extension</a></li>
-                  </ul>
+                      </ul>
                 </li>
               </ul>
             </div>
@@ -85,7 +83,7 @@
 <div class="container">
 
     <div>
-      <center><img src="logo.png"></center>
+      <img src="logo.png" style="display: block; margin-left: auto; margin-right: auto">
       </div>
 
 
@@ -100,34 +98,33 @@
       <div class="row">
         
         <div class="col-md-3" style="max-width:200px;">
-          <center><img class="img-rounded" src="rich_th.png" alt="Richard" style="width: 180px; height: 180px;">
-          </center>
-          <h3>Richard</h3><h4>aka "Giggles"</h4>
+          <img class="img-rounded" src="rich_th.jpg" alt="Richard" style="display: block; margin-left: auto; margin-right: auto; width: 180px; height: 180px;">
+          <h3>Richard</h3><h5><em>aka "Giggles"</em></h5>
           <br>Richard Bull (born April 10, 1936) is a former American football player in the National Football League, a former Super Bowl-winn...
           <p><a class="btn btn-default" href="#" data-toggle="modal" data-target="#richModal" role="button">View details &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-md-3" style="max-width:200px;">
-          <center><img class="img-rounded" src="brian_th.png" alt="Generic placeholder image" style="width: 180px; height: 180px;"></center>
-            <h3>Brian</h3>
+          <img class="img-rounded" src="brian_th.jpg" alt="Brian" style="display: block; margin-left: auto; margin-right: auto; width: 180px; height: 180px;">
+          <h3>Brian</h3><h5><em>aka "The Philosopher"</em></h5>
           <br>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.
           <p><a class="btn btn-default" href="#" data-toggle="modal" data-target="#brianModal" role="button">View details &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-md-3" style="max-width:200px;">
-          <center><img class="img-rounded" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" style="width: 180px; height: 180px;"></center>
+          <img class="img-rounded" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Lucia" style="display: block; margin-left: auto; margin-right: auto; width: 180px; height: 180px;">
             <h3>Lucia</h3>
           <br>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
           <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div>
       
   <div class="col-md-3" style="max-width:200px;">
-          <center><img class="img-rounded" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" style="width: 180px; height: 180px;"></center>
-            <h3>Andrew</h3>
-          <br>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          <img class="img-rounded" src="andrew_th.jpg" alt="Andrew" style="display: block; margin-left: auto; margin-right: auto; width: 180px; height: 180px;">
+            <h3>Andrew</h3><h5><em>aka "The Decider"</em></h5>
+          <br>Andrew Lighterink, a registered caffeine addict has been spotted on the occasion at the local watering hole...
+          <p><a class="btn btn-default" href="#" data-toggle="modal" data-target="#andrewModal" role="button">View details &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
     <div class="col-md-3 " style="max-width:200px;">
-          <center><img class="img-rounded" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" style="width: 180px; height: 180px;"></center>
-            <h3>Lucia</h3>
+          <img class="img-rounded" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Steve" style="display: block; margin-left: auto; margin-right: auto; width: 180px; height: 180px;">
+            <h3>Steve</h3>
           <br>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
           <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
@@ -185,30 +182,35 @@
       </footer>
 
 </div>
-<!-- Modal -->
+<!-- Team Modal -->
 <div class="modal fade" id="teamModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="myModalLabel">The Meme Dream Team Team</h4>
+        <h4 class="modal-title" id="myModalLabel">The Team</h4>
       </div>
       <div class="modal-body">
-        <a href="#">Contact</a>
-        <div class="footer">
-      <address>
+        <img src="logo_sm.png" class="img-rounded" style="display: block; margin-left: auto; margin-right: auto" alt="The Meme Dream Team Team Logo Picture">
+        <hr>
+        <p><h4>About Us</h4></p>
+        The Meme Dream Team Team (pronounced "Me Me") is a storied franchise with a rich history leading back almost over one week ago. This enterprise group of dedicated professionals are dedicated to solving complex problems like meme (pronounced "meem") storage, categorization, and consolidation. Believing that the user always comes first, and <small><del>personal privacy is for unpatrioatic subhumans</small></del>, we have tasted the amazing juice that is pure internet. Because the meme (pronounced "May May") is easily the purest pure form of internet connectivity through electronic communication as a means of conveying ideas such as memes (pronounced "mims").<br>
+        
+      </div>
+    <div class="modal-footer">
+      <p><h4 class="text-left">Contact</h4></p>
+      <address class="text-left">
   <strong>Twitter, Inc.</strong><br>
   795 Folsom Ave, Suite 600<br>
   San Francisco, CA 94107<br>
   <abbr title="Phone">P:</abbr> (123) 456-7890
 </address>
 
-<address>
+<address class="text-left">
   <strong>Full Name</strong><br>
   <a href="mailto:#">first.last@example.com</a>
 </address>
     </div>
-      </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
@@ -216,16 +218,17 @@
   </div>
 </div>
     
-<!-- Modal -->
+<!-- Richard Modal -->
 <div class="modal fade" id="richModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="myModalLabel">Richard Bull</h4>
+        <h4 class="modal-title" id="myModalLabel">Richard</h4>
       </div>
       <div class="modal-body">
-        
+        <img src="rich.jpg" class="img-rounded" style="display: block; margin-left: auto; margin-right: auto" alt="Richard">
+        <hr>
           <h4>Bio</h4>
           <p>Richard Bull (born April 10, 1936) is a former American football player in the National Football League, a former Super Bowl-winning head coach with the Oakland Raiders in the American Football League and later the NFL, and a former color commentator for NFL telecasts. In 2006, he was inducted into the Pro Football Hall of Fame in recognition of his coaching career. He is also widely known for the long-running Madden NFL video game series he has endorsed and fronted since 1988. Madden broadcast with Pat Summerall in the 1980s and 1990s, on CBS and later Fox. He was also the last color commentator for ABC's Monday Night Football, teaming with Al Michaels, before it moved to ESPN in 2006. His last regular role was as a commentator for NBC's Sunday Night Football, also with Michaels. During his career, he worked as the main color commentator for all four major networks.</p>
 
@@ -241,7 +244,7 @@
     </div>
   </div>
 </div>
-<!-- Modal -->
+<!-- Brian Modal -->
 <div class="modal fade" id="brianModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -250,7 +253,8 @@
         <h4 class="modal-title" id="myModalLabel">Brian</h4>
       </div>
       <div class="modal-body">
-        
+        <img src="brian.jpg" class="img-rounded" style="display: block; margin-left: auto; margin-right: auto" alt="Brian">
+        <hr>
           <h4>Bio</h4>
           <p>.</p>
 
@@ -266,6 +270,35 @@
     </div>
   </div>
 </div>
+<!-- Andrew Modal -->
+<div class="modal fade" id="andrewModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Andrew</h4>
+      </div>
+      <div class="modal-body">
+       <img src="andrew.jpg" class="img-rounded" style="display: block; margin-left: auto; margin-right: auto" alt="Andrew">
+        <hr>
+          <h4>Bio</h4>
+          <p>Andrew Lighterink, a registered caffeine addict has been spotted on the occasion at the local watering hole when his alarm decides to work properly thus waking him in time to enjoy the relaxing environment and beverage at Starbucks before his 8am. In his free time he enjoys meandering the complex maze that is Amazon enjoying a ever popular game of "Amazon's Degrees of Separation" in which the participant must navigate from one item to an entirely random unrelated item solely through Amazon's Personalized Recommendations or "Customers Also Bought This" links in the least number of jumps.  
+</p>
+
+
+          <h4>Quote</h4>
+          <p></p>
+        
+    
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div></div>
+    </div>
+  </div>
+</div>
+
+
 
        
 
