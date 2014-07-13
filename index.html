@@ -10,21 +10,27 @@
       <h2>Nav Bar</h2>
       <nav>      
         <ul>
+          <li><a href="#">Home</a></li>
           <li><a href="#">Create a MEME!</a></li>
           <li><a href="#UploadMeme">Upload a MEME!</a></li>
           <li><a href="team/index.html">Download Chrome Extention</a></li>
-          <li><a>Login</a></li>
+          <li><a href="login.html">Login</a></li>
         </ul>
       </nav>
       
       <form id="search" method="get" action="searchpage.html"><h5>Search</h5>
-        <label>
+        <label>By Category
           <input type="text" name="youwanttheme" placeholder="category">
         </label>
-        <label>
+        <br>
+        <label>By Keyword
           <input type="text" name="youwantsource" placeholder="keyword">
         </label>
-          <input type="submit" name="searchbutton" value="Clickable Button">
+        <br>
+        <label>By URL
+          <input type="text" name="youwanturl" placeholde="specific URL" placeholder="url" title="Good luck">
+        </label>
+          <input type="submit" name="searchbutton" value="Search">
       </form>
     </header>
    
@@ -44,6 +50,7 @@
     </div> <!-- shows only if user login-->
     
       <div id="Memes"><h4>My Memes</h4>
+        <input type="text" name ="mysearch" placeholder="Search">
         <article data-entry-id="seal">
           <header>
               <h2>
