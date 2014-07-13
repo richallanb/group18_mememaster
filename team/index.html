@@ -14,6 +14,8 @@
 
     <!-- Bootstrap core CSS -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap/css/ekko-lightbox.css" rel="stylesheet">
+    <!--link href="bootstrap/css/ekko-dark.css" rel="stylesheet"-->
     <style>
     body {
         padding-top: 20px;
@@ -139,10 +141,18 @@
       <div class="row featurette">
         <div class="col-md-7">
           <h2 class="featurette-heading">Our Project Mockup. <span class="text-muted">It'll blow your mind!</span></h2>
-          <p class="lead">We took what we saw were the best and strongest features and capabilities of other working designs and implemented into our own. We presented a design with the user always in mind</p>
+          <p class="lead">We took what we saw were the best and strongest features and capabilities of other working designs and implemented into our own. We presented a design with the user always in mind</p><a href="../artifacts/mockup/IndexPage.png" class="btn btn-default" data-toggle="lightbox" data-gallery="mockup" data-title="The Landing Page" data-footer="This is our welcoming screen to new and account holding users. Sign-up is free and non-invasive. We greet the user with a collection of the trending posts for that day, immediately grabbing their attention with topical content!" role="button">View details &raquo;</a>
+        <a href="../artifacts/mockup/Home.png" data-toggle="lightbox" data-gallery="mockup" data-title="The Home Page" data-footer="This is where an account holding user will be able to organize their pictures or memes and look at favorited posts. They can also keep track of their most popular posts here. The user is allowed to edit, delete, save, make their meme public, or make their meme private. The user is also capable of using our search function that can filter for category, keyword, url, file type, whether the picture is nsfw, whether it contains gore, and etc."><span aria-hidden="true"></span></a>
+          <a href="../artifacts/mockup/UserProfile.png" data-toggle="lightbox" data-gallery="mockup" data-title="The Profile Editor" data-footer="Here's where all of the account oriented tasks can be done. The account holder will be able to update their personal info, change passwords, and keep track of their overall popularity on the site."><span aria-hidden="true"></span></a>
+          <a href="../artifacts/mockup/commentrating.png" data-toggle="lightbox" data-gallery="mockup" data-title="Your Post" data-footer="When the user decides to make their meme public, it's instantly viewable by other users. The other users can upvote it or downvote. They can post about it, link other pictures and the like. The user is also capable of putting up more than one picture in a post."><span aria-hidden="true"></span></a>
+          <a href="../artifacts/mockup/Edit.png" data-toggle="lightbox" data-gallery="mockup" data-title="Creating a Meme" data-footer="As you probably know, a lot of Meme's are nothing more than a template with some text on it, usually Impact Condensed font with a black outline. We'll we've taken this basic trait and expanded upon it. You can add text to templates or your own pictures as expected, and the user is even provided with a plethora of other functions such as adding layers of other pictures and funny clipart."><span aria-hidden="true"></span></a>
+          <a href="../artifacts/mockup/Trending.png" data-toggle="lightbox" data-gallery="mockup" data-title="The Trending Posts" data-footer="As with any community based site, there are simply posts that are so popular everyone should see them. Ours is no different. The user is capable of looking at popular posts depending on a various of range of settings such as time of the post, or how controversial it is, and the user is also capable of filtering for NSFW (not safe for work) pictures or not."><span aria-hidden="true"></span></a>
+          <a href="../artifacts/mockup/Help.png" data-toggle="lightbox" data-gallery="mockup" data-title="Maybe you need help?" data-footer="We understand not everyone will be able to navigate our site with ease, so we've created a help section for people that might need that small pointer to get them going in the right direction. We also have a place for us to be notified if the odd bug arises."><span aria-hidden="true"></span></a>
+          <a href="../artifacts/mockup/Mobile.png" data-toggle="lightbox" data-gallery="mockup" data-title="Laughing to yourself in public on your mobile device" data-footer="We're well aware of how much the mobile platform is used now, and because of this, we're taking special precautions so that our pages will render properly and efficiently on mobile devices. We'll take special care that our buttons aren't too close to one another, or that drastic options that may be accidentally clicked are tucked away so their use is very deliberate. We also realize that our presentation may need to change on mobile devices, but it should still have similar stylings, so the user isn't forced to 'relearn how to ride a bike' just for using a smaller device."><span aria-hidden="true"></span></a>
         </div>
         <div class="col-md-5">
-          <img class="featurette-image img-thumbnail" src="layout1.jpg" alt="Mockup">
+           <img class="featurette-image img-thumbnail" src="layout1.jpg" alt="Mockup">
+          
         </div>
       </div>
 
@@ -154,7 +164,7 @@
         </div>
         <div class="col-md-7">
           <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
-          <p class="lead">We strive for the best by trying to cover every imaginable situation the user may be in. The phrase "404" is a derogatory word to us and the punishment is a fierce stoning met with an even fiercer round of hugs.</p>
+          <p class="lead">We strive for the best by trying to cover every imaginable situation the user may be in. The phrase "404" is a derogatory word to us and the punishment is a fierce stoning met with an even fiercer round of hugs.</p><a href="../artifacts/usecase/memeUseCase.png" class="btn btn-default" data-toggle="lightbox" data-gallery="usecase" data-title="Start anywhere, no 404." data-footer="No matter where you start on our site, we have that path covered. No blindspots allowed. The user, whether registered or not, can navigate down various avenues which never end in a 404 error!" role="button">View details &raquo;</a>
         </div>
       </div>
 
@@ -352,11 +362,32 @@
 
       
 
+                                
+
+
+
+		
+	
     
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bootstrap/js/ekko-lightbox.js"></script>
+    <script type="text/javascript">
+			$(document).ready(function ($) {
+
+				// delegate calls to data-toggle="lightbox"
+				$(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
+					event.preventDefault();
+					return $(this).ekkoLightbox({
+						always_show_close: true
+					});
+				});
+
+			});
+		</script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
+    
     <!-- Placed at the end of the document so the pages load faster -->
   </body>
 </html>
