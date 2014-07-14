@@ -20,8 +20,15 @@
     body {
         padding-top: 20px;
         padding-bottom: 40px;
-        background: #06b6ff url('bgres.png') no-repeat fixed bottom; 
+        background: #06b6ff url('bgres.png') no-repeat fixed bottom;
+      
       }
+  
+
+.navbar-nav>.active>a, .navbar-nav>.active>a:hover, .navbar-nav>.active>a:focus {
+	background-color: transparent;
+}
+    }
     </style>
     <!-- Custom styles for this template -->
     <link href="jumbotron-narrow.css" rel="stylesheet">
@@ -43,31 +50,31 @@
 
   <body>
 
-<div class="navbar-wrapper">
-      <div class="container">
-
-        <div class="navbar navbar-inverse" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-            </div>
-            <div class="navbar-collapse collapse">
-              <ul class="nav navbar-nav">
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+   <div class="container">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+  </div>
+  
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse navbar-ex5-collapse">
+    <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Home</a></li>
                 <li><a href="#about" data-toggle="modal" data-target="#teamModal">About</a></li>
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Resources<span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#documentation">Documentation</a></li>
                     <li><a href="https://github.com/cse134-135-2014/cse134_group18.git">Github</a></li>
                     <li><a href="#">Project Schedule</a></li>
                     
                   </ul></li>
+    </ul><ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Meme Master<span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
@@ -75,16 +82,14 @@
                     <li class="bg-danger"><a href="#" onclick="alert('Yet to be developed');">Chrome Extension</a></li>
                       </ul>
                 </li>
-              </ul>
-            </div>
-          </div>
-        </div>
+    </ul>
+  </div><!-- /.navbar-collapse -->
+  </div>
+</nav>
 
-      </div>
-    </div>
-<div class="container">
+<div class="container" style="position:relative;">
 
-    <div>
+    <div style="margin-top:10%">
       <img src="logo.png" alt="The Meme Dream Team" style="display: block; margin-left: auto; margin-right: auto">
       </div>
 
@@ -92,7 +97,7 @@
     <!-- Marketing messaging and featurettes
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
-<div class="jumbotron">
+<div class="jumbotron"  style="margin-top:25%">
     <div class="container marketing">
 
       <!-- Three columns of text below the carousel -->
@@ -103,39 +108,40 @@
           <img class="img-rounded" src="rich_th.jpg" alt="Richard" style="display: block; margin-left: auto; margin-right: auto; width: 180px; height: 180px;">
           <h3>Richard</h3><h5><em>aka "Giggles"</em></h5>
           <br>Richard Bull (born April 10, 1936) is a former American football player in the National Football League, a former Super Bowl-winn...
-          <p><a class="btn btn-default" href="#" data-toggle="modal" data-target="#richModal" role="button">View details &raquo;</a></p>
+          <p><a class="btn btn-default" href="#" data-toggle="modal" data-target="#richModal" role="button">More &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-md-3" style="max-width:200px;">
           <img class="img-rounded" src="brian_th.jpg" alt="Brian" style="display: block; margin-left: auto; margin-right: auto; width: 180px; height: 180px;">
           <h3>Brian</h3><h5><em>aka "The Philosopher"</em></h5>
           <br>Student, Gamer, Otaku. Brian "The Philosopher" Ly has been known to be infront of a computer for countless hours a day either coding...
-          <p><a class="btn btn-default" href="#" data-toggle="modal" data-target="#brianModal" role="button">View details &raquo;</a></p>
+          <p><a class="btn btn-default" href="#" data-toggle="modal" data-target="#brianModal" role="button">More &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-md-3" style="max-width:200px;">
           <img class="img-rounded" src="lucia_th.jpg" alt="Lucia" style="display: block; margin-left: auto; margin-right: auto; width: 180px; height: 180px;">
             <h3>Lucia</h3><h5><em>aka "The Cat"</em></h5>
           <br>Near the beginning of Lucia's' career, Lucia thought that Newtonian mechanics was no longer enough to reconcile the laws of class...
-          <p><a class="btn btn-default" href="#" data-toggle="modal" data-target="#luciaModal" role="button">View details &raquo;</a></p>
+          <p><a class="btn btn-default" href="#" data-toggle="modal" data-target="#luciaModal" role="button">More &raquo;</a></p>
         </div>
       
   <div class="col-md-3" style="max-width:200px;">
           <img class="img-rounded" src="andrew_th.jpg" alt="Andrew" style="display: block; margin-left: auto; margin-right: auto; width: 180px; height: 180px;">
             <h3>Andrew</h3><h5><em>aka "The Decider"</em></h5>
           <br>Andrew Lighterink, a registered caffeine addict has been spotted on the occasion at the local watering hole...
-          <p><a class="btn btn-default" href="#" data-toggle="modal" data-target="#andrewModal" role="button">View details &raquo;</a></p>
+          <p><a class="btn btn-default" href="#" data-toggle="modal" data-target="#andrewModal" role="button">More &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
     <div class="col-md-3 " style="max-width:200px;">
           <img class="img-rounded" src="steve_th.jpg" alt="Steve" style="display: block; margin-left: auto; margin-right: auto; width: 180px; height: 180px;">
             <h3>Steve</h3><h5><em>aka "The Ikea Knight"</em></h5>
           <br>Steve Chen is a Student who hates to assemble IKEA furniture . Ever Since moving to USA for college, he has been buying furniture from...
-          <p><a class="btn btn-default" href="#" data-toggle="modal" data-target="#steveModal" role="button">View details &raquo;</a></p>
+          <p><a class="btn btn-default" href="#" data-toggle="modal" data-target="#steveModal" role="button">More &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
       </div><!-- /.row -->
   </div>
     </div><!-- /.jumbotron -->
     
       <!-- START THE FEATURETTES -->
-<div class="jumbotron">
+<div class="jumbotron" id="documentation">
+  <h1 class="featurette-heading" style="margin-top:-20px">Biscuits are Never Boring.</h1>
       <hr class="featurette-divider">
 
       <div class="row featurette">
@@ -143,9 +149,11 @@
           <h2 class="featurette-heading">Our Project Mockup. <span class="text-muted">It'll blow your mind!</span></h2>
           <p class="lead">We took what we saw were the best and strongest features and capabilities of other working designs and implemented into our own. We presented a design with the user always in mind</p><a href="../artifacts/mockup/IndexPage.png" class="btn btn-default" data-toggle="lightbox" data-gallery="mockup" data-title="The Landing Page" data-footer="This is our welcoming screen to new and account holding users. Sign-up is free and non-invasive. We greet the user with a collection of the trending posts for that day, immediately grabbing their attention with topical content!" role="button">View details &raquo;</a>
         <a href="../artifacts/mockup/Home.png" data-toggle="lightbox" data-gallery="mockup" data-title="The Home Page" data-footer="This is where an account holding user will be able to organize their pictures or memes and look at favorited posts. They can also keep track of their most popular posts here. The user is allowed to edit, delete, save, make their meme public, or make their meme private. The user is also capable of using our search function that can filter for category, keyword, url, file type, whether the picture is nsfw, whether it contains gore, and etc."><span aria-hidden="true"></span></a>
+          <a href="../artifacts/mockup/Upload.png" data-toggle="lightbox" data-gallery="mockup" data-title="Give us the funny" data-footer="When you've signed in and you're ready to upload your memes, pictures and galleries, just hit upload on any page from the navbar and you'll be given our upload modal. The user is given the choice of uploading from the web, in which case it'll just be a giant textbox where addresses can be separated by newlines, commas, or semi-colons; or the user can upload from their own computer. When the user uploads from either location they can give the meme tags, set it's category, and of course say whether it's NSFW or not. The user can also say whether they want these pictures uploaded individually or to be part of a gallery. In the event that you accidentally upload a picture you didn't mean to give us, no sweat, just hit the big X and it's gone!"><span aria-hidden="true"></span></a>
           <a href="../artifacts/mockup/UserProfile.png" data-toggle="lightbox" data-gallery="mockup" data-title="The Profile Editor" data-footer="Here's where all of the account oriented tasks can be done. The account holder will be able to update their personal info, change passwords, and keep track of their overall popularity on the site."><span aria-hidden="true"></span></a>
           <a href="../artifacts/mockup/commentrating.png" data-toggle="lightbox" data-gallery="mockup" data-title="Your Post" data-footer="When the user decides to make their meme public, it's instantly viewable by other users. The other users can upvote it or downvote. They can post about it, link other pictures and the like. The user is also capable of putting up more than one picture in a post."><span aria-hidden="true"></span></a>
           <a href="../artifacts/mockup/Edit.png" data-toggle="lightbox" data-gallery="mockup" data-title="Creating a Meme" data-footer="As you probably know, a lot of Meme's are nothing more than a template with some text on it, usually Impact Condensed font with a black outline. We'll we've taken this basic trait and expanded upon it. You can add text to templates or your own pictures as expected, and the user is even provided with a plethora of other functions such as adding layers of other pictures and funny clipart."><span aria-hidden="true"></span></a>
+          <a href="../artifacts/mockup/Search.png" data-toggle="lightbox" data-gallery="mockup" data-title="Searching our Memes" data-footer="When the user wants to use our search they'll be glad to see that we have considered a plethora of searching options, even some that missing from lesser image oriented meme sites. The basics are covered, we allow the user to search by keyword, category and even URL. The user can even specify if the meme they're looking for is a GIF, a static image, or even WebM! Once the user knows what they're looking for they can sort by relevance, most popular/least popular, and most recent/least recent. We've also added a very important button we personally feel is a missing touch from many similar services. A NSFW filter button. There's nothing worse than searching for something you feel is benign on the internet in public, at work, or at school, only to find a bunch of NSFW pictures mixed in with what you're looking for. Spare yourself the embarassment, just filter out NSFW!"><span aria-hidden="true"></span></a>
           <a href="../artifacts/mockup/Trending.png" data-toggle="lightbox" data-gallery="mockup" data-title="The Trending Posts" data-footer="As with any community based site, there are simply posts that are so popular everyone should see them. Ours is no different. The user is capable of looking at popular posts depending on a various of range of settings such as time of the post, or how controversial it is, and the user is also capable of filtering for NSFW (not safe for work) pictures or not."><span aria-hidden="true"></span></a>
           <a href="../artifacts/mockup/Help.png" data-toggle="lightbox" data-gallery="mockup" data-title="Maybe you need help?" data-footer="We understand not everyone will be able to navigate our site with ease, so we've created a help section for people that might need that small pointer to get them going in the right direction. We also have a place for us to be notified if the odd bug arises."><span aria-hidden="true"></span></a>
           <a href="../artifacts/mockup/Mobile.png" data-toggle="lightbox" data-gallery="mockup" data-title="Laughing to yourself in public on your mobile device" data-footer="We're well aware of how much the mobile platform is used now, and because of this, we're taking special precautions so that our pages will render properly and efficiently on mobile devices. We'll take special care that our buttons aren't too close to one another, or that drastic options that may be accidentally clicked are tucked away so their use is very deliberate. We also realize that our presentation may need to change on mobile devices, but it should still have similar stylings, so the user isn't forced to 'relearn how to ride a bike' just for using a smaller device."><span aria-hidden="true"></span></a>
@@ -188,7 +196,7 @@
       <!-- FOOTER -->
       <footer>
         <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>&copy; 2014 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+        <p>&copy; 2014 Meme Dream Team. &middot; <a href="#" data-toggle="tooltip" data-placement="top" title="There is none">Privacy</a> &middot; <a href="#" data-toggle="tooltip" data-placement="top" title="Stealing from us? That's a paddlin'">Terms</a></p>
       </footer>
 
 </div> <!-- /container -->
@@ -209,15 +217,15 @@
       <hr>
       <br><h4 class="text-left">Contact</h4>
       <address class="text-left">
-  <strong>Twitter, Inc.</strong><br>
+  <strong>Meme Dream Team, Inc.</strong><br>
   795 Folsom Ave, Suite 600<br>
   San Francisco, CA 94107<br>
-  <abbr title="Phone">P:</abbr> (123) 456-7890
+  <abbr title="Phone">P:</abbr> (866) 200-8481
 </address>
 
 <address class="text-left">
   <strong>Full Name</strong><br>
-  <a href="mailto:#">first.last@example.com</a>
+  <a href="#" data-toggle="tooltip" data-placement="right" title="Don't be foolish. This isn't a real email.">Amanda.Hugnkiss@memedream.com</a>
 </address>
     </div>
       <div class="modal-footer">
@@ -386,8 +394,13 @@
 
 			});
 		</script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
     
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+    $("body").tooltip({ selector: '[data-toggle=tooltip]' });
+});
+</script>
     <!-- Placed at the end of the document so the pages load faster -->
   </body>
 </html>
