@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	 <title>MemeMaster Login</title>
+</head>
+	<body>
+		<h1> MemeMaster </h1>
+    
+	  <canvas>
+      <!--Dynamic Meme Slider--> 
+	  </canvas>
+	  <form method="get" name="userlogin" action="index.html">
+      <input type="text" name="user" placeholder="username" required="required">
+      <input type="text" name="pass" placeholder="password" required="required">
+      <br>
+      <label>Keep me logged in  
+	      <input type="radio" name="saveuser">
+      </label>
+	    <input type="submit" value="login" name="loginbutton">
+      <br>
+    </form>
+    
+	  <a href="#">Forgot Password</a>
+    <br>
+	  <a href="#">New User</a>
+
+	</body>
+</html>

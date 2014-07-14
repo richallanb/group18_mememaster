@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">    
+  <title>MemeMaster Home Page</title>
+</head>
+  <body>
+    <header>
+      <h1><img src="http://placehold.it/70x70" alt="MemeMaster"> MemeMaster </h1>
+      <a href="team/index.html">Download Chrome Extention</a>
+    <form method="get" name="search">
+    <input type="text" name="q" placeholder="Search for something funny...">
+    <select name="filter">
+    <option value="kw" selected>Keyword</option>
+    <option value="cat">Category</option>
+    <option value="url">URL</option>
+    </select>
+      <input type="submit" value="Search">
+      </form>
+      <nav>      
+        <ul class="nav.global">
+          <li class="nav.menu"><a href="#">Home</a></li>
+          <li class="nav.menu"><a href="#">Upload</a></li>
+          <li class="nav.menu"><a href="#">Create</a></li>
+          <li class="nav.menu"><a href="#">Trending</a></li>
+          <li class="nav.menu"><a href="#">Help</a></li>
+        </ul>
+        <div class="nav.user">Welcome back, <a href="#">Username</a>!<br><a href="#">Signout</a></div><div class="nav.userpic"><img src="http://placehold.it/50x50" alt="Username"></div>
+      </nav>
+    </header>
+   
+    <div id="Featured">
+      <h4>Your Top Memes</h4>
+        <article data-entry-id="seal">
+          <header>
+              <h4>
+                <a href ="onedoes.jpg">Professor told us to build...</a>
+              </h4>
+          </header>
+          <a href="onedoes.jpg" target="_blank">
+              <img src="http://placehold.it/250x250" alt="Professor told us to build a html wireframe">
+          </a>
+          <time datetime="2014-07-11"></time>
+          <form>
+            <input type="radio" id="rate1" value="1">
+            <input type="radio" id="rate2" value="2">
+            <input type="radio" id="rate3" value="3">
+            <input type="radio" id="rate4" value="4">
+            <input type="radio" id="rate5" value="5" checked>
+          </form>
+        </article>
+    </div> 
+    
+      <div id="Memes"><h4>Your Memes</h4>
+        <div id="localnav">Display Options<ul class="display.nav"><li class="display.menu"><a href="#"><img src="http://placehold.it/50x50" alt="Detailed View"></a></li>
+          <li class="display.menu"><a href="#"><img src="http://placehold.it/50x50" alt="Picture View"></a></li>
+          <li class="display.menu"><a href="#"><img src="http://placehold.it/50x50" alt="Filter Folders"></a></li>
+          <li class="display.menu"><a href="#"><img src="http://placehold.it/50x50" alt="New Folder"></a></li>
+          <li class="display.menu"><a href="#"><img src="http://placehold.it/50x50" alt="Help"></a></li></ul>
+          <form method="get" name="localsearch"><input type="text" name ="mysearch" placeholder="Search"></form></div>
+        <article data-entry-id="seal">
+          <header>
+              <h4>
+                <a href ="#">Favorites</a>
+              </h4>
+          </header>
+          <a href="#" target="_blank">
+              <img src="http://placehold.it/250x250" alt="Favorites"></a><br>
+          <time datetime="2014-07-11"></time>
+          <header> 
+              <h4>
+                <a href ="seal.jpg">Hanging out with my friend and...</a>
+              </h4>
+          </header>
+          <a href="seal.jpg" target="_blank">
+              <img src="http://placehold.it/250x250" alt="Hanging out with my friend and his brother in law whom I've never met"></a><br>
+          <time datetime="2014-07-11"></time>
+          <form>
+            <input type="radio" id="rate1" value="1">
+            <input type="radio" id="rate2" value="2">
+            <input type="radio" id="rate3" value="3" checked>
+            <input type="radio" id="rate4" value="4">
+            <input type="radio" id="rate5" value="5">
+          </form>
+        </article>
+      <hr>
+    </div>
+    
+   
+      
+    
+    <footer>
+      <ul>
+        <li><a href="#">About This Site</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="team/index.html">Team Page</a></li>
+      </ul>
+    </footer>
+    <a href="#">Jump to Top</a>
+  </body>
+</html>

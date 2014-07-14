@@ -1,92 +1,68 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">    
-  <title>Group 18 Page.. or something</title>
+	 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	 <title>MemeMaster Login</title>
+  <style>
+    aside.login {
+      position:relative;
+      float:right;
+      margin-top:150px;
+      max-width:200px;
+    }
+    header.login {
+      position:relative;
+      margin-top:20px;
+      margin-left:50px;
+      margin-bottom:10px;
+    }
+    section.login {
+      float:left;
+      margin-left:50px;
+      max-width:900px;
+    }
+    h3.trending {
+      text-align:center;
+    }
+    div.landingcont{
+      margin:auto;
+      max-width:1100px;
+    }
+    img.trending{
+      margin-left:5px;
+    }
+  </style>
 </head>
-  <body>
-    <header>
-      <h1 id="head" contenteditable="true">"Welcome" Group 18 </h1>
-      <h2>Nav Bar</h2>
-      <nav>      
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Create a MEME!</a></li>
-          <li><a href="#UploadMeme">Upload a MEME!</a></li>
-          <li><a href="team/index.html">Download Chrome Extention</a></li>
-          <li><a href="login.html">Login</a></li>
-        </ul>
-      </nav>
-      
-      <form id="search" method="get" action="searchpage.html"><h5>Search</h5>
-        <label>By Category:
-          <input type="text" name="youwanttheme" placeholder="category">
-        </label>
-        <br>
-        <label>By Keyword:
-          <input type="text" name="youwantsource" placeholder="keyword">
-        </label>
-        <br>
-        <label>By URL:
-          <input type="text" name="youwanturl" placeholder="specific URL" title="Good luck">
-        </label>
-          <input type="submit" name="searchbutton" value="Search">
-      </form>
-    </header>
-   
-    <div id="Featured">
-      <h4>Popular Memes</h4>
-        <article data-entry-id="seal">
-          <header>
-              <h2>
-                <a href ="#">Professor told us to build a html wireframe</a>
-              </h2>
-          </header>
-          <a href="onedoes.jpg" target="_blank">
-              <img src="onedoes.jpg" alt="Professor told us to build a html wireframe">
-          </a>
-        </article>
-      <hr>
-    </div> <!-- shows only if user login-->
+	<body>
+		<header class="login"><h1><img src="http://placehold.it/70x70" alt="MemeMaster"> MemeMaster </h1>
+    <form method="get" name="search">
+    <input type="text" name="q" placeholder="Search for something funny...">
+    <select name="filter">
+    <option value="kw" selected>Keyword</option>
+    <option value="cat">Category</option>
+    <option value="url">URL</option>
+    </select> 
+      <input type="submit" value="Search" name="searchbtn">
+      </form></header>
+    <div class="landingcont">
+	  <section class="login">
+      <h3 class="trending">What's Trending on MemeMaster</h3>
+      <img class="trending" src=http://placehold.it/270x270 alt="Meme1"><img class="trending" src=http://placehold.it/270x270 alt="Meme2"><img class="trending" src=http://placehold.it/270x270 alt="Meme3">
+      </section><aside class="login">
+	  <form method="get" name="userlogin" action="home.html">
+      <input type="text" name="user" placeholder="username" required="required"><br>
+      <input type="password" name="pass" placeholder="password" required="required">
+      <br>
+      <label>Keep me logged in  
+	      <input type="checkbox" name="saveuser">
+      </label>
+	    <input type="submit" value="Login" name="loginbutton">
+      <br>
+    </form>
     
-      <div id="Memes"><h4>My Memes</h4>
-        <input type="text" name ="mysearch" placeholder="Search">
-        <article data-entry-id="seal">
-          <header>
-              <h2>
-                <a href ="#">Hanging out with my friend and his brother in law whom I've never met</a>
-              </h2>
-          </header>
-          <a href="seal.jpg" target="_blank">
-              <img src="seal.jpg" alt="Hanging out with my friend and his brother in law whom I've never met">
-          </a><br>
-          <textarea name="notes">Notes</textarea><br>
-          <time datetime="2014-07-11"></time>
-          <form>
-            <input type="radio" id="rate1" value="1">
-            <input type="radio" id="rate2" value="2">
-            <input type="radio" id="rate3" value="3">
-            <input type="radio" id="rate4" value="4">
-            <input type="radio" id="rate5" value="5">
-          </form>
-        </article>
-      <hr>
-    </div>
-    
-   
-      <form id="UploadMeme"><h4>Upload Meme</h4>
-        <input type="image" name="memeimg" alt="Load Image">
-        <input type="text" name="tagcategory" placeholder="category">
-        <input type="text" name="tagkeyword" placeholder="keyword">
-      </form>
-    
-    <footer>
-      <ul>
-        <li><a href="whowebe.html">About This Site</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="team/index.html">Team Page</a></li>
-      </ul>
-    </footer>
-    <a href="#">Jump to Top</a>
-  </body>
+	  <a href="#">Forgot Password</a>
+    <br>
+      New User? <a href="#">Sign-Up</a></aside></div>
+  
+	</body>
 </html>

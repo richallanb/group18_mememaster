@@ -1,0 +1,18 @@
+<html>
+  <style>
+    font {
+    font-family: "Comic Sans MS";
+      
+    }
+  </style>
+  <head>
+    <title>Group 18 Page.. or something</title>
+  </head>
+  <body bgsrc>
+    <font size = 20>Who we are</font><br/><br/>
+    <img src="1375563461211.gif"/><br/><br/>
+    <font size = 20>Our target audience</font><br/><br/>
+    <img src="1394862754863.gif"/><br/><br/>
+    <a href="index.html">&lt; back.. or something</a>
+  </body>
+</html>
