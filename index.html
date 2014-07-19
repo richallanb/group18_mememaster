@@ -5,10 +5,11 @@
 	 <title>MemeMaster Login</title>
   <style>
     aside.login {
-      position:relative;
-      float:right;
-      margin-top:150px;
-      max-width:200px;
+      margin-top:39px;
+      margin-left:20px;
+      min-width:200px;
+      height:270px;
+      
     }
     header.login {
       position:relative;
@@ -18,23 +19,50 @@
       
     }
     section.login {
-      float:left;
+      
       margin-left:50px;
-      max-width:900px;
+      max-width:915px;
+      max-height:300px;
+      display:block;
     }
     h3.trending {
       text-align:center;
     }
-    div.landingcont{
+    div.landing{
+      display:flex;
       margin:auto;
-      max-width:1100px;
+      
+      max-height:325px;
+      max-width:1190px;
+      
     }
+    div.landing-container{
+      margin:auto;
+      max-width:1190px;
+     
+      
+    }
+
     div.heading{
       margin:auto;
-      max-width:1100px;
+      max-width:1190px;
+      
     }
     img.trending{
-      margin-left:3px;
+      width:100%;
+      max-height:300px;
+      margin-left:5px;
+    }
+    div.img-trending{
+      max-width:915px;
+      max-height:300px;
+      min-width:480px;
+      min-height:160px;
+      display:flex;
+      
+    }
+    div.clear{
+      clear: both;
     }
   </style>
 </head>
@@ -49,11 +77,15 @@
     </select> 
       <input type="submit" value="Search" name="searchbtn">
       </form></header></div>
-    <div class="landingcont">
+    
+    <div class="landing-container">
+    <div class="landing">
+      
 	  <section class="login">
       <h3 class="trending">What's Trending on MemeMaster</h3>
-      <img class="trending" src=http://placehold.it/270x270 alt="Meme1"><img class="trending" src=http://placehold.it/270x270 alt="Meme2"><img class="trending" src=http://placehold.it/270x270 alt="Meme3">
+     <div class="img-trending"><img class="trending" src=http://placehold.it/300x300 alt="Meme1"><img class="trending" src=http://placehold.it/300x300 alt="Meme2"><img class="trending" src=http://placehold.it/300x300 alt="Meme3"></div>
       </section><aside class="login">
+        <h3>Sign In</h3>
 	  <form method="get" name="userlogin" action="home.html">
       <input type="text" name="user" placeholder="username" required="required"><br>
       <input type="password" name="pass" placeholder="password" required="required">
@@ -67,6 +99,9 @@
     
 	  <a href="#">Forgot Password</a>
     <br>
-      New User? <a href="#">Sign-Up</a><br><a href="team/">Team Page</a></aside></div>
+      New User? <a href="#">Sign-Up</a><br></aside>
+      
+      </div>
+    </div>
 	</body>
 </html>

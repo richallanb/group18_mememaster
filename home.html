@@ -1,36 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">    
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" href="home.css" type="text/css"/>
   <title>MemeMaster Home Page</title>
 </head>
   <body>
-    <header>
-      <h1><img src="http://placehold.it/70x70" alt="MemeMaster"> MemeMaster </h1>
-      <a href="team/index.html">Download Chrome Extention</a>
-    <form method="get" name="search">
-    <input type="text" name="q" placeholder="Search for something funny...">
-    <select name="filter">
-    <option value="kw" selected>Keyword</option>
-    <option value="cat">Category</option>
-    <option value="url">URL</option>
-    </select>
-      <input type="submit" value="Search">
-      </form>
-      <nav>      
-        <ul class="nav.global">
-          <li class="nav.menu"><a href="#">Home</a></li>
-          <li class="nav.menu"><a href="#">Upload</a></li>
-          <li class="nav.menu"><a href="#">Create</a></li>
-          <li class="nav.menu"><a href="#">Trending</a></li>
-          <li class="nav.menu"><a href="#">Help</a></li>
+    <header class="nav-container">
+      <div class="logo-container">
+        <img src="http://placehold.it/70x70" alt="MemeMaster" class="logo-img">
+        <div class="logo-text">
+          <h1 id="headerlogo">MemeMaster</h1></div></div>
+      
+      
+      <nav class="nav-head">      
+        <ul class="navglobal">
+          <li class="navmenu"><a href="#">Home</a></li>
+          <li class="navmenu"><a href="#">Upload</a></li>
+          <li class="navmenu"><a href="#">Create</a></li>
+          <li class="navmenu"><a href="#">Trending</a></li>
+          <li class="navmenu"><a href="#">Help</a></li>
+          <li class="nav-search"><div class="search-container"><form method="get" name="search" action="searchpage.html">
+          <input class="search" type="text" name="globalq" placeholder="Search"></form></div></li>
         </ul>
-        <div class="nav.user">Welcome back, <a href="#">Username</a>!<br><a href="#">Signout</a></div><div class="nav.userpic"><img src="http://placehold.it/50x50" alt="Username"></div>
-      </nav>
+
+        </nav>
+      
+      <div class="nav-user-container">
+        <article class="nav-user-welcome">Welcome back, <a href="#">Username</a>!<br></article>
+      <aside class="nav-userpic"><img src="http://placehold.it/70x70" alt="Username"></aside></div>
     </header>
-   
-    <div id="Featured">
-      <h4>Your Top Memes</h4>
+ <div class="everything-container">  
+    
+   <div id="js-container">
+    <div id="display-options" class="jsfloat">Display Options
+          <ul class="display-nav">
+            <li class="display-menu"><a href="#"><img src="http://placehold.it/32x32" alt="Detailed View"></a></li>
+            <li class="display-menu"><a href="#"><img src="http://placehold.it/32x32" alt="Picture View"></a></li>
+            <li class="display-menu"><a href="#"><img src="http://placehold.it/32x32" alt="Filter Folders"></a></li>
+            <li class="display-menu"><a href="#"><img src="http://placehold.it/32x32" alt="New Folder"></a></li>
+            <li class="display-menu"><a href="#"><img src="http://placehold.it/32x32" alt="Help"></a></li>
+            <li class="display-search"><form method="get" name="localsearch"><input type="text" name ="mysearch" placeholder="Search"></form></li></ul></div>
+    <hr>
+     <div id="trending-container" class="jsfloat">
+      <h4>Trending Memes</h4>
         <article data-entry-id="seal">
           <header>
               <h4>
@@ -38,26 +51,11 @@
               </h4>
           </header>
           <a href="onedoes.jpg" target="_blank">
-              <img src="http://placehold.it/250x250" alt="Professor told us to build a html wireframe">
-          </a>
+              <img src="http://placehold.it/250x250" alt="Professor told us to build a html wireframe"></a>
           <time datetime="2014-07-11"></time>
-          <form>
-            <input type="radio" id="rate1" value="1">
-            <input type="radio" id="rate2" value="2">
-            <input type="radio" id="rate3" value="3">
-            <input type="radio" id="rate4" value="4">
-            <input type="radio" id="rate5" value="5" checked>
-          </form>
-        </article>
-    </div> 
-    
-      <div id="Memes"><h4>Your Memes</h4>
-        <div id="localnav">Display Options<ul class="display.nav"><li class="display.menu"><a href="#"><img src="http://placehold.it/50x50" alt="Detailed View"></a></li>
-          <li class="display.menu"><a href="#"><img src="http://placehold.it/50x50" alt="Picture View"></a></li>
-          <li class="display.menu"><a href="#"><img src="http://placehold.it/50x50" alt="Filter Folders"></a></li>
-          <li class="display.menu"><a href="#"><img src="http://placehold.it/50x50" alt="New Folder"></a></li>
-          <li class="display.menu"><a href="#"><img src="http://placehold.it/50x50" alt="Help"></a></li></ul>
-          <form method="get" name="localsearch"><input type="text" name ="mysearch" placeholder="Search"></form></div>
+      </article></div></div>  
+   
+      <div id="memes"><h2>Saved Memes</h2>
         <article data-entry-id="seal">
           <header>
               <h4>
@@ -65,27 +63,23 @@
               </h4> 
           </header>
           <a href="#" target="_blank">
-              <img src="http://placehold.it/250x250" alt="Favorites"></a><br>
+              <img src="http://placehold.it/400x400" alt="Favorites"></a><br>
           <time datetime="2014-07-11"></time>
+          <progress max="100" value="75"></progress>
+          <hr>
           <header> 
               <h4>
                 <a href ="seal.jpg">Hanging out with my friend and...</a>
               </h4>
           </header>
           <a href="seal.jpg" target="_blank">
-              <img src="http://placehold.it/250x250" alt="Hanging out with my friend and his brother in law whom I've never met"></a><br>
+              <img src="seal.jpg" alt="Hanging out with my friend and his brother in law whom I've never met"></a><br>
           <time datetime="2014-07-11"></time>
-          <form>
-            <input type="radio" id="rate1a" value="1">
-            <input type="radio" id="rate2a" value="2">
-            <input type="radio" id="rate3a" value="3" checked>
-            <input type="radio" id="rate4a" value="4">
-            <input type="radio" id="rate5a" value="5">
-          </form>
+          <progress max="100" value="20"></progress>
         </article>
       <hr>
     </div>
-    
+   </div>
    
       
     
@@ -97,5 +91,18 @@
       </ul>
     </footer>
     <a href="#">Jump to Top</a>
+    
+<!--Whats this js script for
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#hide").click(function(){
+    $("").hide();
+  });
+  $("#show").click(function(){
+    $("p").show();
+  });
+});
+</script>-->
   </body>
 </html>
