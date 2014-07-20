@@ -185,3 +185,40 @@ background: linear-gradient(to bottom, rgba(7,20,28,1) 0%,rgba(8,26,38,1) 100%);
     div.login-container{
       
     }
+ a.footer{
+      color:white;
+      
+    }
+
+     a.footer:hover{
+      
+      text-decoration:none !important;
+    }
+#common-footer{
+      display:flex;
+      
+      margin: 70px auto 0 auto;
+      padding: 24px 0 17px 0px;
+      max-width:1190px;
+      min-width:480px;
+    }
+    ul.footer{
+      display: flex; list-style-type: none; margin:0; width:100%;padding:0;
+    }
+    li.footer{
+      margin: 0 0 0 5px; text-align:center;min-width:50px;max-height:22px;padding:5px 10px 5px 10px; border-radius:5px;
+    }
+    li.footer:hover{
+      background-color:#495261;
+      transition: all .2s ease;
+    }
+    #footer-left{
+      margin:0px 10px 0px 0px;
+      float:left;
+      width:100%;
+    }
+    #footer-right{
+      margin:0px 10px 0px 0px;
+      white-space:nowrap;
+      float:right;
+    }
