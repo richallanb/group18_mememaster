@@ -10,12 +10,12 @@ a{
 .trending-title > h4 > a{
   color:#E5E5E5;
 }
-a>img{
-  margin:0;
-  padding:0;
-}
+
 a:hover{
   text-decoration:underline;
+}
+a.trending:hover, a.trending-menu:hover{
+  text-decoration:none;
 }
     aside.login {
       margin-left:20px;
@@ -84,10 +84,11 @@ background: -ms-linear-gradient(top, rgba(7,20,28,1) 0%,rgba(8,26,38,1) 100%); /
 background: linear-gradient(to bottom, rgba(7,20,28,1) 0%,rgba(8,26,38,1) 100%); /* W3C */
 /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#07141c", endColorstr="#081a26",GradientType=0 ); /* IE6-9 */
     }
-    img.trending{
+    img.trending-img, a.trending-img{
       width:100%;
       max-height:300px;
-      margin-left:5px;
+      margin: 0 2px 0 2px;
+      
     }
     div.img-trending{
       max-width:915px;
@@ -103,8 +104,17 @@ background: linear-gradient(to bottom, rgba(7,20,28,1) 0%,rgba(8,26,38,1) 100%);
       clear: both;
     }
     header.trending{
-      
+      display:flex;
       width:100%;
+      padding-left:160px;
+    }
+    article.trending{
+      width:100%;
+      
+    }
+    aside.trending{
+      display:block;
+      min-width:160px;
     }
     header.login-container{
       
@@ -202,13 +212,17 @@ background: linear-gradient(to bottom, rgba(7,20,28,1) 0%,rgba(8,26,38,1) 100%);
       max-width:1190px;
       min-width:480px;
     }
-    ul.footer{
+    ul.footer, ul.trending {
       display: flex; list-style-type: none; margin:0; width:100%;padding:0;
     }
-    li.footer{
+    li.footer, li.trending, li.trending-menu {
       margin: 0 0 0 5px; text-align:center;min-width:50px;max-height:22px;padding:5px 10px 5px 10px; border-radius:5px;
     }
-    li.footer:hover{
+    li.trending, li.trending-menu{
+      min-width:70px;
+      background-color:#07141C;
+    }
+    li.footer:hover, li.trending:hover, li.trending-menu:hover{
       background-color:#495261;
       transition: all .2s ease;
     }
