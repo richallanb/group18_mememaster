@@ -4,29 +4,38 @@
 	 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	 <title>MemeMaster Login</title>
   <style>
+    
+    body {background-color:dimgray;}
     aside.login {
-      margin-top:39px;
+      margin-top:0;
       margin-left:20px;
       min-width:200px;
       height:270px;
+      padding:17px 15px 0 15px;
+      border: solid 1px gray;
+      color:darkgray;
+      /*background-color:green;*/
       
     }
+    aside > h3 {text-align:center; color: white;}
     header.login {
       position:relative;
       margin-top:20px;
       margin-left:50px;
       margin-bottom:10px;
+      /*background-color:mediumaquamarine;*/
       
     }
     section.login {
-      
       margin-left:50px;
       max-width:915px;
       max-height:300px;
       display:block;
+      /*background-color:indianred;*/
     }
-    h3.trending {
+    h2.trending {
       text-align:center;
+      color: white;
     }
     div.landing{
       display:flex;
@@ -39,8 +48,6 @@
     div.landing-container{
       margin:auto;
       max-width:1190px;
-     
-      
     }
 
     div.heading{
@@ -58,16 +65,22 @@
       max-height:300px;
       min-width:480px;
       min-height:160px;
+      border: solid 1px gray;
+      padding: 13px 7px 13px 3px;
       display:flex;
-      
     }
     div.clear{
       clear: both;
     }
+    .loginhelp {
+      color:cornflowerblue;
+    }
   </style>
 </head>
 	<body>
-		<div class="heading"><header class="login"><h1><img src="http://placehold.it/70x70" alt="MemeMaster"> MemeMaster </h1>
+		<div class="heading"><header class="login"><img src="logo6.png" alt="MemeMaster">
+    
+    <!--
     <form method="get" name="search">
     <input type="text" name="q" placeholder="Search for something funny...">
     <select name="filter">
@@ -76,13 +89,13 @@
     <option value="url">URL</option>
     </select> 
       <input type="submit" value="Search" name="searchbtn">
-      </form></header></div>
+      </form>--></header></div>
     
     <div class="landing-container">
     <div class="landing">
       
 	  <section class="login">
-      <h3 class="trending">What's Trending on MemeMaster</h3>
+     <h2 class="trending">What's Trending on MemeMaster</h2>
      <div class="img-trending"><img class="trending" src=http://placehold.it/300x300 alt="Meme1"><img class="trending" src=http://placehold.it/300x300 alt="Meme2"><img class="trending" src=http://placehold.it/300x300 alt="Meme3"></div>
       </section><aside class="login">
         <h3>Sign In</h3>
@@ -97,9 +110,9 @@
       <br>
     </form>
     
-	  <a href="#">Forgot Password</a>
+	  <a class="loginhelp" href="#">Forgot Password</a>
     <br>
-      New User? <a href="#">Sign-Up</a><br></aside>
+    <a class="loginhelp" href="#">Sign-Up</a><br></aside>
       
       </div>
     </div>

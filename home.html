@@ -4,22 +4,23 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <link rel="stylesheet" href="home.css" type="text/css"/>
   <title>MemeMaster Home Page</title>
+  <style type="text/css">
+    
+  </style>
 </head>
   <body>
     <header class="nav-container">
       <div class="logo-container">
-        <img src="http://placehold.it/70x70" alt="MemeMaster" class="logo-img">
-        <div class="logo-text">
-          <h1 id="headerlogo">MemeMaster</h1></div></div>
+        <a href="./home.html"><img src="logo4.png" alt="MemeMaster" class="logo-img"></a></div>
       
       
       <nav class="nav-head">      
         <ul class="navglobal">
-          <li class="navmenu"><a href="#">Home</a></li>
-          <li class="navmenu"><a href="#">Upload</a></li>
-          <li class="navmenu"><a href="#">Create</a></li>
-          <li class="navmenu"><a href="#">Trending</a></li>
-          <li class="navmenu"><a href="#">Help</a></li>
+          <li class="navmenu"><a class="navmenu" href="home.html">Home</a></li>
+          <li class="navmenu"><a class="navmenu" href="#">Upload</a></li>
+          <li class="navmenu"><a class="navmenu" href="creatememe.html">Create</a></li>
+          <li class="navmenu"><a class="navmenu" href="trending.html">Trending</a></li>
+          <li class="navmenu"><a class="navmenu" href="#">Help</a></li>
           <li class="nav-search"><div class="search-container"><form method="get" name="search" action="searchpage.html">
           <input class="search" type="text" name="globalq" placeholder="Search"></form></div></li>
         </ul>
@@ -27,70 +28,132 @@
         </nav>
       
       <div class="nav-user-container">
-        <article class="nav-user-welcome">Welcome back, <a href="#">Username</a>!<br></article>
-      <aside class="nav-userpic"><img src="http://placehold.it/70x70" alt="Username"></aside></div>
+        <article class="nav-user-welcome"><h5>Welcome back, <a href="userpage.html">Username</a>!</h5></article>
+       <a href="userpage.html"><aside class="nav-userpic"><img id="userimg" src="logo00.png" alt="Username" style="width:100%;height:100%;"></aside></a></div>
     </header>
  <div class="everything-container">  
-    
+  
    <div id="js-container">
-    <div id="display-options" class="jsfloat">Display Options
+    <div id="display-options" class="jsfloat">
+      <header id="display-opt-head"><h4>Display Options</h4></header>
           <ul class="display-nav">
-            <li class="display-menu"><a href="#"><img src="http://placehold.it/32x32" alt="Detailed View"></a></li>
-            <li class="display-menu"><a href="#"><img src="http://placehold.it/32x32" alt="Picture View"></a></li>
-            <li class="display-menu"><a href="#"><img src="http://placehold.it/32x32" alt="Filter Folders"></a></li>
-            <li class="display-menu"><a href="#"><img src="http://placehold.it/32x32" alt="New Folder"></a></li>
-            <li class="display-menu"><a href="#"><img src="http://placehold.it/32x32" alt="Help"></a></li>
-            <li class="display-search"><form method="get" name="localsearch"><input type="text" name ="mysearch" placeholder="Search"></form></li></ul></div>
-    <hr>
+            <li class="display-menu"><a href="#"><img src="http://placehold.it/20x20" alt="Detailed View"></a></li>
+            <li class="display-menu"><a href="#"><img src="http://placehold.it/20x20" alt="Picture View"></a></li>
+            <li class="display-menu"><a href="#"><img src="http://placehold.it/20x20" alt="Filter Folders"></a></li>
+            <li class="display-menu"><a href="#"><img src="http://placehold.it/20x20" alt="New Folder"></a></li>
+            <li class="display-menu"><a href="#"><img src="http://placehold.it/20x20" alt="Help"></a></li>
+            <li class="display-search"><form method="get" name="localsearch"><input class="display-search" type="text" name ="mysearch" placeholder="Search your files"></form></li></ul></div>
+    
      <div id="trending-container" class="jsfloat">
-      <h4>Trending Memes</h4>
-        <article data-entry-id="seal">
-          <header>
+       
+       <header id="trending-head"><h4>Trending Memes</h4></header><hr class="trending">
+        <article data-entry-id="seal" class="trending-meme">
+          <header class="trending-title">
               <h4>
-                <a href ="onedoes.jpg">Professor told us to build...</a>
+                <a href ="memepage.html">Professor told us to build...</a>
               </h4>
           </header>
-          <a href="onedoes.jpg" target="_blank">
-              <img src="http://placehold.it/250x250" alt="Professor told us to build a html wireframe"></a>
+          <a href="memepage.html">
+              <img class="meme" src="http://placehold.it/200x200" alt="Professor told us to build a html wireframe"></a>
+          <time datetime="2014-07-11"></time>
+      </article>
+     <article data-entry-id="2" class="trending-meme">
+          <header class="trending-title">
+              <h4>
+                <a href ="memepage.html">Meme placeholder 2...</a>
+              </h4>
+          </header>
+          <a href="memepage.html">
+              <img class="meme" src="http://placehold.it/200x200" alt="Professor told us to build a html wireframe"></a>
+          <time datetime="2014-07-11"></time>
+      </article>
+     <article data-entry-id="3" class="trending-meme">
+          <header class="trending-title">
+              <h4>
+                <a href ="memepage.html">Meme placeholder 3...</a>
+              </h4>
+          </header>
+          <a href="memepage.html">
+              <img class="meme" src="http://placehold.it/200x200" alt="Professor told us to build a html wireframe"></a>
           <time datetime="2014-07-11"></time>
       </article></div></div>  
    
-      <div id="memes"><h2>Saved Memes</h2>
-        <article data-entry-id="seal">
-          <header>
+      <div id="memes">
+        <header id="memes-top-header"><h3>Saved Memes</h3></header>
+        <article class="meme" data-entry-id="favorites">
+          <header class="meme-head">
               <h4>
                 <a href ="#">Favorites</a>
               </h4> 
           </header>
-          <a href="#" target="_blank">
-              <img src="http://placehold.it/400x400" alt="Favorites"></a><br>
+          <div class="meme-img">
+          <a href="memepage.html">
+            <img class="meme" src="http://placehold.it/250x250" alt="Favorites"></a></div><br>
           <time datetime="2014-07-11"></time>
-          <progress max="100" value="75"></progress>
-          <hr>
-          <header> 
+          <progress style="visibility:hidden" max="100" value="20"></progress>
+        </article>
+    
+          <article class="meme" data-entry-id="seal">
+          <header class="meme-head">
               <h4>
-                <a href ="seal.jpg">Hanging out with my friend and...</a>
+                <a href ="memepage.html">Hanging out with my friend and...</a>
               </h4>
           </header>
-          <a href="seal.jpg" target="_blank">
-              <img src="seal.jpg" alt="Hanging out with my friend and his brother in law whom I've never met"></a><br>
+            <div class="meme-img">
+          <a href="memepage.html">
+              <img class="meme" src="http://placehold.it/250x250" alt="Hanging out with my friend and his brother in law whom I've never met"></a></div><br>
           <time datetime="2014-07-11"></time>
           <progress max="100" value="20"></progress>
         </article>
-      <hr>
+        <article class="meme" data-entry-id="s2">
+          <header class="meme-head">
+              <h4>
+                <a href ="memepage.html">Hanging out with my friend and...</a>
+              </h4>
+          </header>
+            <div class="meme-img">
+          <a href="memepage.html">
+              <img class="meme" src="http://placehold.it/250x250" alt="placeholder2"></a></div><br>
+          <time datetime="2014-07-11"></time>
+          <progress max="100" value="20"></progress>
+        </article>
+        <article class="meme" data-entry-id="s3">
+          <header class="meme-head">
+              <h4>
+                <a href ="memepage.html">Hanging out with my friend and...</a>
+              </h4>
+          </header>
+            <div class="meme-img">
+          <a href="memepage.html">
+              <img class="meme" src="http://placehold.it/250x250" alt="placeholder3"></a></div><br>
+          <time datetime="2014-07-11"></time>
+          <progress max="100" value="20"></progress>
+        </article>
+        <article class="meme" data-entry-id="s4">
+          <header class="meme-head">
+              <h4>
+                <a href ="memepage.html">Hanging out with my friend and...</a>
+              </h4>
+          </header>
+            <div class="meme-img">
+          <a href="memepage.html">
+              <img class="meme" src="http://placehold.it/250x250" alt="placeholder4"></a></div><br>
+          <time datetime="2014-07-11"></time>
+          <progress max="100" value="20"></progress>
+        </article>
     </div>
    </div>
    
       
     
-    <footer>
-      <ul>
-        <li><a href="#">About This Site</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="team/index.html">Team Page</a></li>
-      </ul>
-    </footer>
-    <a href="#">Jump to Top</a>
+    <footer id="common-footer">
+      <div id="footer-left"><ul class="footer">
+        <li class="footer"><a href="#" class="footer">About This Site</a></li>
+        <li class="footer"><a href="#" class="footer">Privacy Policy</a></li>
+        <li class="footer"><a href="team/index.html" class="footer">Team Page</a></li>
+        </ul></div>
+    
+      <div id="footer-right"><a href="#" class="footer">Jump to Top</a></div></footer>
     
 <!--Whats this js script for
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>

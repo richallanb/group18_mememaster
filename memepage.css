@@ -1,0 +1,225 @@
+
+#meme-view{
+      background-color:#2E3136;
+      border-radius:10px;
+      
+      display:flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: flex-start;
+      align-content: flex-start;
+      border-radius:10px;
+      padding: 15px 15px 15px 15px;
+      max-width:100%;
+      min-width:257px;
+}
+.meme-container {
+       display:inline-block;
+       
+       padding:10px;
+       text-align:center;
+       width:100%;
+     }
+     
+    li.gallery{
+       list-style-type:none;
+       display:inline-block;
+       margin:1px;
+     }
+      h2{
+        padding:0 0 10px 0;
+        margin:0;
+      }
+     #meme-title{
+       width:100%;
+       
+     }
+     .everything-container{
+       flex-wrap:wrap;
+       padding: 0 15px 20px 15px;
+       max-width: 725px; /* base 325px + (400px To be replaced with max image width if < 800px)  aka Javascript*/
+       margin: 7px auto 0 auto;
+       min-width: 325px;
+     }
+     div.comment-box{
+       width:100%;
+       display:block;
+       padding: 14px 7px 7px 7px;
+       
+     }
+     header.comment-box{
+       padding: 0px 0 10px 0;
+     }
+     article.comment-box{
+       margin: 5px 0 5px 0;
+       padding: 10px 10px 10px 10px;
+       
+       border-radius:10px;
+       background-color:#07141C;
+     }
+     footer.comment-box{
+       padding: 10px 10px 10px 10px;
+       
+       border-radius:10px;
+       background-color:#07141C;
+       display:block;
+     }
+     
+     .gen-container{
+       width:100%;
+       
+       display:flex;
+       
+     }
+    #memefield{
+       
+      width:100%;
+      min-width:200px;
+
+     }
+     aside.gallerybox{
+       width:425px;
+       display:block;
+       
+     }
+     div.gallerybox{
+       padding: 10px 10px 10px 10px;
+       margin: 13px 0 0 0;
+       border-radius:10px;
+       background-color:#07141C;
+     }
+     header.gallerybox{
+       margin:0;
+       padding: 0 0 15px 5px;
+     }
+     .gallerybox > h3{
+       margin:0;
+     }
+     ul.gallerybox{
+       padding:0;
+       margin:0 0 0 5px;
+       max-height: 125px;
+       overflow:auto;
+     }
+     img.meme-img-flex{
+       width: 100%; 
+       display:flex;
+     }
+     div.meme-img-flex{
+       margin: 15px auto 15px auto
+     }
+     div.meme-rating{
+       padding: 5px 5px 5px 5px;
+       display:flex;
+      
+       margin: 15px auto 0 auto;
+       border-radius:10px;
+       background-color:#07141C;
+     }
+     img.lower-button{
+       margin: 0 10px 0 0;
+     }
+     progress.meme-rating{
+       width:100%;
+       margin: 10px 0 0 0;
+       vertical-align:bottom;
+     }
+     
+     div.comment{
+       padding: 3px 0 3px 0;
+       width:100%;
+       
+       display:inline-block;
+     }
+    .comment-container{
+       width:100%;
+       border-radius:10px;
+       background-color:#2E3136;
+       display:flex;
+       border: solid 2px #2E3136;
+       padding: 5px 0 5px 0;
+       margin: 5px 0 5px 0;
+       
+     }
+     footer.comment{
+       margin: 5px 0 6px 0;
+       padding: 0 0 0 15px;
+       
+     }
+     article.comment-img{
+       margin: 0 0 0 5px;
+       max-width:40px;
+       max-height:40px;
+      
+     }
+     aside.comment-body{
+       margin: 0 0 0 4px;
+       padding: 0 0 0 4px;
+     }
+     header.comment-new{
+       width:100%;
+       padding: 0px 0 10px 0;
+       display:block;
+       order:1;
+     }
+     textarea.comment-new {
+     
+      height:30px;
+      width:100%;
+      font-size: 12px;
+      font-family: sans-serif;
+      background-color:#2E3136;
+      box-shadow: none;
+      border-radius: 0;
+      border: solid 1px #dcdcdc;
+      transition: all .4s ease;
+      resize: none;
+    }  
+    textarea.comment-new:focus {
+      background-color:white;
+      height:100px;
+      border: solid 1px #707070;
+      box-shadow: 0 0 5px 1px #969696;
+    }
+     article.comment-new{
+       
+       width:100%;
+     }
+     aside.comment-new{
+       padding: 0 40px 0 10px;
+       width:100px;
+     }
+     div.comment-new{
+       width:100%;
+       order:2;
+       display:flex;
+       padding: 0 10px 0 10px;
+     }
+     button {
+      border: 0 none;
+      border-radius: 2px 2px 2px 2px;
+      color: #FFFFFF;
+      display: inline-block;
+      font-size: 14px;
+      line-height: 20px;
+      margin-bottom: 0;
+      padding: 5px 10px;
+      text-transform: none;
+      transition: all 0.3s ease 0s;
+      text-align: center; /* DELETE WHEN WIDTH AUTO */
+      background: none repeat scroll 0 0 rgba(255,255,255,.2);
+      color: white;
+    }
+    button:hover {
+      background: none repeat scroll 0 0 #495261;
+      color: white;
+      box-shadow: 0 0 5px 1px #969696;
+    }
+    button:target, button:active {
+      background: none repeat scroll 0 0 #0C95F5;
+      color: white;
+      box-shadow: 0 0 5px 1px #969696;
+    }
+     button.comment-new{
+       width:100px;
+     }
