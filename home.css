@@ -30,7 +30,7 @@ background: -ms-linear-gradient(top, rgba(7,20,28,1) 0%,rgba(8,26,38,1) 100%); /
 background: linear-gradient(to bottom, rgba(7,20,28,1) 0%,rgba(8,26,38,1) 100%); /* W3C */
 /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#07141c", endColorstr="#081a26",GradientType=0 ); /* IE6-9 */
     }
-    div.logo-container{display:flex; /*background-color:palevioletred;*/ min-width:170px; order:1;}
+    div.logo-container{display:flex; /*background-color:palevioletred;*/ min-width:200px; order:1;}
     div.logo-text{display:block; /*background-color:yellow;*/ float:left;max-height:30px;margin-top:0;}
     img.logo-img{float:left;}
     #headerlogo {font-family: Sans-Serif;margin-top:0px;margin-bottom:0;}
