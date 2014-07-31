@@ -372,7 +372,7 @@
       document.addEventListener('queryComplete',
                                 function(){
                                   var body =""
-                                  for (var i=0; i < galleryObj.title.length; i++){
+                                  for (var i=0; i < galleryObj.coverPic.length; i++){
                                    // if (galleryObj.public[i] && !galleryObj.nsfw[i]) {
                                     body += displayResult(galleryObj.title[i], galleryObj.myId[i], galleryObj.coverPic[i], galleryObj.date[i], galleryObj.total_likes[i], galleryObj.likes[i]);
                                 //    }
@@ -397,12 +397,14 @@
       this.nsfw=[false];
       this.nsfwFilter=true;
       this.sortType = function(val){
+        this.coverPic.length = 0;
         this.SortType = val;
         var plain = ["Most Popular", "Least Popular", "Newest", "Oldest"];
         $("#sorting-name").html(plain[val]);
         this.sendQuery(40,0);
       }
       this.nsfwSearch = function(nsfw){
+        this.coverPic.length = 0;
         this.nsfwFilter = nsfw;
         this.sendQuery(40,0);
       }

@@ -240,7 +240,7 @@ document.addEventListener('queryComplete',
                                   
                                   var body = ""
                                                                   
-                                  for (var i=0; i < galleryObj.title.length; i++){
+                                  for (var i=0; i < galleryObj.coverPic.length; i++){
                                     if (galleryObj.public[i]) {
                                       body += getTrendingFill(galleryObj.title[i], galleryObj.myId[i], galleryObj.coverPic[i], galleryObj.date[i], galleryObj.total_likes[i], galleryObj.likes[i]);
                                     }
@@ -274,6 +274,7 @@ document.addEventListener('queryComplete',
                                       body2 += getSavedFill(userGalleryObj.title[i], userGalleryObj.myId[i], userGalleryObj.coverPic[i], userGalleryObj.date[i], userGalleryObj.total_likes[i], userGalleryObj.likes[i], userGalleryObj.public[i]); 
                                      }
                              }
+                         
                              var pubBody = "You have " + myPub + " Public Galleries, and " + myPriv +" Private.";
                              if (body2.length < 1) {
                                body2 = "<h3>You've got nothin! You should feel pathetic.</h3>";
@@ -298,11 +299,13 @@ document.addEventListener('queryComplete',
       this.nsfwFilter=true;
       this.sortType = function(val){
               this.SortType = val;
+              this.coverPic.length = 0;
               var plain = ["Most Popular", "Least Popular", "Newest", "Oldest", "Public", "Private"];
               $("#sorting-name").html(plain[val]);
               this.sendQuery(40,0,true);
             }
       this.nsfwSearch = function(nsfw){
+              this.coverPic.length = 0;
               this.nsfwFilter = nsfw;
               this.sendQuery(40,0,true);
             }
