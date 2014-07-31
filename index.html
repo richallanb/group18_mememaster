@@ -24,7 +24,10 @@
       
 	  <section class="login" id="memes">
       <header class="trending"><article class="trending"><h2 class="trending">What's Trending on MemeMaster</h2></article>
-        <aside class="trending"><div class="menu"><ul class="trending"><li style="margin: 4px 0 0 3px; padding:0;">Showing:</li>
+        <aside class="trending"><div class="menu"><ul class="trending"><li id="nsfw-filter"><label id="NSFW-label">NSFW Filter:</label><div class="nsfw">	
+	<input type="checkbox" value="None" id="nsfw" name="check" checked>
+	<label for="nsfw"></label>
+          </div></li><li style="margin: 4px 4px 0 3px; padding:0;">Showing:</li>
           <li class="trending-menu menu-arrow submenu-entry" id="sorting-name">Most Popular</li></ul>
           <ul class="submenu">
             <li id="pop-sort" onclick="galleryObj.sortType(0);">Most Popular</li>
@@ -210,6 +213,9 @@
     <script src="//www.parsecdn.com/js/parse-1.2.19.min.js"></script>
     <script src="init.js"></script>
     <script>
+      if(Parse.User.current()){
+        $("#nsfw-filter").show();
+      }
     /* Modal display */
     $(function() {  
       $("#signup-modal-show").click(function() { 
@@ -233,26 +239,9 @@
           $("#blackout").fadeOut(700);
       });  
     }); 
-    /*function signUpDisplay(){
-	  var supopup = document.getElementById("supopup"),
-        dimmer = document.createElement("div");
-
-    dimmer.style.width =  window.innerWidth + 'px';
-    dimmer.style.height = window.innerHeight + 'px';
-    dimmer.className = 'dimmer';
-
-    dimmer.onclick = function(){
-        document.body.removeChild(this);   
-        supopup.style.visibility = 'hidden';
-    }
-
-    document.body.appendChild(dimmer);
-
-    supopup.style.visibility = 'visible';
-    supopup.style.top = window.innerHeight/2 - 250 + 'px';
-    supopup.style.left = window.innerWidth/2 - 200 + 'px';
-    return false;
-    }*/
+   $("#nsfw").change(function(){
+     galleryObj.nsfwSearch(this.checked);
+   });
     
     function memeresize(target) {
     var boxsz = 259;
@@ -384,9 +373,9 @@
                                 function(){
                                   var body =""
                                   for (var i=0; i < galleryObj.title.length; i++){
-                                    if (galleryObj.public[i]) {
+                                   // if (galleryObj.public[i] && !galleryObj.nsfw[i]) {
                                     body += displayResult(galleryObj.title[i], galleryObj.myId[i], galleryObj.coverPic[i], galleryObj.date[i], galleryObj.total_likes[i], galleryObj.likes[i]);
-                                    }
+                                //    }
                                   }
                                   $("#memes-trending-landing").html(body);
                                   stretchContainers();
@@ -406,10 +395,15 @@
       this.images = [];
       this.myId=[""];
       this.nsfw=[false];
+      this.nsfwFilter=true;
       this.sortType = function(val){
         this.SortType = val;
         var plain = ["Most Popular", "Least Popular", "Newest", "Oldest"];
         $("#sorting-name").html(plain[val]);
+        this.sendQuery(40,0);
+      }
+      this.nsfwSearch = function(nsfw){
+        this.nsfwFilter = nsfw;
         this.sendQuery(40,0);
       }
       this.SortType = 0;
@@ -429,7 +423,10 @@
         this.sendQuery = (function(limit, skip){
         var gallery = Parse.Object.extend("gallery");
         var galquery = new Parse.Query(gallery);
-
+        galquery.equalTo("public", true);
+        if (this.nsfwFilter){
+          galquery.equalTo("nsfw", false);
+        }
         galquery.include("cover"); // Fetches pointer information
         galquery.include("user"); // Fetches the pointer information
         if (this.SortType == 0)

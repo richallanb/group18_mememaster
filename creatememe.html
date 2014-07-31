@@ -63,14 +63,14 @@
         </ul>
         <div class="memetext">
           <h4>Input Text</h4><br>
-          <form class="tptext">
-            <input type="text" id="toptext" placeholder="Top Text" maxlength="54"></form>
-          <form class="bttext">
-            <input type="text" id="bottext" placeholder="Bottom Text" maxlength="54"></form>
-          <form class="createit">
-            <input type="button" value="Create Meme"></form></div></aside></div></div></div>
+          
+            <input type="text" id="tptext" placeholder="Top Text" maxlength="54">
+        
+            <input type="text" id="bttext" placeholder="Bottom Text" maxlength="54">
+       
+            <button id="createit">Create Meme</button></div></aside></div></div></div>
     
-            <img id="ph" src="http://placehold.it/400x400" alt="placeholder" style="display: none">
+            <img id="ph" src="creatememeIMG/400x400.gif" alt="placeholder" style="display: none">
             <img id="ad" src="creatememeIMG/asiandad.png" alt="Asian Dad" style="display: none">
             <img id="sb" src="creatememeIMG/baby.png" alt="Success Baby" style="display: none">
             <img id="by" src="creatememeIMG/brace.png" alt="Brace Yourself" style="display: none">
@@ -147,8 +147,8 @@
          var bccv = c.getContext("2d");   
          var img = document.getElementById( imgID );
          bccv.drawImage(img, 0,0);
-         var tpt = document.getElementById("toptext").value;
-         var btt = document.getElementById("bottext").value;
+         var tpt = document.getElementById("tptext").value;
+         var btt = document.getElementById("bttext").value;
          bccv.font="30px Helvetica";
          bccv.strokeStyle="black";
          bccv.lineWidth=5;
@@ -160,13 +160,13 @@
          bccv.fillText(btt, 200, 384, 375);
          }; 
       
-    $( "form.tptext" ).keyup(function( event ) {
+    $( "#tptext" ).keyup(function( event ) {
          var c = document.getElementById("disCanvas");
          var bccv = c.getContext("2d");   
          var img = document.getElementById( placehold );
          bccv.drawImage(img, 0,0);
-         var tpt = document.getElementById("toptext").value;
-         var btt = document.getElementById("bottext").value;
+         var tpt = document.getElementById("tptext").value;
+         var btt = document.getElementById("bttext").value;
          bccv.lineWidth=5;
          bccv.strokeText(tpt, 200, 36, 375);
          bccv.strokeText(btt, 200, 384, 375);
@@ -178,13 +178,13 @@
          event.preventDefault();
          });
       
-    $( "form.bttext" ).keyup(function( event ) {
+    $( "#bttext" ).keyup(function( event ) {
          var c = document.getElementById("disCanvas");
          var bccv = c.getContext("2d");   
          var img = document.getElementById( placehold );
          bccv.drawImage(img, 0,0);
-         var tpt = document.getElementById("toptext").value;
-         var btt = document.getElementById("bottext").value;
+         var tpt = document.getElementById("tptext").value;
+         var btt = document.getElementById("bttext").value;
          bccv.lineWidth=5;
          bccv.strokeText(tpt, 200, 36, 375);
          bccv.strokeText(btt, 200, 384, 375);
@@ -196,19 +196,67 @@
          event.preventDefault();
          });
       
-      $( "form.createit" ).click(function(){saveCanvas();});
+      $( "#createit" ).click(function(){saveCanvas();});
      
       var saveCanvas = function(){
-        alert("yeah boyyyyy");
         var thiscanvas = document.getElementById("disCanvas");
         var dataURL = thiscanvas.toDataURL("image/jpeg");
-        
+        var title = document.getElementById("tptext").value + " " + document.getElementById("bttext").value;
+        var titleList = title.toLowerCase().replace(/\W/g," ").match(/([^\;^\s^\,])+/gi);
         var base64 = dataURL.split('base64,')[1];
-                  var parseFileThumb = new Parse.File(nameth, { base64: base64 });
-                  // Now we save orignal file
+        
+        var parseFile = new Parse.File("mmcreated.jpg", { base64: base64 });
+        var parseThumb = new Parse.File("mmcreated.jpg", { base64: base64 });
+        var newgallery = new Parse.Object("gallery");
+          var gal_img_rel = newgallery.relation("images");
+        var user = Parse.User.current(); // The user
+         var user_gal_rel = user.relation("galleries");
+          var images = new Parse.Object("images");
+           newgallery.set("title", title);
+          // We need a lowercase title for searching
+           newgallery.set("title_to_lower", titleList);
+           newgallery.set("tags",  titleList);
+           newgallery.set("public", false);
+           newgallery.set("likes",0);
+           newgallery.set("total_likes", 0);
+           newgallery.set("user", user);
+           newgallery.set("nsfw", false);
+      
+        images.set("note", "");
+                  images.set("url", "");
+                  images.set("url_only",false);
+                  // Assign the file
+                  
+                  // Here we simply give the gallery id
+                  images.set("gallery", newgallery);
+                  
+        
+                  parseFile.save().then(
+                    function() {//alert("file saved");
+                            
+                            images.set("pic", parseFile);
+                            parseThumb.save().then(function(){
+                            images.set("thumb", parseThumb);
+                            images.save(null,{
+                              success:function(imageResult){
+                                //alert("image saved");
+                                newgallery.set("cover", imageResult);
+                                gal_img_rel.add(imageResult);
+                                newgallery.save(null,{
+                                  success: function(galResult){
+                                    //alert("gallery saved");
+                                    user_gal_rel.add(galResult);
+                                    user.save().then(function(){location.href="/home.html";});
+                                    
+                                  }
+                                });
+                              }
+                            });
+                          });
+                       });
       }
     </script>
-    
+    <img id="test">
     <footer id="common-footer">
       <div id="footer-left"><ul class="footer">
         <li class="footer"><a href="#" class="footer">About This Site</a></li>

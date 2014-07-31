@@ -379,6 +379,8 @@ function uploader () {
                                   // And we do whatever we do when we complete.
                                   if (gallery)
                                     completion_task(newgallery.id);
+                                  else
+                                    location.href="/home.html";
                                    });
                                   
                                 }

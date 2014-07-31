@@ -107,13 +107,13 @@ li.gallery{
 	display:inline-block;
 	width:50px;
 	height:50px;
-	margin:5px;
+	margin:3px;
 	overflow:hidden;
-  border: solid 4px #707070;
+  border: solid 2px #707070;
 }
 
 li.gallery:hover{
-  border: solid 4px #969696;
+  border: solid 2px #969696;
 }
 div#memes{
       display:flex;
@@ -145,11 +145,11 @@ canvas#disCanvas{
   margin:0 0 10px 42px; 
 }
      aside.gallerybox{
-       background-color:#495261;
+       background-color:#202225;
        min-height:290px;
        max-height:340px;
        min-width:253px;
-       max-width:315px;
+       max-width:290px;
        padding: 0 17px;
        border-radius:20px;
        display:block;
@@ -172,7 +172,7 @@ canvas#disCanvas{
      }
      ul.gallerybox{
 	     padding:0;
-	     margin:0 0 0 5px;
+	     margin:0 0 15px 5px;
 	     max-height: 130px;
 	     overflow:auto;
      }

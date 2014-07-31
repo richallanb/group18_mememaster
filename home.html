@@ -300,6 +300,8 @@ document.addEventListener('queryComplete',
         if (personal) {
           galquery.equalTo("user", Parse.User.current());
         } else {
+          galquery.equalTo("public", true);
+          galquery.equalTo("nsfw", false);
           galquery.descending("likes");
           galquery.limit(limit);
         }
