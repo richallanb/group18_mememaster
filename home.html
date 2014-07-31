@@ -180,7 +180,7 @@ var userGalleryObj = new galleryQuery();
   var shortTitle = title;
   if (title.length > 15)
     shortTitle = title.substring(0,15) + "..."; 
-      var body ="<article onclick=\"window.location='memepage.html?gal="+id+"';\" class=\"trending-meme\"><div class=\"trending-meme-img stretch-container\"><a href =\"memepage.html?gal="+id+"\"><img  src=\""+ cover +"\" alt=\""+title+"\"></a></div><time datetime=\"" +date+ "\"></time><header class=\"trending-title\"><h4><a href =\"memepage.html?gal="+id+"\">" + shortTitle +"</a></h4></header><progress class=\"trending-progress\" max=\""+total_likes+"\" value=\""+likes+"\"></progress></article></a>";
+      var body ="<article onclick=\"window.location='memepage.html?gal="+id+"';\" class=\"trending-meme\" title=\""+title+"\"><div class=\"trending-meme-img stretch-container\"><a href =\"memepage.html?gal="+id+"\"><img  src=\""+ cover +"\" alt=\""+title+"\"></a></div><time datetime=\"" +date+ "\"></time><header class=\"trending-title\"><h4><a href =\"memepage.html?gal="+id+"\">" + shortTitle +"</a></h4></header><progress class=\"trending-progress\" max=\""+total_likes+"\" value=\""+likes+"\"></progress></article></a>";
 
       
       return body;
@@ -212,7 +212,7 @@ function getSavedFill(title,id, cover, date,total_likes,likes, public){
   }
   if (title.length > 25)
     shortTitle = title.substring(0,25)+"..."; 
-  var body="<article class=\""+pubC+ "\"><header class=\"meme-head\"><h4>"+pub+"<a href =\"memepage.html?gal="+id+"\">" + shortTitle +"</a></h4></header><div class=\"meme-img stretch-container\"><a href =\"memepage.html?gal="+id+"\"><img  src=\""+ cover +"\" alt=\""+title+"\" width=\"200\" height=\"200\"></a></div><br><time datetime=\"" +date+ "\"></time><progress max=\""+total_likes+"\" value=\""+likes+"\"></progress></article>";
+  var body="<article class=\""+pubC+ "\" title=\""+title+"\"><header class=\"meme-head\"><h4>"+pub+"<a href =\"memepage.html?gal="+id+"\">" + shortTitle +"</a></h4></header><div class=\"meme-img stretch-container\"><a href =\"memepage.html?gal="+id+"\"><img  src=\""+ cover +"\" alt=\""+title+"\" width=\"200\" height=\"200\"></a></div><br><time datetime=\"" +date+ "\"></time><progress max=\""+total_likes+"\" value=\""+likes+"\"></progress></article>";
       
       return body;
       

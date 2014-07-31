@@ -171,7 +171,7 @@ function displayResult(title,cover, likes,total_likes,id,date,public, user){
     galResultCount += 1;
     if (title.length > 25)
     shortTitle = title.substring(0,25);
-      body ="<article class=\"meme\"><header class=\"meme-head\"><h4><a href =\"memepage.html?gal="+id+"\">" + shortTitle +"</a></h4></header><div class=\"meme-img stretch-container\"><a href =\"memepage.html?gal="+id+"\"><img class=\"meme\" src=\""+ cover +"\" alt=\""+title+"\"></a></div><br><time datetime=\"" +date+ "\"></time><progress max=\""+total_likes+"\" value=\""+likes+"\"></progress></article>";
+      body ="<article class=\"meme\" title=\""+title+"\"><header class=\"meme-head\"><h4><a href =\"memepage.html?gal="+id+"\">" + shortTitle +"</a></h4></header><div class=\"meme-img stretch-container\"><a href =\"memepage.html?gal="+id+"\"><img class=\"meme\" src=\""+ cover +"\" alt=\""+title+"\"></a></div><br><time datetime=\"" +date+ "\"></time><progress max=\""+total_likes+"\" value=\""+likes+"\"></progress></article>";
  // alert(body);
   }
   return body;
