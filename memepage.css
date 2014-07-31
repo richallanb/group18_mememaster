@@ -137,9 +137,9 @@
      }
      div.meme-img-flex{
        display:inline-block;
-       justify-content:center;
+       
        text-align:center;
-       flex-wrap:wrap;
+       
        min-width:200px;
        background-color:#202225;
        padding:10px;
@@ -150,10 +150,13 @@
      }
     .meme-description{
       display:inline-block;
+      -webkit-box-sizing : border-box;‌
+    -moz-box-sizing : border-box;
+    box-sizing : border-box;
       text-align:left;
       width:100%;
       min-width:200px;
-      max-width:576px;
+      max-width:600px;
       padding: 6px 8px 5px 8px;
       margin: 6px 0 0px 0;
       border-radius:5px;
@@ -184,7 +187,7 @@
        padding: 6px 8px 5px 8px;
        border-radius:5px;
        transition: all .4s ease;
-       background-color:white; !important
+       background-color:white; 
        animation:myfirst 1s;
   -moz-animation:myfirst 1s infinite;
 -webkit-animation:myfirst 1s infinite; 
@@ -196,7 +199,7 @@
 
      *[contenteditable="true"]:focus{
        color: black;
-       background-color:white; !important
+       background-color:white;
        animation: none;
        -moz-animation: none;
        -webkit-animation: none;
