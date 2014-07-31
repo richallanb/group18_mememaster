@@ -75,7 +75,7 @@ background: linear-gradient(to bottom, rgba(7,20,28,1) 0%,rgba(8,26,38,1) 100%);
 
     .search-container {border: none; margin-top:1px;padding: 0px;}
 
-    div.nav-user-container{display:flex;/*background-color:cyan;*/min-width:120px; order:1;}
+    div.nav-user-container{display:flex;/*background-color:cyan;*/min-width:180px; order:1;}
     article.nav-user-welcome{float:left;max-height:25px;margin-top:-5px;}
     aside.nav-userpic {float:right; margin: 0 0 0 15px; max-width:100px; max-height:100px; padding: 3px 3px 0 0;}
     div.search-container{width:100%;}
