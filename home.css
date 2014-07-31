@@ -541,7 +541,7 @@ button {
      }
      footer.upload-modal-file{
        margin:0 2px 0 2px;
-       max-width:402px;
+       max-width:400px;
        max-height:17px;
        float:left;
        width:100%;
