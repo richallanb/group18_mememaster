@@ -56,7 +56,7 @@
    <!-- Saved Meme starts-->   
       <div id="memes" >
         
-        <header id="memes-top-header"><h3>Your Saved Memes</h3><h4 id="galstats">11 Public Galleries, and 10 Private</h4></header>
+        <header id="memes-top-header"><h3>Your Saved Memes</h3><h4 id="galstats"></h4></header>
         <div id = "memes-savedmeme-landing" class ="img-savedmeme">
         
         <!-- Saved Meme ends-->
@@ -241,13 +241,21 @@ document.addEventListener('queryComplete',
                              var currentUser = Parse.User.current().id;
                              var body2 = ""
                              var myPub = 0;
+                             var myPriv = 0;
                              
-                             for (var i=0; i < userGalleryObj.title.length; i++){
-                                    if (userGalleryObj.public[i]) 
+                             for (var i=0; i < userGalleryObj.coverPic.length; i++){
+                               if (userGalleryObj.coverPic[i] && userGalleryObj.coverPic[i].length > 0) {
+                                    if (userGalleryObj.public[i]) {
                                       myPub +=1;
+                                    }else
+                                      myPriv +=1;
+                                 
                                          body2 += getSavedFill(userGalleryObj.title[i], userGalleryObj.myId[i], userGalleryObj.coverPic[i], userGalleryObj.date[i], userGalleryObj.total_likes[i], userGalleryObj.likes[i], userGalleryObj.public[i]); 
                                      }
-                             var pubBody = "You have " + myPub + " Public Galleries, and " + (userGalleryObj.public.length - myPub) +" Private.";
+                             }
+                             var pubBody = "You have " + myPub + " Public Galleries, and " + myPriv +" Private.";
+                             if (body2.length < 1)
+                               body2 = "<h3>You've got nothin! You should feel pathetic.</h3>"
                              $("#galstats").html(pubBody);
                              $("#memes-savedmeme-landing").html(body2);
                              stretchContainers();
