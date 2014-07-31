@@ -50,7 +50,10 @@ var loggedIn=false;
         loggedIn = true;
         var avatar = user.get("avatar");
         
-        document.getElementById("welcome-message").innerHTML= "<h4 class=\"no-bold\"><em>Welcome back</em>, <a class=\"user-page\" href=\"userpage.html?user="+ user.id +"\">" + user.get("username") + "</a></h4>";
+        document.getElementById("welcome-message").innerHTML= "<h4 class=\"no-bold\"><em>Welcome back</em>, </h4><div class=\"menu\"><ul><li class=\"submenu-entry\"><a class=\"user-page\">" + user.get("username") + "</a></li></ul>\
+<ul class=\"submenu\">\
+		<li onclick=\"signOut();\">Sign Out</li>\
+        </ul></div>";
         if (false) { // replace with avatar later
           
           document.getElementById("userimg").innerHTML = "<a  href=\"userpage.html?user="+ user.id +"\"><img src=\"" + avatar.url() + "\" alt=\""+ user.get("username") +"\"></a>";
@@ -138,5 +141,64 @@ var seconds = delta % 60;  // in theory the modulus is not required
     return text;
   }
 }
+function signOut(){
+      Parse.User.logOut();
+      window.location.href = "./"
+    }
+function checkLogin(){
+  if (!loggedIn)
+    window.location.href="./";
+}
 
-    
+(function($){
+	$.fn.styleddropdown = function(){
+		return this.each(function(){
+			var obj = $(this)
+			obj.find('.submenu-entry').hover(function() { //onclick event, 'list' fadein
+        var submenu = obj.find('.submenu');
+        
+        submenu.css("top", ($(this).position().top+25) + "px");
+        submenu.css("left", ($(this).position().left) + "px");
+			submenu.fadeIn(400);
+			
+			$(document).keyup(function(event) { //keypress event, fadeout on 'escape'
+				if(event.keyCode == 27) {
+				obj.find('.submenu').fadeOut(400);
+				}
+			});
+			
+			obj.find('.submenu').hover(function(){ },
+				function(){
+					$(this).fadeOut(400);
+				});
+			});
+      
+      obj.find('.submenu-entry').click(function() { //onclick event, 'list' fadein
+        var submenu = obj.find('.submenu');
+        
+        submenu.css("top", (obj.position().top+25) + "px");
+        submenu.css("left", (obj.position().left) + "px");
+			submenu.fadeIn(400);
+			
+			$(document).keyup(function(event) { //keypress event, fadeout on 'escape'
+				if(event.keyCode == 27) {
+				obj.find('.submenu').fadeOut(400);
+				}
+			});
+			
+			obj.find('.submenu').hover(function(){ },
+				function(){
+					$(this).fadeOut(400);
+				});
+			});
+			
+			obj.find('.submenu li').click(function() { //onclick event, change field value with selected 'list' item and fadeout 'list'
+		
+			obj.find('.submenu').fadeOut(400);
+			});
+		});
+	};
+})(jQuery);
+    $(function(){
+	$('.menu').styleddropdown();
+});

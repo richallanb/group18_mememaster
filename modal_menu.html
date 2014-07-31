@@ -8,70 +8,77 @@
     background-color:#081A26;
     } 
    
-#popup-menu-container{
-    list-style:none;
-    font-weight:bold;
-    margin-bottom:10px;
-    width:100%;
-}
-#popup-menu-container li{
-    float:left;
-    margin:10px;
-    position:relative;
-}
-#popup-menu-container li:hover{
-    background-color:#495261;
-}
-#popup-menu-container a:hover{
-    background-color:blue;
-}
 
-/*--- DROPDOWN ---*/
-#popup-menu-container ul{
-    background-color:gray; 
-    background:rgba(255,255,255,0);
-    list-style:none;
-    position:absolute;
-    left:-9999px;
+ .size { position:relative }
+
+ul.submenu { display:none;
+	position:absolute; left:00px; top:30px; z-index:999;
+	background-color:#2E3136;
+  border: solid 3px #2E3136;
+  border-radius: 10px;
+  box-shadow:10px 10px 10px rgba(0,0,0,.4);
+	margin:0; padding:5px; list-style:none;
+  color:#0C95F5;
+
 }
-#popup-menu-container ul li{
-    padding-top:3px;
+ul.submenu li {
+	padding:3px;
+  min-width:100px;
+	text-align:left;
+  cursor:pointer;
 }
-#popup-menu-container ul.incep-item{
-    white-space:nowrap;
+ul.submenu li:hover {
+	background:#0C95F5; color:#fff;
 }
-#popup-menu-container li:hover ul{
-    left:-42px;
-}
-#popup-menu-container li:hover{
-    background-color:#495261;
-}
-#popup-menu-container li:hover ul li a:hover{
-    background-color:#0C95F5;
-}
-    
+ul.submenu li:last-child { border:none }
     
   </style>
   <body>
-    
-    <div id="modal-menu-display">
-      <nav class="mod-menu">
-        <ul id="popup-menu-container">
-          <li class="menu-item">Link 1
-          <ul class="inceptu">
-              <li class="incep-item"><a>Bull</a></li>
-              <li class="incep-item"><a>Shit</a></li></ul></li>
-          <li class="menu-item">Link 2
-            <ul class="inceptu">
-              <li class="incep-item"><a>More</a></li>
-              <li class="incep-item"><a>BUll</a></li>
-              <li class="incep-item"><a>SHIT</a></ul></li>
-          <li class="menu-item menu-picture"><a><img src="">Gator fade</a></li>
-          <li class="menu-picture-hover">YOU CANT HANDLE THE TRUTH</li>
-        </ul></nav></div>
+    <br><br>
+    <div class="size">
+      <ul><li class="submenu-entry">tesda</li>
+	<ul class="submenu">
+		<li>Male - M</li>
+		<li>Female - M</li>
+		<li>Male - S</li>
+		<li>Female - S</li>
+        </ul></ul>
+</div>
 
-   
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script>
+      (function($){
+	$.fn.styleddropdown = function(){
+		return this.each(function(){
+			var obj = $(this)
+			obj.find('.submenu-entry').hover(function() { //onclick event, 'list' fadein
+        var submenu = obj.find('.submenu');
+        submenu.css("top", ($(obj).position.top-20) + "px");
+        submenu.css("left", ($(obj).position.left) + "px");
+			submenu.fadeIn(400);
+			
+			$(document).keyup(function(event) { //keypress event, fadeout on 'escape'
+				if(event.keyCode == 27) {
+				obj.find('.submenu').fadeOut(400);
+				}
+			});
+			
+			obj.find('.submenu').hover(function(){ },
+				function(){
+					$(this).fadeOut(400);
+				});
+			});
+			
+			obj.find('.submenu li').click(function() { //onclick event, change field value with selected 'list' item and fadeout 'list'
+		
+			obj.find('.submenu').fadeOut(400);
+			});
+		});
+	};
+})(jQuery);
+      $(function(){
+	$('.size').styleddropdown();
+});
     </script>
     
   </body>

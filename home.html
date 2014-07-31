@@ -144,6 +144,9 @@
     <script src="init.js"></script>
     <script src="uploader.js"></script>
     <script>
+      checkLogin();
+    </script>
+    <script>
       //Resize script to keep boxes on fixed intervals using browser window width
     function memeresize(target) {
     var boxsz = 280;
@@ -365,11 +368,6 @@ document.addEventListener('queryComplete',
       
       
   
-    <script>
-    function signOut(){
-      Parse.User.logOut();
-    }
-      
-  </script>
+    
   </body>
 </html>

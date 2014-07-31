@@ -297,7 +297,7 @@ document.addEventListener('queryComplete',
       this.comments = [];
       this.title_to_lower=[""];
       this.date=[""];
-      this.humanReadableQuery=[""];
+      this.humanReadableQuery=["", ""];
       // Required for child functions to reach parent members
       var parent = this;
       var query = iQuery;
@@ -345,7 +345,7 @@ document.addEventListener('queryComplete',
         galquery.include("cover"); // Fetches pointer information
         galquery.include("user"); // Fetches the pointer information
         if (parent.sortingType == 1) {
-          galquery.descending("createdAt");
+          galquery.descending("updatedAt");
         } else if (parent.sortingType == 2) {
           galquery.descending("likes");
         }
