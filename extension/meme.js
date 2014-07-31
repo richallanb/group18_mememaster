@@ -8,6 +8,7 @@ document.getElementById("imgAttr").onsubmit = function() {
 		var title = document.getElementById("imgTitle").value;
 	    var tags = document.getElementById("imgTags").value;
 	    var note = document.getElementById("imgNote").value;
+	    var nsfw = document.getElementById("nsfwBox").checked;
 	    if(title != "") {
 	    	chrome.storage.local.set({'imgTitle': title});
 	    }
@@ -17,8 +18,10 @@ document.getElementById("imgAttr").onsubmit = function() {
 	    if(note != "") {
 	    	chrome.storage.local.set({'imgNote': note});
 	    }
+	    chrome.storage.local.set({'nsfw': {value: nsfw}});
 	    chrome.windows.getCurrent(function(window) {
-	    	chrome.windows.update(window.id, {focused: false});
+	    	chrome.storage.local.remove('magic');
+	    	chrome.windows.remove(window.id);
 	    })
 	    return false;
 	};

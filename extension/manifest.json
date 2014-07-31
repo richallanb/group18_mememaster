@@ -3,7 +3,7 @@
 
   "name": "Meme Master",
   "description": "This extension helps a user to collect memes from the Internet.",
-  "version": "0.5",
+  "version": "1.0",
 
   "minimum_chrome_version" : "21.0.0.0",
 

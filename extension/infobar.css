@@ -58,8 +58,6 @@ textarea, input[type="text"]{
     border: solid 1px #dcdcdc;
     transition: all .4s ease;
     resize: none;
-    margin-top: -5px;
-    margin-bottom: 5px;
 }  
 textarea:focus{
     background-color:white;
@@ -71,6 +69,16 @@ input[type="text"]:focus{
     background-color:white;
     border: solid 1px #707070;
     box-shadow: 0 0 5px 1px #969696;
+}
+input[type="text"], textarea{
+	display: table-cell;
+	vertical-align: middle;
+}
+#inputL{
+	display: table-cell;
+}
+#inputR{
+	display: table-cell;
 }
 /*
 .rating {

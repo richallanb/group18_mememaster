@@ -52,6 +52,7 @@ document.getElementById("suform").onsubmit = function() {
 	        	currentUser = Parse.User.current();
 	        	document.getElementById("welcome").innerHTML = "Welcome " + currentUser.get("username");
 	        	document.getElementById("home-modal").style.display = "inline";
+	        	chrome.storage.local.set({'current': currentUser.get("username")});
 			},
 			error: function(user, error) {
 				document.getElementById("signup-name").value = "";

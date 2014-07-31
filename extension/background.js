@@ -73,7 +73,7 @@ function onClickHandler(info, tab) {
 									},
 									function(mWindow) {
 										memeDreamMM.popUp = mWindow.id;
-										memeDreamMM.magic = true;
+										chrome.storage.local.set({'magic': true});
 									});
 		}
 		else {
@@ -82,10 +82,12 @@ function onClickHandler(info, tab) {
 	});
 };
 chrome.windows.onFocusChanged.addListener(function(windowId) {
-	if(memeDreamMM.magic && windowId != memeDreamMM.popUp) {
-		memeDreamMM.magic = false;
-		chrome.windows.remove(memeDreamMM.popUp);
-	}
+	chrome.storage.local.get('magic', function(items) {
+		if(items.magic) {
+			chrome.storage.local.remove('magic');
+			chrome.windows.remove(memeDreamMM.popUp);
+		}
+	});
 });
 chrome.windows.onRemoved.addListener(function(windowId) {
 	if(windowId == memeDreamMM.popUp) {
@@ -117,7 +119,15 @@ chrome.windows.onRemoved.addListener(function(windowId) {
 			newgallery.set("likes", 0);
 			newgallery.set("total_likes", 0);
 			newgallery.set("user", Parse.User.current());
-			newgallery.set("nsfw", true);
+			chrome.storage.local.get('nsfw', function(items) {
+				if(items.nsfw) {
+					newgallery.set("nsfw", items.nsfw.value);
+					chrome.storage.local.remove('nsfw');
+				}
+				else {
+					newgallery.set("nsfw", true);
+				}
+			});
 			var images = new Parse.Object("images");
 			chrome.storage.local.get('imgNote', function(items) {
 				if(items.imgNote) {

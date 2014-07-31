@@ -239,9 +239,7 @@ document.addEventListener('queryComplete',
                                 function(){
                                   
                                   var body = ""
-                                  
-                                  
-                                 
+                                                                  
                                   for (var i=0; i < galleryObj.title.length; i++){
                                     if (galleryObj.public[i]) {
                                       body += getTrendingFill(galleryObj.title[i], galleryObj.myId[i], galleryObj.coverPic[i], galleryObj.date[i], galleryObj.total_likes[i], galleryObj.likes[i]);
@@ -259,23 +257,27 @@ document.addEventListener('queryComplete',
  document.addEventListener('userQueryComplete',
                            function(){
                              var currentUser = Parse.User.current().id;
-                             var body2 = ""
+                             var body2 = "";
                              var myPub = 0;
                              var myPriv = 0;
-                             
+                             var myNsfw = 0;
                              for (var i=0; i < userGalleryObj.coverPic.length; i++){
                                if (userGalleryObj.coverPic[i] && userGalleryObj.coverPic[i].length > 0) {
                                     if (userGalleryObj.public[i]) {
                                       myPub +=1;
-                                    }else
+                                    }else {
                                       myPriv +=1;
+                                    }
+                                    if (userGalleryObj.nsfw[i]) // If you want to count that sort of thing.
+                                      myNsfw += 1;
                                  
-                                         body2 += getSavedFill(userGalleryObj.title[i], userGalleryObj.myId[i], userGalleryObj.coverPic[i], userGalleryObj.date[i], userGalleryObj.total_likes[i], userGalleryObj.likes[i], userGalleryObj.public[i]); 
+                                      body2 += getSavedFill(userGalleryObj.title[i], userGalleryObj.myId[i], userGalleryObj.coverPic[i], userGalleryObj.date[i], userGalleryObj.total_likes[i], userGalleryObj.likes[i], userGalleryObj.public[i]); 
                                      }
                              }
                              var pubBody = "You have " + myPub + " Public Galleries, and " + myPriv +" Private.";
-                             if (body2.length < 1)
-                               body2 = "<h3>You've got nothin! You should feel pathetic.</h3>"
+                             if (body2.length < 1) {
+                               body2 = "<h3>You've got nothin! You should feel pathetic.</h3>";
+                             }
                              $("#galstats").html(pubBody);
                              $("#memes-savedmeme-landing").html(body2);
                              stretchContainers();
