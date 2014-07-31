@@ -154,11 +154,12 @@ function checkLogin(){
 	$.fn.styleddropdown = function(){
 		return this.each(function(){
 			var obj = $(this)
-			obj.find('.submenu-entry').hover(function() { //onclick event, 'list' fadein
+      var subMenuEntry = obj.find('li.submenu-entry');
+			subMenuEntry.click(function() { //onclick event, 'list' fadein
         var submenu = obj.find('.submenu');
         
-        submenu.css("top", ($(this).position().top+23) + "px");
-        submenu.css("left", ($(this).position().left) + "px");
+        submenu.css("top", ($(subMenuEntry).position().top+23) + "px");
+        submenu.css("left", ($(subMenuEntry).position().left+5) + "px");
 			submenu.fadeIn(400);
 			
 			$(document).keyup(function(event) { //keypress event, fadeout on 'escape'
@@ -173,24 +174,7 @@ function checkLogin(){
 				});
 			});
       
-      obj.find('.submenu-entry').click(function() { //onclick event, 'list' fadein
-        var submenu = obj.find('.submenu');
-        
-        submenu.css("top", (obj.position().top+25) + "px");
-        submenu.css("left", (obj.position().left+5) + "px");
-			submenu.fadeIn(400);
-			
-			$(document).keyup(function(event) { //keypress event, fadeout on 'escape'
-				if(event.keyCode == 27) {
-				obj.find('.submenu').fadeOut(400);
-				}
-			});
-			
-			obj.find('.submenu').hover(function(){ },
-				function(){
-					$(this).fadeOut(400);
-				});
-			});
+      
 			
 			obj.find('.submenu li').click(function() { //onclick event, change field value with selected 'list' item and fadeout 'list'
 		
