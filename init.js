@@ -157,7 +157,7 @@ function checkLogin(){
 			obj.find('.submenu-entry').hover(function() { //onclick event, 'list' fadein
         var submenu = obj.find('.submenu');
         
-        submenu.css("top", ($(this).position().top+25) + "px");
+        submenu.css("top", ($(this).position().top+23) + "px");
         submenu.css("left", ($(this).position().left) + "px");
 			submenu.fadeIn(400);
 			
@@ -177,7 +177,7 @@ function checkLogin(){
         var submenu = obj.find('.submenu');
         
         submenu.css("top", (obj.position().top+25) + "px");
-        submenu.css("left", (obj.position().left) + "px");
+        submenu.css("left", (obj.position().left+5) + "px");
 			submenu.fadeIn(400);
 			
 			$(document).keyup(function(event) { //keypress event, fadeout on 'escape'

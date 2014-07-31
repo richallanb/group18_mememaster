@@ -126,13 +126,19 @@
        overflow:auto;
      }
      img.meme-img-flex{
-       max-width:600px;
+       max-width:590px;
        height:auto;
-       display:flex;
+       
      }
-     div.meme-img-flex{
+     #meme-landing{
        display:flex;
        justify-content:center;
+       flex-wrap:wrap;
+     }
+     div.meme-img-flex{
+       display:inline-block;
+       justify-content:center;
+       text-align:center;
        flex-wrap:wrap;
        min-width:200px;
        background-color:#202225;
@@ -144,12 +150,12 @@
      }
     .meme-description{
       display:inline-block;
-      
+      text-align:left;
       width:100%;
       min-width:200px;
-      max-width:586px;
+      max-width:576px;
       padding: 6px 8px 5px 8px;
-      margin: 6px 0 6px 0;
+      margin: 6px 0 0px 0;
       border-radius:5px;
       
       background-color:#07141C;
