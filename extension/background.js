@@ -100,7 +100,7 @@ chrome.windows.onRemoved.addListener(function(windowId) {
 					chrome.storage.local.remove('imgTitle')
 				}
 				else {
-					newgallery.set("title", ["extension"]);
+					newgallery.set("title", "extension");
 					newgallery.set("title_to_lower", ["extension"]);
 				}
 			})
