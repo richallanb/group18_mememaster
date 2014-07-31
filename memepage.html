@@ -51,8 +51,8 @@
           <footer class="meme-description" id="meme-description-" contenteditable="true">Enter a description...</footer></div>-->
         </div>
         <div class="meme-rating">
-          <div class="upvote-button" id="upvote-button"></div><div class="favorite-button" id="favorite-button"></div><div class="downvote-button" id="downvote-button"></div>
-          <div class="progress-flex"><progress class="meme-rating" id="meme-rating" max="100" value="80"></progress></div><div class="edit-button" id="edit-button"></div><div id="pub-button"></div></div>
+          <div class="upvote-button" id="upvote-button" title="Upvote this gallery"></div><div class="favorite-button" id="favorite-button" title="Favorite this gallery"></div><div class="downvote-button" id="downvote-button" title="Downvote this gallery"></div>
+          <div class="progress-flex"><progress class="meme-rating" id="meme-rating" max="100" value="80"></progress></div><div class="edit-button" id="edit-button" title="Edit this gallery"></div><div id="pub-button" title="Make this gallery Public"></div></div>
         </article>
       
       <aside id="gallerybox-container" style="display:none;" class="gallerybox">
@@ -235,7 +235,8 @@
     function fillRating(){
       $("#meme-rating").attr("max",galleryObj.total_likes);
       $("#meme-rating").attr("value",galleryObj.likes);
-
+      var title = galleryObj.likes + " Upvotes and " + (galleryObj.total_likes- galleryObj.likes) + " Downvotes";
+      $("#meme-rating").attr("title", title);
     }
     function fillPic(i, src, note){
       var body ="";
@@ -266,6 +267,7 @@
                             if (galOwner && (!galPublic)) {
                                  $( "[contenteditable]" ).each(function(){
                                    $(this).attr("contenteditable", "true");
+                                   $(this).attr("title", "Click to edit this field");
                                  });
                                } else {
                                  $( "[contenteditable]" ).each(function(){
@@ -308,13 +310,15 @@
                                  if (galPublic){
                                   $("#edit-button").hide();
                                    pbutton.addClass("pub-button-public");
-                                   pbutton.removeClass("pub-button-private")
+                                   pbutton.attr("title", "Make this gallery Private");
+                                   pbutton.removeClass("pub-button-private");
 
                                  }
                                  else{
                                   $("#edit-button").show();
                                    pbutton.removeClass("pub-button-public");
-                                   pbutton.addClass("pub-button-private")
+                                   pbutton.addClass("pub-button-private");
+                                   pbutton.attr("title", "Make this gallery Public")
                                  }
                                  $("#pub-button").show();
                                  

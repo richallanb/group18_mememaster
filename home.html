@@ -299,6 +299,7 @@ document.addEventListener('queryComplete',
         galquery.include("user"); // Fetches the pointer information
         if (personal) {
           galquery.equalTo("user", Parse.User.current());
+          galquery.descending("createdAt");
         } else {
           galquery.equalTo("public", true);
           galquery.equalTo("nsfw", false);

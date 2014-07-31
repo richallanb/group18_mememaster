@@ -202,3 +202,7 @@ function checkLogin(){
     $(function(){
 	$('.menu').styleddropdown();
 });
+/*
+$(function() {
+    $( document ).tooltip();
+  });*/
