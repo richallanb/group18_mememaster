@@ -654,7 +654,7 @@ ul{
   padding:3px 5px 3px 5px;
   border-radius:5px;
   color:#0c95f5;
-    }
+    } 
    
    .nsfw input[type=checkbox] {
 	visibility: hidden;
@@ -703,7 +703,7 @@ ul{
 aside.trending{
       display:block;
       margin-top:25px;
-      margin-right:-20px;
+      margin-right:-9px;
       min-width:340px;
   
     }
