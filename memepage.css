@@ -160,6 +160,8 @@
       
       background-color:#07141C;
     }
+/* I'm aware the animation stuff throws errors on CSS validator..
+ * I hate vendor tags just as much as you ... but it looks cool */
     @-webkit-keyframes myfirst 
     {
     0%   {box-shadow: 0 0 5px 1px rgba(255,255,255,0.7);}
