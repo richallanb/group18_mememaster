@@ -96,11 +96,11 @@ chrome.windows.onRemoved.addListener(function(windowId) {
 			chrome.storage.local.get('imgTitle', function(items) {
 				if(items.imgTitle) {
 					newgallery.set("title", items.imgTitle.replace(/\W/g," "));
-					newgallery.set("title_to_lower", items.imgTitle.toLowerCase().match(/([^\s])+/gi));
+					newgallery.set("title_to_lower", [items.imgTitle.replace(/\W/g," ").toLowerCase()]);
 					chrome.storage.local.remove('imgTitle')
 				}
 				else {
-					newgallery.set("title", "extension");
+					newgallery.set("title", ["extension"]);
 					newgallery.set("title_to_lower", ["extension"]);
 				}
 			})
