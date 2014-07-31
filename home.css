@@ -323,7 +323,7 @@ div.trending-meme-img{
     #memes-top-header{
       /*background-color:darkgoldenrod; */
       width:100%; 
-      max-height:40px;
+      max-height:60px;
       margin: 0 0 5px 0;
      
       /*order: 1;*/
@@ -645,4 +645,93 @@ ul.submenu li:hover {
 ul.submenu li:last-child { border:none }
 ul{
   margin:0; padding:5px; list-style:none;
+}
+
+
+#NSFW-label{
+         vertical-align:top;
+  background-color:#07141c;
+  padding:3px 5px 3px 5px;
+  border-radius:5px;
+  color:#0c95f5;
+    }
+   
+   .nsfw input[type=checkbox] {
+	visibility: hidden;
+   }
+/* Sliding Checkbox */
+.nsfw {
+	width: 25px;
+	height: 4px;
+	background: white;
+	margin: 7px 0 0 5px;
+  display:inline-block;
+	border-radius: 3px;
+	position: relative;
+}
+.nsfw label {
+	display: block;
+	width: 16px;
+	height: 16px;
+	border-radius: 50px;
+	transition: all .4s ease;
+	cursor: pointer;
+	position: absolute;
+  
+	top: -6px;
+	left: -3px;
+  
+	box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.3);
+	background: red;
+}
+
+.nsfw input[type=checkbox]:checked + label {
+	left: 10px;
+  background: green;
+  
+}
+#nsfw-filter{
+  
+  margin-top:4px;
+  margin-right:10px;
+  max-height:20px;
+}
+.meme-header-container{
+  display:flex;
+  width:100%;
+}
+aside.trending{
+      display:block;
+      margin-top:25px;
+      margin-right:-20px;
+      min-width:340px;
+  
+    }
+ul.footer, ul.trending {
+      display: flex; list-style-type: none; margin:0; width:100%;padding:0;
+    }
+    li.footer, li.trending, li.trending-menu {
+      margin: 0 0 0 5px; text-align:center;min-width:50px;max-height:22px;padding:5px 10px 5px 10px; border-radius:5px;
+    }
+   
+    li.trending, li.trending-menu{
+      min-width:105px;
+      background-color:#07141C;
+    }
+    li.trending-menu{
+      text-align:left;
+    }
+    li.footer:hover, li.trending:hover, li.trending-menu:hover{
+      background-color:#495261;
+      transition: all .2s ease;
+    }
+.menu-arrow{
+  color:#0C95F5;
+  cursor:pointer;
+  background-origin:content-box;
+  background: url('sprites/down-arrow.png') no-repeat 90% 50% ;
+}
+.menu-arrow:hover{
+  color:white;
+  background: url('sprites/down-arrow_hover.png') no-repeat 90% 50% ;
 }

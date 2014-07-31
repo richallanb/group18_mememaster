@@ -56,7 +56,21 @@
    <!-- Saved Meme starts-->   
       <div id="memes" >
         
-        <header id="memes-top-header"><h3>Your Saved Memes</h3><h4 id="galstats"></h4></header>
+        <div class="meme-header-container"><header id="memes-top-header"><h3>Your Saved Memes</h3><h4 id="galstats"></h4></header>
+        <aside class="trending"><div class="menu"><ul class="trending"><li id="nsfw-filter"><label id="NSFW-label">NSFW Filter:</label><div class="nsfw">	
+	<input type="checkbox" value="None" id="nsfw" name="check" checked>
+	<label for="nsfw"></label>
+          </div></li><li style="margin: 4px 4px 0 3px; padding:0;">Sort By:</li>
+          <li class="trending-menu menu-arrow submenu-entry" id="sorting-name">Newest</li></ul>
+          <ul class="submenu">
+            <li id="pop-sort" onclick="userGalleryObj.sortType(0);">Most Recent</li>
+            <li id="unpop-sort" onclick="userGalleryObj.sortType(1);">Least Popular</li>
+            <li id="old-sort" onclick="userGalleryObj.sortType(2);">Newest</li>
+            <li id="new-sort" onclick="userGalleryObj.sortType(3);">Oldest</li>
+            <li id="new-sort" onclick="userGalleryObj.sortType(4);">Public</li>
+            <li id="new-sort" onclick="userGalleryObj.sortType(5);">Private</li>
+          </ul></div>
+          </aside></div>
         <div id = "memes-savedmeme-landing" class ="img-savedmeme">
         
         <!-- Saved Meme ends-->
@@ -155,11 +169,11 @@
       document.getElementById(target).style.maxWidth=(width*boxsz)+"px";
       
     }
-    $(function() {  
+   /* $(function() {  
     $("h4").click(function() {  
         $(".trending-container").toggleClass("trending-container-change");  
     });  
-});  
+});  */
   </script>
     
     <script>
@@ -169,6 +183,9 @@ var galleryObj = new galleryQuery();
 var userGalleryObj = new galleryQuery();
     galleryObj.sendQuery(10, 0, false);
     userGalleryObj.sendQuery(40, 0, true);
+      $("#nsfw").change(function(){
+     userGalleryObj.nsfwSearch(this.checked);
+   });
     // Initializing our events
     var queryComplete = document.createEvent('Event');
     queryComplete.initEvent('queryComplete', true, true);      
@@ -266,6 +283,8 @@ document.addEventListener('queryComplete',
                                    }
                            );
       
+      
+      
     /* ---------------------------- */    
     /* ---------------------------- */
     /* --- Gallery Query Object --- */
@@ -273,6 +292,19 @@ document.addEventListener('queryComplete',
     /* ---------------------------- */
  
     function galleryQuery(){
+      
+      this.nsfwFilter=true;
+      this.sortType = function(val){
+              this.SortType = val;
+              var plain = ["Most Popular", "Least Popular", "Newest", "Oldest", "Public", "Private"];
+              $("#sorting-name").html(plain[val]);
+              this.sendQuery(40,0,true);
+            }
+      this.nsfwSearch = function(nsfw){
+              this.nsfwFilter = nsfw;
+              this.sendQuery(40,0,true);
+            }
+      this.SortType = 2;
       this.coverPic=[""];
       this.public = [true];
       this.images = [];
@@ -299,7 +331,21 @@ document.addEventListener('queryComplete',
         galquery.include("user"); // Fetches the pointer information
         if (personal) {
           galquery.equalTo("user", Parse.User.current());
-          galquery.descending("createdAt");
+          if (this.nsfwFilter){
+            galquery.equalTo("nsfw", false);
+          }
+          if (this.SortType == 0)
+            galquery.descending("likes");
+          else if (this.SortType == 1)
+            galquery.ascending("likes");
+          else if (this.SortType == 2)
+            galquery.descending("updatedAt");
+          else if (this.SortType == 3)
+            galquery.ascending("updatedAt");
+          else if (this.SortType == 4)
+            galquery.descending("public");
+          else if (this.SortType == 5)
+            galquery.ascending("public");
         } else {
           galquery.equalTo("public", true);
           galquery.equalTo("nsfw", false);
