@@ -5,46 +5,118 @@
   <link rel="stylesheet" href="index.css" type="text/css"/>
 	 <title>MemeMaster Login</title>
   <style>
+    #supopup{
+    visibility:hidden;
+    position: absolute;
+    background-color:purple;
+    border:3px solid darkgray;
+    color:white;
+    z-index:100;
+    padding:20px;
+    }
     
+    .dimmer{
+    background: #000;
+    position: absolute;
+    opacity: .64;
+    top: 0;
+    z-index:99;
+    }
     
   </style>
 </head>
-	<body>
-		<div class="heading"><header class="login">
+	<body onload="memeresize('memes')" onresize="memeresize('memes')">
+    <div id="blackout" style="display:none;z-index:300;position:fixed;width:100%;height:100%;background-color:rgba(0,0,0,0.4);"></div>
+		<div id="header-container"><div class="heading"><header class="login">
       <div class="header-logo"><img src="logo4.png" alt="MemeMaster" ></div>
     
     
     <div class="search-login"><form method="get" name="search" action="searchpage.html">
     <input class="search" type="text" name="globalq" placeholder="Search for something funny...">
       
-      </form></div></header></div>
+      </form></div></header></div></div>
     
-    <div class="landing-container">
+    <div class="landing-container"> 
     <div class="landing">
       
-	  <section class="login">
+	  <section class="login" id="memes">
       <header class="trending"><article class="trending"><h2 class="trending">What's Trending on MemeMaster</h2></article>
         <aside class="trending"><ul class="trending"><li style="margin: 4px 0 0 3px; padding:0;">Showing:</li>
-          <li class="trending-menu"><a href="#" class="trending-menu">Newest  <img style="vertical-align:middle;padding-bottom:1px;" src="down-arrow.png" alt=""></a></li>
+          <li class="trending-menu menu-arrow">Newest</li>
           </ul></aside>
       </header>
-     <div class="img-trending"><a class="trending-img" href="memepage.html"><img class="trending-img" src=http://placehold.it/300x300 alt="Meme1"></a><a class="trending-img" href="memepage.html"><img class="trending-img" src=http://placehold.it/300x300 alt="Meme2"></a><a class="trending-img" href="memepage.html"><img class="trending-img" src=http://placehold.it/300x300 alt="Meme3"></a></div>
-      </section><aside class="login">
+     <div class="img-trending" id="memes-trending-landing">   
+       <!--
+          <article class="meme" data-entry-id="seal">
+          <header class="meme-head">
+              <h4>
+                <a href ="memepage.html">Hanging out with my friend and...</a>
+              </h4>
+          </header>
+            <div class="meme-img">
+          <a href="memepage.html">
+              <img class="meme" src="http://placehold.it/230x230" alt="Hanging out with my friend and his brother in law whom I've never met"></a></div>
+          <time datetime="2014-07-11"></time>
+          
+        </article>
+        <article class="meme" data-entry-id="s2">
+          <header class="meme-head">
+              <h4>
+                <a href ="memepage.html">Hanging out with my friend and...</a>
+              </h4>
+          </header>
+            <div class="meme-img">
+          <a href="memepage.html">
+              <img class="meme" src="http://placehold.it/230x230" alt="placeholder2"></a></div>
+          <time datetime="2014-07-11"></time>
+          
+        </article>
+        <article class="meme" data-entry-id="s3">
+          <header class="meme-head">
+              <h4>
+                <a href ="memepage.html">Hanging out with my friend and...</a>
+              </h4>
+          </header>
+            <div class="meme-img">
+          <a href="memepage.html">
+              <img class="meme" src="http://placehold.it/230x230" alt="placeholder3"></a></div>
+          <time datetime="2014-07-11"></time>
+          
+        </article>
+        <article class="meme" data-entry-id="s4">
+          <header class="meme-head">
+              <h4>
+                <a href ="memepage.html">Hanging out with my friend and...</a>
+              </h4>
+          </header>
+            <div class="meme-img">
+          <a href="memepage.html">
+              <img class="meme" src="http://placehold.it/230x230" alt="placeholder4"></a></div>
+          <time datetime="2014-07-11"></time>
+          
+        </article>
+    -->
+   </div>
+      </section><aside class="login" style="display:none;">
       <header class="login-container"><h3>Sign In</h3></header>
-	  <div class="login-container"><form method="get" name="userlogin" action="home.html">
-      <input type="text" name="user" placeholder="username" required="required"><br>
-      <input type="password" name="pass" placeholder="password" required="required">
+      <div class="error" style="display:none"></div>
+	  <div class="login-container"><form id="login-form">
+      <input type="text" id="login-username" placeholder="username" required="required"><br>
+      <input type="password" id="login-password" placeholder="password" required="required">
       <br>
       <label>Keep me logged in</label>  
 	      <input type="checkbox" name="saveuser">
       
-	    <input type="submit" value="Login" name="loginbutton">
+	    <input type="submit" value="Login" >
       <br>
     </form>
     
 	  <a class="loginhelp" href="#">Forgot Password</a>
     <br>
-      <a class="loginhelp" href="#">Sign-Up</a><br></div></aside>
+    
+    <a class="loginhelp" href="#" id="signup-modal-show">Sign-Up</a><br></div></aside>
+      
+    
       
       </div>
     </div>
@@ -56,5 +128,290 @@
         </ul></div>
     
       </footer>
+    
+    <!-- Signup Modal -->
+    <div id="signup-modal">
+      <div style="display:inline-block;margin: 0 0 8px 0;">
+      <section class="signup-modal-heading">
+        <h3>Sign-Up</h3>
+      </section>
+      <aside class="signup-modal-heading">
+        <div class="signup-modal-close modal-close"></div>
+      </aside>
+      </div>
+      
+      <form id="suform">
+        <section class="signup-modal-landing">
+          <label for="signup-name">Username:</label><input type="text" id="signup-name" class="signup" placeholder="username" required>
+        <br>
+        <label for="signup-pass" style="padding-right:2px;">Password:</label><input type="password" id="signup-pass" class="signup" placeholder="password" required>
+      </section>
+       <footer class="signup-modal-footer">
+        <section class="signup-modal-footer">
+          <button class="signup-modal-close" type="button">Cancel</button>
+          <input type="submit" value="Sign Up &raquo;">
+        </section>
+      </footer>
+        </form>
+    </div> 
+    
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//www.parsecdn.com/js/parse-1.2.19.min.js"></script>
+    <script src="init.js"></script>
+    <script>
+    /* Modal display */
+    $(function() {  
+      $("#signup-modal-show").click(function() { 
+          document.getElementById("signup-modal").style.top = window.innerHeight/2 - 270 + 'px';
+          document.getElementById("signup-modal").style.left = window.innerWidth/2 - 200 + 'px';
+          $("#signup-modal").slideDown(400);
+          $("#blackout").fadeIn(700);
+      });  
+    });
+      
+    $(function() {  
+      $(".signup-modal-close").click(function() {  
+          $("#signup-modal").slideUp(400);  
+          $("#blackout").fadeOut(700);
+      });  
+    });
+      
+    $(function() {  
+      $("#blackout").click(function() {  
+          $("#signup-modal").slideUp(400);  
+          $("#blackout").fadeOut(700);
+      });  
+    }); 
+    /*function signUpDisplay(){
+	  var supopup = document.getElementById("supopup"),
+        dimmer = document.createElement("div");
+
+    dimmer.style.width =  window.innerWidth + 'px';
+    dimmer.style.height = window.innerHeight + 'px';
+    dimmer.className = 'dimmer';
+
+    dimmer.onclick = function(){
+        document.body.removeChild(this);   
+        supopup.style.visibility = 'hidden';
+    }
+
+    document.body.appendChild(dimmer);
+
+    supopup.style.visibility = 'visible';
+    supopup.style.top = window.innerHeight/2 - 250 + 'px';
+    supopup.style.left = window.innerWidth/2 - 200 + 'px';
+    return false;
+    }*/
+    
+    function memeresize(target) {
+    var boxsz = 259;
+    var offset = 275;
+    var width = Math.floor((window.innerWidth-offset)/boxsz);
+      document.getElementById(target).style.maxWidth=(width*boxsz)+"px";
+      
+    }
+      function changeHeader(){
+        var body ="";
+        body = "<header class=\"nav-container\">\
+      <div class=\"logo-container\">\
+        <a href=\"./\"><img src=\"logo4.png\" alt=\"MemeMaster\" class=\"logo-img\"></a></div>\
+      <nav class=\"nav-head\"><ul class=\"navglobal\">\
+          <li class=\"navmenu\"><a class=\"navmenu\" href=\"home.html\">Home</a></li>\
+          <li class=\"navmenu\"><a class=\"navmenu\" id=\"upload-modal-show\" href=\"#\">Upload</a></li>\
+          <li class=\"navmenu\"><a class=\"navmenu\" href=\"creatememe.html\">Create</a></li>\
+          <li class=\"navmenu\"><a class=\"navmenu\" href=\"#\">Help</a></li>\
+          <li class=\"nav-search\"><div class=\"search-container\"><form method=\"get\" name=\"search\"\ action=\"searchpage.html\">\
+          <input class=\"search\" type=\"text\" name=\"globalq\" placeholder=\"Search\"></form></div></li>\
+        </ul>\
+        </nav>\
+      <div id=\"user-container\" class=\"nav-user-container\">\
+        <article class=\"nav-user-welcome\" id=\"welcome-message\"></article>\
+       <aside class=\"nav-userpic stretch-container\" id=\"userimg\"></aside></div>\
+    </header>";
+    return body;
+      }
+      
+    $( "#suform" ).submit(function signUpSubmit(event) {
+        var username = document.getElementById("signup-name").value;
+        var password = document.getElementById("signup-pass").value;
+        signUp(username, password);
+        event.preventDefault();
+      });
+      
+      
+    function signUp(username, password){
+      var user = new Parse.User();
+       user.set("username", username);
+       user.set("password", password);
+      
+       user.signUp(null, {
+
+        
+          success: function(user) {
+            
+            // Hooray! Let them use the app now.
+            
+            location.href="home.html";
+          },
+          error: function(user, error) {
+            // Show the error message somewhere and let the user try again.
+            alert("Error: " + error.code + " " + error.message);
+          }
+        });
+    }
+    
+    $( "#login-form" ).submit(function login_submit(event) {
+      var username = document.getElementById("login-username").value;
+      var password = document.getElementById("login-password").value;
+      Parse.User.logIn(username, password, {
+        success: function(user) {
+          
+          
+          location.href="home.html";
+        },
+        error: function(user, error) {
+          document.getElementById("login-password").value = "";
+          alert(error.message);
+        }
+      });
+  event.preventDefault();
+  });
+    
+     
+    var currentUser = Parse.User.current();
+    if (currentUser) {
+    $("aside.login").hide();
+      $("#header-container").html(changeHeader());
+      welcome_message(Parse.User.current());
+    //Parse.User.logOut();
+    }
+    else{
+      
+      $("aside.login").show();
+    }
+
+
+    </script>
+    
+    <script>
+      var galleryObj = new galleryQuery();
+      
+    galleryObj.sendQuery(40, 0);
+    // Initializing our events
+    var queryComplete = document.createEvent('Event');
+    queryComplete.initEvent('queryComplete', true, true);
+      
+      function trendingEntry(title, id, cover, date, total_likes, likes){
+        var shortTitle =title;
+        if (title.length > 25)
+          shortTitle = title.substring(0,25) + "...";
+        var text="<article class=\"meme\">\
+          <header class=\"meme-head\">\
+              <h4>\
+                <a href=\"memepage.html?gal="+id+"\">"+shortTitle+"</a>\
+              </h4>\
+          </header>\
+            <div class=\"meme-img stretch-container\">\
+          <a href=\"memepage.html?gal="+id+"\">\
+              <img class=\"meme\" src=\""+cover+"\" alt=\""+title+"\"></a></div>\
+            <div class=\"progress-flex\"><progress class=\"meme-rating\" id=\"meme-rating\" \
+            max=\""+total_likes+"\" value=\""+likes+"\"></progress></div>\
+          <time datetime=\""+date+"\"></time>\
+        </article>";
+        return text;
+      }
+      function displayResult(title,id, cover, date,total_likes,likes){
+  //alert(title+ " "+cover+ " "+likes+ " "+total_likes+ " "+id+ " "+date);
+  var shortTitle = title;
+  if (title.length > 25)
+    shortTitle = title.substring(0,25);
+  var body="<article class=\"meme\"><header class=\"meme-head\"><h4><a href =\"memepage.html?gal="+id+"\">" + shortTitle +"</a></h4></header><div class=\"meme-img stretch-container\"><a href =\"memepage.html?gal="+id+"\"><img class=\"meme\" src=\""+ cover +"\" alt=\""+title+"\"></a></div><br><time datetime=\"" +date+ "\"></time><progress max=\""+total_likes+"\" value=\""+likes+"\"></progress></article>";
+ // alert(body);
+  return body; 
+}
+      document.addEventListener('queryComplete',
+                                function(){
+                                  var body =""
+                                  for (var i=0; i < galleryObj.title.length; i++){
+                                    if (galleryObj.public[i]) {
+                                    body += displayResult(galleryObj.title[i], galleryObj.myId[i], galleryObj.coverPic[i], galleryObj.date[i], galleryObj.total_likes[i], galleryObj.likes[i]);
+                                    }
+                                  }
+                                  $("#memes-trending-landing").html(body);
+                                  stretchContainers();
+                                  
+                                  $("div.landing-container").slideDown(200);
+                                  $("div.landing-container").css("display", "flex");
+                                });
+/* ---------------------------- */    
+    /* ---------------------------- */
+    /* --- Gallery Query Object --- */
+    /* ---------------------------- */
+    /* ---------------------------- */
+ 
+    function galleryQuery(){
+      this.coverPic=[""];
+      this.public = [true];
+      this.images = [];
+      this.myId=[""];
+      this.nsfw=[false];
+      this.title=[""];
+      this.user=[];
+      this.tags=[""];
+      this.likes=[0];
+      this.total_likes=[0];
+      this.comments = [];
+      this.title_to_lower=[""];
+      this.date=[""];
+      this.humanReadableQuery=[""];
+      // Required for child functions to reach parent members
+      var parent = this;
+      
+      
+        this.sendQuery = (function(limit, skip){
+        var gallery = Parse.Object.extend("gallery");
+        var galquery = new Parse.Query(gallery);
+
+        galquery.include("cover"); // Fetches pointer information
+        galquery.include("user"); // Fetches the pointer information
+        
+        galquery.descending("likes");
+        galquery.limit(limit);
+    galquery.skip(skip);
+        galquery.find({
+          success: function(galresults) {
+              
+              //alert("query complete");
+              /* Fill object values */
+              for (var i = 0; i < galresults.length; i++) {
+                
+                parent.myId[i] = galresults[i].id;
+                parent.title[i] = galresults[i].get('title');
+                //alert ("Received: " + parent.title[i]);
+                parent.coverPic[i] = galresults[i].get("cover").get("thumb").url();
+                parent.likes[i] = galresults[i].get("likes");
+                parent.total_likes[i] = galresults[i].get("total_likes");
+                parent.tags[i] = galresults[i].get("tags");
+                parent.user[i] = galresults[i].get("user");
+                parent.nsfw[i] = galresults[i].get("nsfw");
+                parent.date[i] = galresults[i].updatedAt;
+                parent.public[i] = galresults[i].get("public");
+                parent.title_to_lower[i] = galresults[i].get("title_to_lower");
+              }
+              /* Query finished. Dispatch event */
+              document.dispatchEvent(queryComplete);
+              
+              
+              
+            },
+          error: function(error) {
+            alert("Error: " + error.code + " " + error.message);
+          }
+        });
+      });
+     
+    } 
+    </script>
 	</body>
 </html>

@@ -1,5 +1,5 @@
 body{margin:0;
-    font-family:Helvetica, sans-serif;
+    font-family: "Helvetica", sans-serif;
     color:white;
     font-size:14px;
     background-color:#081A26;}
@@ -17,6 +17,65 @@ a:hover{
 a.trending:hover, a.trending-menu:hover{
   text-decoration:none;
 }
+header.nav-container {
+      display:flex; max-width:100%; max-height:50px; padding: 15px 10px 15px 10px;
+    background: rgb(7,20,28); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(7,20,28,1) 0%, rgba(8,26,38,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(7,20,28,1)), color-stop(100%,rgba(8,26,38,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(7,20,28,1) 0%,rgba(8,26,38,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(7,20,28,1) 0%,rgba(8,26,38,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, rgba(7,20,28,1) 0%,rgba(8,26,38,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom, rgba(7,20,28,1) 0%,rgba(8,26,38,1) 100%); /* W3C */
+/*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#07141c", endColorstr="#081a26",GradientType=0 ); /* IE6-9 */
+    }
+    div.logo-container{display:flex; /*background-color:palevioletred;*/ min-width:174px; order:1;}
+    div.logo-text{display:block; /*background-color:yellow;*/ float:left;max-height:30px;margin-top:0;}
+    img.logo-img{float:left;}
+    #headerlogo {font-family: Sans-Serif;margin-top:0px;margin-bottom:0;}
+    
+    .nav-head {display:flex;width:100%; min-width:480px;/*background-color:teal*/;margin-top:0px;order:1;}
+    .navglobal { display: flex; list-style-type: none; margin:0px 10px 0px 0px; width:100%;padding:0px 22px 0 22px;}
+    .navmenu, .navmenu-selected {padding: 5px 0 5px 0; /*background-color:pink*/; text-align:center;min-width:83px;max-width:83px;max-height:22px;overflow:hidden;}
+    .navmenu:hover { background-color:#495261;}
+    .navmenu-selected {background-color:#0C95F5;}
+    a.navmenu, a.footer, a.navmenu-selected {
+      color:white;
+      padding: 14px;
+    }
+    a.navmenu, a.navmenu-selected{
+      font-size:15px !important;
+      font-weight:400;
+      text-transform:lowercase;
+    }
+    a.navmenu:hover, a.footer:hover, a.navmenu-selected {
+      
+      text-decoration:none !important;
+    }
+
+    .search-container {border: none; margin-top:1px;padding: 0px;}
+
+    div.nav-user-container{display:flex;/*background-color:cyan;*/min-width:120px; order:1;}
+    article.nav-user-welcome{float:left;max-height:25px;margin-top:-5px;}
+    aside.nav-userpic {float:right; margin: 0 0 0 15px; max-width:100px; max-height:100px; padding: 3px 3px 0 0;}
+    div.search-container{width:100%;}
+    li.nav-search{width:425px;vertical-align:top;margin: 0 0 0 10px;}
+a.user-page{
+  box-shadow:0 0 10px rgba(0,0,0,.3);
+  font-weight:bold;
+  padding: 2px 6px 2px 6px;
+  margin: 3px 2px 0 2px;
+  background-color:#2E3136;
+  transition: all .4s ease;
+  border-radius:5px;
+}
+a.user-page:hover{
+  
+  padding: 2px 24px 2px 24px;
+  background-color:#495261;
+}
+div.nav-user-container{display:flex;/*background-color:cyan;*/min-width:120px; order:1;}
+    article.nav-user-welcome{float:left;max-height:25px;margin-top:-5px;}
+
     aside.login {
       margin-left:20px;
       min-width:202px;
@@ -24,24 +83,28 @@ a.trending:hover, a.trending-menu:hover{
       border-radius:10px;
       height:100%;
       border: solid 5px #2E3136;
+      box-shadow:0 0 10px rgba(0,0,0,.3);
       padding: 15px 10px 15px 10px;
     }
     header.login {
       display:flex;
+      display: -webkit-flex;
       margin:auto;
-      width:1190px;
+      width:1325px;
       
     }
     section.login {
       display:flex;
+      display: -webkit-flex;
       height:100%;
       
-      max-width:915px;
+      max-width:1325px;
       
-      min-width:480px;
+      min-width:549px;
       
       flex-wrap:wrap;
       background-color:#2E3136;
+      box-shadow:0 0 10px rgba(0,0,0,.3);
       border-radius:10px;
       padding: 15px 15px 15px 15px;
     }
@@ -58,16 +121,17 @@ a.trending:hover, a.trending-menu:hover{
     }
     div.landing{
       display:flex;
+      display: -webkit-flex;
       margin:auto;
       
-      max-height:325px;
-      max-width:1190px;
+      
+      max-width:1325px;
       
     }
     div.landing-container{
       
       margin:auto;
-      
+      display:none; 
    
       
       
@@ -90,21 +154,70 @@ background: linear-gradient(to bottom, rgba(7,20,28,1) 0%,rgba(8,26,38,1) 100%);
       margin: 0 2px 0 2px;
       
     }
-    div.img-trending{
-      max-width:915px;
-      max-height:300px;
-      min-width:480px;
-      min-height:160px;
     
+    div.img-trending{
       
-      padding: 13px 7px 13px 3px;
-      display:flex;
+    display:flex;
+      display: -webkit-flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: flex-start;
+      align-content: flex-start;
+      background-color:#2E3136;
+      padding: 15px 7px 7px 7px;
+      max-width:100%;
+      min-width:550px;
+      
+    
     }
+h4{
+      margin:0;
+      padding:0 0 3px 0;
+    }
+    h5{
+      margin:0;
+      padding:0;
+      font-weight:normal;
+    }
+    h4 > a{
+      font-weight:normal;
+    }
+article.meme{
+      display:flex;
+      flex-wrap:wrap;
+      background-color:#07141C;
+      
+      max-width:230px;
+      max-height:300px;
+      margin: 5px 5px 5px 5px;
+      padding: 5px 5px 5px 5px;
+      border: solid 2px #7D7F82;
+      order: 10;
+      transition: all .2s ease;
+    }
+article.meme:hover{
+      border: solid 2px #0C95F5;
+      box-shadow: 0 0 5px 1px #969696;
+    }
+    div.meme-img{
+      display:flex;
+      display: -webkit-flex;
+      overflow: hidden;
+      /*background-color:violet;*/
+      max-width:230px;
+      min-width:230px;
+      max-height:230px;
+      min-height:230px;
+      margin: 5px 0 5px 0;
+    }
+    
+    
     div.clear{
       clear: both;
     }
     header.trending{
       display:flex;
+      display: -webkit-flex;
       width:100%;
       padding-left:160px;
     }
@@ -122,7 +235,7 @@ background: linear-gradient(to bottom, rgba(7,20,28,1) 0%,rgba(8,26,38,1) 100%);
       width:100%;
     }
   
-    input[type="submit"] {
+    button, input[type="submit"] {
       border: 0 none;
       border-radius: 2px 2px 2px 2px;
       color: #FFFFFF;
@@ -137,12 +250,12 @@ background: linear-gradient(to bottom, rgba(7,20,28,1) 0%,rgba(8,26,38,1) 100%);
       background: none repeat scroll 0 0 rgba(255,255,255,.2);
       color: white;
     }
-    input[type="submit"]:hover {
+    button:hover, input[type="submit"]:hover {
       background: none repeat scroll 0 0 #495261;
       color: white;
       box-shadow: 0 0 5px 1px #969696;
     }
-    input[type="submit"]:target, input[type="submit"]:active {
+    button:target, button:active, input[type="submit"]:target, input[type="submit"]:active {
       background: none repeat scroll 0 0 #0C95F5;
       color: white;
       box-shadow: 0 0 5px 1px #969696;
@@ -206,11 +319,11 @@ background: linear-gradient(to bottom, rgba(7,20,28,1) 0%,rgba(8,26,38,1) 100%);
     }
 #common-footer{
       display:flex;
-      
+      display: -webkit-flex;
       margin: 70px auto 0 auto;
       padding: 24px 0 17px 0px;
-      max-width:1190px;
-      min-width:480px;
+      max-width:1325px;
+      min-width:600px;
     }
     ul.footer, ul.trending {
       display: flex; list-style-type: none; margin:0; width:100%;padding:0;
@@ -218,9 +331,13 @@ background: linear-gradient(to bottom, rgba(7,20,28,1) 0%,rgba(8,26,38,1) 100%);
     li.footer, li.trending, li.trending-menu {
       margin: 0 0 0 5px; text-align:center;min-width:50px;max-height:22px;padding:5px 10px 5px 10px; border-radius:5px;
     }
+    
     li.trending, li.trending-menu{
       min-width:70px;
       background-color:#07141C;
+    }
+    li.trending-menu{
+      text-align:left;
     }
     li.footer:hover, li.trending:hover, li.trending-menu:hover{
       background-color:#495261;
@@ -235,4 +352,103 @@ background: linear-gradient(to bottom, rgba(7,20,28,1) 0%,rgba(8,26,38,1) 100%);
       margin:0px 10px 0px 0px;
       white-space:nowrap;
       float:right;
+    }
+
+
+#signup-modal{
+       z-index:300;
+       position:absolute;
+       margin-left:20px;
+      
+      max-width:270px;
+      background-color:#07141C;
+      border: solid 2px #7D7F82;
+      border-radius:10px;
+      max-height:200px;
+      display:none;
+      box-shadow:10px 10px 20px rgba(0,0,0,.5);
+      padding: 15px 10px 15px 10px;
+     }
+   
+     section.signup-modal-heading{
+       width:256px;
+       float:left;
+       
+     }
+     aside.signup-modal-heading{
+       margin: -5px 0 0 0;
+       float:left;
+       
+     }
+     section.signup-modal-landing{
+       display:inline-block;
+       margin: 10px 0 8px 0;
+     }
+     
+     input.signup{
+       width:170px;
+     }
+     label{
+       margin: 0 5px 0 0;
+     }
+     
+     section.signup-modal-footer{
+       width:100%;
+       text-align:right;
+     }
+.modal-close{
+  width:14px;
+  height:14px;
+  background: url('sprites/close.png') no-repeat;
+}
+.modal-close:hover{
+ 
+  background: url('sprites/close_hover.png') no-repeat;
+}
+.menu-arrow{
+  color:#0C95F5;
+  cursor:pointer;
+  background-origin:content-box;
+  background: url('sprites/down-arrow.png') no-repeat 90% 50% ;
+}
+.menu-arrow:hover{
+  color:white;
+  background: url('sprites/down-arrow_hover.png') no-repeat 90% 50% ;
+}
+
+progress{
+
+      width: 100%;
+      height: 5px;
+      border-radius:2px;
+      background-color:#2A090E;
+      
+      border:none;
+      color:#136E13;
+    }
+
+/* I know.. Vendor Specific.. But without them they render like shit */
+  progress::-moz-progress-bar{
+
+      width: 100%;
+      height: 5px;
+      border-radius:2px;
+      background-color:#2A090E;
+      
+      border:none;
+      background:#136E13;
+    } 
+  progress::-webkit-progress-bar{
+
+      width: 100%;
+      height: 5px;
+      border-radius:2px;
+      background:#2A090E;
+      
+      border:none;
+    }
+  progress::-webkit-progress-value{
+      background:#136E13;
+      
+      border:none;
     }

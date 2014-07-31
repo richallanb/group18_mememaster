@@ -1,0 +1,32 @@
+{
+  "manifest_version": 2,
+
+  "name": "Meme Master",
+  "description": "This extension helps a user to collect memes from the Internet.",
+  "version": "0.5",
+
+  "minimum_chrome_version" : "21.0.0.0",
+
+  "permissions": [
+    "contextMenus",
+    "tabs",
+    "storage",
+    "http://*/",
+    "https://*/"
+    ],
+
+  "background": {
+    "scripts": ["parse.js", "background.js"],
+    "persistent": false
+  }, 
+
+  "icons": {
+    "16": "memeMaster.png",
+    "128": "memeMaster.png"
+  },
+
+  "browser_action": {
+    "default_icon": "memeMaster.png",
+    "default_popup": "popup.html"
+  }
+}

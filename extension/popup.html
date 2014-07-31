@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="popup.css">
+    <title>Meme Master</title>
+  </head>
+  <body>
+      <!-- Login Modal -->
+      <div id="login-modal">
+        <h3>Sign in</h3>
+        <h4 id="error-msg"></h4>
+        <form id="login-form">
+          <input type="text" id="login-username" placeholder="username" required="required">
+          <br>
+          <input type="password" id="login-password" placeholder="password" required="required">
+          <br> 
+          <input type="submit" value="Login">
+          <br>
+        </form>
+        <a class="loginhelp" href="#">Forgot Password</a>
+        <br>
+        <a class="loginhelp" href="#" id="signup-modal-show">Sign-Up</a>
+        <br>
+      </div>
+
+      <!-- Signup Modal -->
+      <div id="signup-modal">
+        <h3>Sign up</h3>
+        <h4 id="error-msg2"></h4>
+        <form id="suform">
+          <label for="signup-name">Username: </label>
+          <input type="text" id="signup-name" placeholder="username" required>
+          <br>
+          <label for="signup-pass" style="padding-right:2px;">Password: </label>
+          <input type="password" id="signup-pass" placeholder="password" required>
+          <footer>
+            <section>
+              <button id="signup-modal-close" type="button">Cancel</button>
+              <input type="submit" value="Sign Up &raquo;">
+            </section>
+          </footer>
+        </form>
+      </div>
+
+      <!-- Home Modal -->
+      <div id="home-modal">
+        <h3 id="welcome"></h3>
+        <br>
+        <a href="#" id="logout">logout</a>
+      </div>
+
+      <script type="text/javascript" src="parse.js"></script>
+      <script type="text/javascript" src="popup.js"></script>
+  </body>
+</html>

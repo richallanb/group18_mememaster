@@ -17,7 +17,7 @@
           <li class="navmenu"><a class="navmenu" href="home.html">Home</a></li>
           <li class="navmenu"><a class="navmenu" href="#">Upload</a></li>
           <li class="navmenu"><a class="navmenu" href="creatememe.html">Create</a></li>
-          <li class="navmenu"><a class="navmenu" href="trending.html">Trending</a></li>
+          <li class="navmenu-selected"><a class="navmenu-selected" href="trending.html">Trending</a></li>
           <li class="navmenu"><a class="navmenu" href="#">Help</a></li>
           <li class="nav-search"><div class="search-container"><form method="get" name="search" action="searchpage.html">
           <input class="search" type="text" name="globalq" placeholder="Search"></form></div></li>
@@ -47,54 +47,13 @@
 </div><li>
             </ul>
         </section>
-          <article class="meme" data-entry-id="seal">
-          <header class="meme-head">
-              <h4>
-                <a href ="seal.jpg">Hanging out with my friend and...</a>
-              </h4>
-          </header>
-            <div class="meme-img">
-          <a href="memepage.html">
-              <img class="meme" src="http://placehold.it/250x250" alt="Hanging out with my friend and his brother in law whom I've never met"></a></div><br>
-          <time datetime="2014-07-11"></time>
-          <progress max="100" value="20"></progress>
-        </article>
-        <article class="meme" data-entry-id="s2">
-          <header class="meme-head">
-              <h4>
-                <a href ="seal.jpg">Hanging out with my friend and...</a>
-              </h4>
-          </header>
-            <div class="meme-img">
-          <a href="memepage.html">
-              <img class="meme" src="http://placehold.it/250x250" alt="placeholder2"></a></div><br>
-          <time datetime="2014-07-11"></time>
-          <progress max="100" value="20"></progress>
-        </article>
-        <article class="meme" data-entry-id="s3">
-          <header class="meme-head">
-              <h4>
-                <a href ="memepage.html">Hanging out with my friend and...</a>
-              </h4>
-          </header>
-            <div class="meme-img">
-          <a href="memepage.html">
-              <img class="meme" src="http://placehold.it/250x250" alt="placeholder3"></a></div><br>
-          <time datetime="2014-07-11"></time>
-          <progress max="100" value="20"></progress>
-        </article>
-        <article class="meme" data-entry-id="s4">
-          <header class="meme-head">
-              <h4>
-                <a href ="seal.jpg">Hanging out with my friend and...</a>
-              </h4>
-          </header>
-            <div class="meme-img">
-          <a href="memepage.html">
-              <img class="meme" src="http://placehold.it/250x250" alt="placeholder4"></a></div><br>
-          <time datetime="2014-07-11"></time>
-          <progress max="100" value="20"></progress>
-        </article>
+        <!--Start of the trend -->
+        <!-- meme goes here -->
+        
+        
+        
+        
+        <!--end of the trend-->
     </div>
    </div>
     <footer id="common-footer">
@@ -105,5 +64,18 @@
         </ul></div>
     
       <div id="footer-right"><a href="#" class="footer">Jump to Top</a></div></footer>
+    
+    
+    
+    <script>
+          function getTrendFill (i, id, src, title, date, total_likes, likes){
+           
+           return ("<article class=\"meme\" data-entry-id=\""+title+\"><header class=\"meme-head\"><h4><a href =\"memepage.html?gal="+id+"\">\""+title+\"</a></h4></header><div class=\"meme-img\"><a href =\"memepage.html?gal="+id+"\"><img class=\"meme\" src=/"+src+\" alt=\""+src+\"></a></div><br><time datetime=\""+date\"></time><progress max=\""+total_likes+\" value=\"+likes\"></progress></article>");
+        }      
+    </script>
+    
+    
+    
+    
 	</body>
 </html>

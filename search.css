@@ -7,13 +7,22 @@
       margin: 12px 0 7px 0;
     }
     li.search-sorting{
-      
+      color:#0C95F5;
+      cursor:pointer;
       margin: 0 0 0 5px; text-align:center;min-width:50px;height:20px;
 padding:5px 10px 5px 10px;border-radius:5px;
     }
     li.search-sorting:hover{
+      color:white; 
       background-color:#495261;
       transition: all .2s ease;
+    }
+    li.search-sorting-selected{
+      color:white; 
+      background-color:#0C95F5; 
+      cursor:pointer;
+      margin: 0 0 0 5px; text-align:center;min-width:50px;height:20px;
+padding:5px 10px 5px 10px;border-radius:5px;
     }
     ul.search-sorting{
       display: flex; list-style-type: none; width:100%;padding:0;margin:0;
@@ -25,8 +34,13 @@ padding:5px 10px 5px 10px;border-radius:5px;
          vertical-align:top;
     }
    
-   input[type=checkbox] {
+   .nsfw input[type=checkbox] {
 	visibility: hidden;
+}
+.search-header{
+  display:inline-block;
+  vertical-align:bottom;
+  width:100%;
 }
 
 /* Sliding Checkbox */
@@ -39,7 +53,14 @@ padding:5px 10px 5px 10px;border-radius:5px;
 	border-radius: 3px;
 	position: relative;
 }
-
+#meme-results{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content: flex-start;
+      align-items: flex-start;
+      align-content: flex-start;
+  order:10;
+}
 .nsfw label {
 	display: block;
 	width: 16px;
@@ -59,4 +80,15 @@ padding:5px 10px 5px 10px;border-radius:5px;
 	left: 10px;
   background: green;
   
+}
+#memes-top-header{
+  display:inline-block;
+  
+}
+#memes-top-header h3{
+  float:left;
+}
+#memes-top-header h4{
+  
+  float:left;
 }

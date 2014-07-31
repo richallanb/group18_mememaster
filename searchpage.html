@@ -10,18 +10,18 @@
   </style>
   
 </head>
-	<body>
+	<body onload="memeresize('memes', galResultCount);" onresize="memeresize('memes', galResultCount);">
+    <div id="blackout" style="display:none;z-index:300;position:fixed;width:100%;height:100%;background-color:rgba(0,0,0,0.4);"></div>
     <header class="nav-container">
       <div class="logo-container">
-        <a href="./home.html"><img src="logo4.png" alt="MemeMaster" class="logo-img"></a></div>
+        <a href="./"><img src="logo4.png" alt="MemeMaster" class="logo-img"></a></div>
       
       
       <nav class="nav-head">      
         <ul class="navglobal">
           <li class="navmenu"><a class="navmenu" href="home.html">Home</a></li>
-          <li class="navmenu"><a class="navmenu" href="#">Upload</a></li>
+          <li class="navmenu"><a class="navmenu" id="upload-modal-show" title="Need Javascript to create popup for meme sumbition" href="#">Upload</a></li> 
           <li class="navmenu"><a class="navmenu" href="creatememe.html">Create</a></li>
-          <li class="navmenu"><a class="navmenu" href="trending.html">Trending</a></li>
           <li class="navmenu"><a class="navmenu" href="#">Help</a></li>
           <li class="nav-search"><div class="search-container"><form method="get" name="search" action="searchpage.html">
           <input class="search" type="text" name="globalq" placeholder="Search"></form></div></li>
@@ -29,64 +29,30 @@
 
         </nav>
       
-      <div class="nav-user-container">
-        <article class="nav-user-welcome"><h5>Welcome back, <a href="userpage.html">Username</a>!</h5></article>
-      <aside class="nav-userpic"><a href="userpage.html"><img id="userimg" src="logo00.png" alt="Username" style="width:100%;height:100%;"></a></aside></div>
+      <div id="user-container" class="nav-user-container">
+        <article class="nav-user-welcome" id="welcome-message"></article>
+       <aside class="nav-userpic stretch-container" id="userimg"></aside></div>
     </header>
 		<div class="everything-container">  
     
   
-      <div id="memes">
-        <header id="memes-top-header"><h3>Search Results for: <em>"Cash for Bones"</em></h3></header>
+      <div id="memes" style="display:none">
+        <header id="memes-top-header" class="search-header"><h3 id="search-result-count"></h3><h3> Search Results for: </h3><h3 id="search-query"><em>"Cash for Bones"</em></h3></header>
         <section id="search-options">
           <header style="margin:5px;width: 64px">Sort By:</header>
             <ul class="search-sorting">
-              <li class="search-sorting"><a href="#">Relevance</a><li>
-              <li class="search-sorting"><a href="#">Time</a><li>
-              <li class="search-sorting"><a href="#">Popularity</a><li>
+              <li class="search-sorting-selected" id="search-relevance">Relevance<li>
+              <li class="search-sorting" id="search-time">Time<li>
+              <li class="search-sorting" id="search-popularity">Popularity<li>
               <li class="search-sorting"><label id="NSFW-label">NSFW Filter:</label><div class="nsfw">	
 	<input type="checkbox" value="None" id="nsfw" name="check" checked>
 	<label for="nsfw"></label>
 </div><li>
             </ul>
         </section>
-          <article class="meme" data-entry-id="seal">
-          <header class="meme-head">
-              <h4>
-                <a href ="seal.jpg">Hanging out with my friend and...</a>
-              </h4>
-          </header>
-            <div class="meme-img">
-          <a href="memepage.html">
-              <img class="meme" src="http://placehold.it/250x250" alt="Hanging out with my friend and his brother in law whom I've never met"></a></div><br>
-          <time datetime="2014-07-11"></time>
-          <progress max="100" value="20"></progress>
-        </article>
-        <article class="meme" data-entry-id="s2">
-          <header class="meme-head">
-              <h4>
-                <a href ="seal.jpg">Hanging out with my friend and...</a>
-              </h4>
-          </header>
-            <div class="meme-img">
-          <a href="memepage.html">
-              <img class="meme" src="http://placehold.it/250x250" alt="placeholder2"></a></div><br>
-          <time datetime="2014-07-11"></time>
-          <progress max="100" value="20"></progress>
-        </article>
-        <article class="meme" data-entry-id="s3">
-          <header class="meme-head">
-              <h4>
-                <a href ="memepage.html">Hanging out with my friend and...</a>
-              </h4>
-          </header>
-            <div class="meme-img">
-          <a href="memepage.html">
-              <img class="meme" src="http://placehold.it/250x250" alt="placeholder3"></a></div><br>
-          <time datetime="2014-07-11"></time>
-          <progress max="100" value="20"></progress>
-        </article>
-        <article class="meme" data-entry-id="s4">
+        <section id="meme-results">
+        <!--
+        <article class="meme" data-entry-id="s6">
           <header class="meme-head">
               <h4>
                 <a href ="seal.jpg">Hanging out with my friend and...</a>
@@ -97,7 +63,8 @@
               <img class="meme" src="http://placehold.it/250x250" alt="placeholder4"></a></div><br>
           <time datetime="2014-07-11"></time>
           <progress max="100" value="20"></progress>
-        </article>
+        </article>-->
+        </section>
     </div>
    </div>
     
@@ -109,5 +76,337 @@
         </ul></div>
     
       <div id="footer-right"><a href="#" class="footer">Jump to Top</a></div></footer>
+    
+     <!-- Upload Modal -->
+  <div id="upload-modal">
+      <div style="display:inline-block;margin: 0 0 8px 0;">
+      <section class="upload-modal-heading">
+        <ul class="upload-modal">
+          <li id="upload-modal-local-option" class="upload-modal-menu upload-modal-menu-selected">
+            <a class="upload-modal" href="#">From Your Computer</a>
+          </li>
+          <li id="upload-modal-web-option" class="upload-modal-menu">
+            <a class="upload-modal" href="#">From the Web</a>
+          </li>
+          
+        </ul>
+      </section>
+      
+      <aside class="upload-modal-heading">
+        <div class="upload-modal-close modal-close"></div>
+      </aside>
+      </div>
+      
+      <section id="upload-modal-file-landing" class="upload-modal-file-landing">
+        <article class="upload-modal-file-landing">
+          <button id="upload-modal-browse" type="button">Browse</button><input type="file" id="input-upload-modal-browse"  accept="image/*" multiple>
+        </article>
+        <aside class="upload-modal-file-landing" id="upload-modal-drag-drop">
+          Drag and Drop
+        </aside>
+      </section>
+    
+    <section id="upload-modal-url-landing" class="upload-modal-url-landing" style="display:none;">
+        <article class="upload-modal-url-landing">
+          <textarea class="url-entry" cols="30" rows="5" id="url-entry" placeholder="Enter in URL's separated by newlines"></textarea>
+        </article>
+      </section>
+    
+      <section class="upload-modal-option">
+        <label for="upload-modal-gallery-option" style="margin:6px;float:right;">Gallery</label>
+        <input type="checkbox" id="upload-modal-gallery-option" style="vertical-align:top;margin:8px 0 0 8px;float:right;">
+         <input type="text" class="upload-modal-gallery-title" id="upload-modal-gallery-title" style="float:right;" placeholder="Gallery Title">
+         
+         
+      </section>
+      <section id="upload-modal-files-container" class="upload-modal-files-container">
+        
+        
+        
+        
+        
+      </section>
+      <footer class="upload-modal-footer">
+        <section class="upload-modal-footer">
+          <button class="upload-modal-close" type="button">Cancel</button>
+          <button id="upload-modal-done" type="button">Upload &raquo;</button>
+        </section>
+      </footer>
+      
+
+    </div>
+    <!-- End Upload Modal -->
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//www.parsecdn.com/js/parse-1.2.19.min.js"></script>
+    <script src="init.js"></script>
+    <script src="uploader.js"></script>
+    <script>
+      
+      // Our gallery object
+    var galleryObj = new galleryQuery(parseURL("globalq"));
+      
+    var sortingType = 0;
+    // 0 = relevance aka no sorting
+    // 1 = time
+    // 2 = votes
+      
+    galleryObj.sendQuery();
+    // Initializing our events
+    var queryComplete = document.createEvent('Event');
+    queryComplete.initEvent('queryComplete', true, true);
+      
+    var galOwner = false;
+    var galPublic = true;
+    var galDisplay = false;
+    var galResultCount = 0;
+      
+function displayResult(title,cover, likes,total_likes,id,date,public, user){
+  //alert(title+ " "+cover+ " "+likes+ " "+total_likes+ " "+id+ " "+date);
+  var shortTitle = title;
+  
+  var body= ""
+  var currUser = Parse.User.current()?Parse.User.current().id:"";
+  if (public || (user == currUser)){
+    galResultCount += 1;
+    if (title.length > 25)
+    shortTitle = title.substring(0,25);
+      body ="<article class=\"meme\"><header class=\"meme-head\"><h4><a href =\"memepage.html?gal="+id+"\">" + shortTitle +"</a></h4></header><div class=\"meme-img stretch-container\"><a href =\"memepage.html?gal="+id+"\"><img class=\"meme\" src=\""+ cover +"\" alt=\""+title+"\"></a></div><br><time datetime=\"" +date+ "\"></time><progress max=\""+total_likes+"\" value=\""+likes+"\"></progress></article>";
+ // alert(body);
+  }
+  return body;
+}
+document.addEventListener('queryComplete',
+                             function(){
+                                 var nsfwSearch = document.getElementById("nsfw").checked;
+                                 var body = "";
+                                 galResultCount = 0;
+                                 for (var i = 0; i < galleryObj.coverPic.length; i++){
+                                   if (galleryObj.coverPic[i].length > 0){
+                                       if ((nsfwSearch && !galleryObj.nsfw[i]) || !nsfwSearch) {
+                                         
+                                        //alert (galleryObj.nsfw[i]);
+                                       body = body + displayResult(galleryObj.title[i], galleryObj.coverPic[i],                                           galleryObj.likes[i], galleryObj.total_likes[i], galleryObj.myId[i],
+                                          galleryObj.date[i],galleryObj.public[i],galleryObj.user[i]);
+                                       }
+                                   }
+                                   
+                                 }
+                               if (!(body.length > 0) )
+                                 body = "<h3 style=\"margin: 15px 0 15px 40px\">No Results Found</h3>";
+                               document.getElementById("search-query").innerHTML = "<em>\"" +galleryObj.humanReadableQuery[0] + "\"</em>";
+                               if (galleryObj.humanReadableQuery[1])
+                                 document.getElementById("search-query").innerHTML += " Excluding: " +galleryObj.humanReadableQuery[1];
+                               
+                               document.getElementById("search-result-count").innerHTML = galResultCount;
+                               memeresize('memes', galResultCount);
+                               document.getElementById("meme-results").innerHTML = body;
+                               stretchContainers();
+                               $("#memes").slideDown(400);
+                             });
+  $(function() {
+    $("#search-relevance").click(function(){
+      if (galleryObj.sortingType != 0){
+        galleryObj.sortingType = 0;
+        $("#search-relevance").css("background-color", "#0C95F5");
+        $("#search-relevance").css("color", "white");
+        $("#search-time").css("background-color", "#2E3136");
+        $("#search-time").css("color", "#0C95F5");
+        $("#search-popularity").css("background-color", "#2E3136");
+        $("#search-popularity").css("color", "#0C95F5");
+        //$("#memes").slideUp(400);
+        galleryObj.sendQuery();
+      }
+    })
+  });
+  $(function() {
+    $("#search-time").click(function(){
+      if (galleryObj.sortingType != 1){
+        galleryObj.sortingType = 1;
+        $("#search-time").css("background-color", "#0C95F5");
+        $("#search-time").css("color", "white");
+        $("#search-relevance").css("background-color", "#2E3136");
+        $("#search-relevance").css("color", "#0C95F5");
+        $("#search-popularity").css("background-color", "#2E3136");
+        $("#search-popularity").css("color", "#0C95F5");
+        //$("#memes").slideUp(400);
+        galleryObj.sendQuery();
+      }
+    })
+  });
+  $(function() {
+    $("#search-popularity").click(function(){
+      if (galleryObj.sortingType != 2){
+        galleryObj.sortingType = 2;
+        $("#search-popularity").css("background-color", "#0C95F5");
+        $("#search-popularity").css("color", "white");
+        $("#search-relevance").css("background-color", "#2E3136");
+        $("#search-relevance").css("color", "#0C95F5");
+        $("#search-time").css("background-color", "#2E3136");
+        $("#search-time").css("color", "#0C95F5");
+        //$("#memes").slideUp(400);
+        galleryObj.sendQuery();
+      }
+    })
+  });
+  $(function() {
+        $("#nsfw").change(function(){
+          var nsfwSearch = document.getElementById("nsfw").checked;
+          var body="";
+          galResultCount = 0;
+          for (var i = 0; i < galleryObj.public.length; i++){
+                                 //  if (galleryObj.public[i]){
+                                 
+                                 if ((nsfwSearch && !galleryObj.nsfw[i]) || !nsfwSearch) {
+                                      
+                                       body = body + displayResult(galleryObj.title[i], galleryObj.coverPic[i],                                           galleryObj.likes[i], galleryObj.total_likes[i], galleryObj.myId[i],
+                                          galleryObj.date[i],galleryObj.public[i],galleryObj.user[i]);
+                                          
+                                 }
+                                   //}
+                                   
+           }
+          if (!(body.length > 0) )
+            body = "<h3 style=\"margin: 15px 0 15px 40px\">No Results Found</h3>";
+          memeresize('memes', galResultCount);
+         
+          document.getElementById("search-result-count").innerHTML = galResultCount;
+          document.getElementById("meme-results").innerHTML = body;
+          stretchContainers();
+        });
+  });
+      
+    /* ---------------------------- */    
+    /* ---------------------------- */
+    /* --- Gallery Query Object --- */
+    /* ---------------------------- */
+    /* ---------------------------- */
+ 
+    function galleryQuery(iQuery){
+      this.sortingType = 0;
+      this.coverPic=[""];
+      this.public = [true];
+      this.images = [];
+      this.myId=[""];
+      this.nsfw=[false];
+      this.title=[""];
+      this.user=[];
+      this.tags=[""];
+      this.likes=[0];
+      this.total_likes=[0];
+      this.comments = [];
+      this.title_to_lower=[""];
+      this.date=[""];
+      this.humanReadableQuery=[""];
+      // Required for child functions to reach parent members
+      var parent = this;
+      var query = iQuery;
+     query=query.replace(/\+/gi," ")
+      var notQuery = query.match(/-"(.*?)"|-([^\W])+/gi);
+      if (notQuery) {
+        for (var i = 0;i<notQuery.length;i++){
+          
+          query = query.replace(notQuery[i], '');
+          notQuery[i] = notQuery[i].replace(/[-"]/g,'');
+          if (i < notQuery.length-1)
+            this.humanReadableQuery[1] += notQuery[i] +", ";
+          else
+            this.humanReadableQuery[1] += notQuery[i];
+
+        }
+      }
+      this.humanReadableQuery[0] = query;
+      var queryList = query.match(/([^\s])+/gi);  
+      //for (var i=0;i<queryList.length;i++)
+        //alert ("query" +i+ " = " + queryList[i] );
+      
+        this.sendQuery = (function(){
+        var gallery = Parse.Object.extend("gallery");
+        var galqueryTitle = new Parse.Query(gallery);
+        var galqueryTags = new Parse.Query(gallery);
+        
+        
+        //for (var i = 0;i<queryList.length;i++)
+       // if (tagSearch)
+          galqueryTags.containedIn("tags", queryList);
+       // else
+          galqueryTitle.containedIn("title_to_lower", queryList);
+          
+        if (notQuery){
+         // if (tagSearch) 
+            galqueryTags.notContainedIn("tags", notQuery);
+         // else
+            galqueryTitle.notContainedIn("title_to_lower", notQuery);
+          //alert ("not query" +i+ " = " + notQuery[0] );
+          
+        }
+        var galquery = Parse.Query.or(galqueryTags, galqueryTitle);
+        
+        galquery.include("cover"); // Fetches pointer information
+        galquery.include("user"); // Fetches the pointer information
+        if (parent.sortingType == 1) {
+          galquery.descending("createdAt");
+        } else if (parent.sortingType == 2) {
+          galquery.descending("likes");
+        }
+        galquery.find({
+          success: function(galresults) {
+              
+              //alert("query complete");
+              /* Fill object values */
+              for (var i = 0; i < galresults.length; i++) {
+                parent.myId[i] = galresults[i].id;
+                parent.title[i] = galresults[i].get('title');
+                //alert ("Received: " + parent.title[i]);
+                parent.coverPic[i] = galresults[i].get("cover").get("thumb").url();
+                parent.likes[i] = galresults[i].get("likes");
+                parent.total_likes[i] = galresults[i].get("total_likes");
+                parent.tags[i] = galresults[i].get("tags");
+                parent.user[i] = galresults[i].get("user");
+                parent.nsfw[i] = galresults[i].get("nsfw");
+                parent.date[i] = galresults[i].updatedAt;
+                parent.public[i] = galresults[i].get("public");
+                parent.title_to_lower[i] = galresults[i].get("title_to_lower");
+              }
+              /* Query finished. Dispatch event */
+              document.dispatchEvent(queryComplete);
+              
+              
+              
+            },
+          error: function(error) {
+            alert("Error: " + error.code + " " + error.message);
+          }
+        });
+      });
+     
+    }
+      
+      //Resize script to keep boxes on fixed intervals using browser window width
+    function memeresize(target, numOfBoxes) {
+    var boxsz = 275;
+    var offset = 50;
+    var width = Math.floor((window.innerWidth-offset)/boxsz);
+    //if (width > numOfBoxes)
+     // width = numOfBoxes;
+    document.getElementById(target).style.width=(width*boxsz)+"px";
+      
+    }
+      
+     /* var xhr = new XMLHttpRequest();
+xhr.open('GET', 'http://i.imgur.com/JKJSMyo.jpg', true);
+xhr.responseType = 'blob';
+xhr.onload = function(e) {
+  if (this.status == 200) {
+    var myBlob = this.response;
+    alert(myBlob);
+    // myBlob is now the blob that the object URL pointed to.
+  }
+};
+xhr.send();*/
+     
+  </script>
+    
+    
 	</body>
 </html>

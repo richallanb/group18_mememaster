@@ -3,60 +3,209 @@
 <head>
 	 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	 <title>Create Meme</title>
+   
    <link rel="stylesheet" href="home.css" type="text/css"/>
-   <link rel="stylesheet" href="memepage.css" type="text/css"/>
-
+   <!--<link rel="stylesheet" href="memepage.css" type="text/css"/>
+   -->
+   <link rel="stylesheet" href="creatememe.css" type="text/css"/>
 </head>
 	<body>
+    <div id="blackout" style="display:none;z-index:300;position:fixed;width:100%;height:100%;background-color:rgba(0,0,0,0.4);"></div>
     <header class="nav-container">
       <div class="logo-container">
-         <a href="home.html"><img src="logo4.png" alt="MemeMaster" class="logo-img"></a></div>
-      
-      
+        <a href="./"><img src="logo4.png" alt="MemeMaster" class="logo-img"></a></div>
+      <!-- testing -->
       <nav class="nav-head">      
         <ul class="navglobal">
-          <li class="navmenu"><a class="navmenu" href="home.html">Home</a></li>
-          <li class="navmenu"><a class="navmenu" href="#">Upload</a></li>
+          <li class="navmenu-selected"><a class="navmenu-selected" href="home.html">Home</a></li>
+          <li class="navmenu"><a class="navmenu" id="upload-modal-show" title="Need Javascript to create popup for meme sumbition" href="#">Upload</a></li>
           <li class="navmenu"><a class="navmenu" href="creatememe.html">Create</a></li>
-          <li class="navmenu"><a class="navmenu" href="trending.html">Trending</a></li>
           <li class="navmenu"><a class="navmenu" href="#">Help</a></li>
           <li class="nav-search"><div class="search-container"><form method="get" name="search" action="searchpage.html">
           <input class="search" type="text" name="globalq" placeholder="Search"></form></div></li>
         </ul>
 
         </nav>
-      
-      <div class="nav-user-container">
-        <article class="nav-user-welcome"><h5>Welcome back, <a href="userpage.html">Username</a>!</h5></article>
-      <aside class="nav-userpic"><a href="userpage.html"><img id="userimg" src="logo00.png" alt="Username" style="width:100%;height:100%;"></a></aside></div>
+    
+      <div id="user-container" class="nav-user-container">
+        <article class="nav-user-welcome" id="welcome-message"></article>
+       <aside class="nav-userpic stretch-container" id="userimg"></aside></div>
     </header>
     
     <div class="everything-container">
-      <div id="meme-view">
-      <header id="meme-title"><h1>Create Your Own Meme</h1></header>
+      <div id="memes">
+      <header id="meme-title"><h2>Create Your Own Meme</h2></header>
       <div class="gen-container">
       <article id="memefield">
-        <!-- The Style Tags should be replaced with javascript -->
+        <!-- The Style Tags should be replaced with javascript
+        <script src="//code.jquery.com/jquery-1.10.2.js"></script>-->
+        
+
+        <canvas id="disCanvas" width="400" height="400"></canvas><!--
         <div class="meme-img-flex" style="max-width: 400px;" data-max-width="400px"><img class ="meme-img-flex" data-max-width="100" src="http://placehold.it/400x400" alt="Meme Name"></div>
-        </article>
-      
+        --></article>
+
       <aside class="gallerybox">
-        <header class="gallerybox"><h2>Sample Meme images</h2></header>
+        <header class="gallerybox"><h2>Sample Meme images</h2><h4>Please select image</h4></header>
           <ul class="gallerybox">
-            <li class="gallery"><a href="#"><img src="http://placehold.it/50x50" alt="Meme #1"></a></li>
-            <li class="gallery"><a href="#"><img src="http://placehold.it/50x50" alt="Meme #2"></a></li>
-            <li class="gallery"><a href="#"><img src="http://placehold.it/50x50" alt="Meme #3"></a></li>
-            <li class="gallery"><a href="#"><img src="http://placehold.it/50x50" alt="Meme #4"></a></li>
-            <li class="gallery"><a href="#"><img src="http://placehold.it/50x50" alt="Meme #5"></a></li>
-            <li class="gallery"><a href="#"><img src="http://placehold.it/50x50" alt="Meme #6"></a></li>
-            <li class="gallery"><a href="#"><img src="http://placehold.it/50x50" alt="Meme #7"></a></li>
-            <li class="gallery"><a href="#"><img src="http://placehold.it/50x50" alt="Meme #8"></a></li>
-            <li class="gallery"><a href="#"><img src="http://placehold.it/50x50" alt="Meme #9"></a></li>
+            <li class="gallery" id="adt"><a href="#"><img src="creatememeIMG/asiandadthmb.png" alt="Asian Dad"></a></li>
+            <li class="gallery" id="sbt"><a href="#"><img src="creatememeIMG/babythmb.png" alt="Success Baby"></a></li>
+            <li class="gallery" id="byt"><a href="#"><img src="creatememeIMG/bracethmb.png" alt="Brace Yourself"></a></li>
+            <li class="gallery" id="dbt"><a href="#"><img src="creatememeIMG/drunkbabythmb.png" alt="Drunk Baby"></a></li>
+            <li class="gallery" id="frt"><a href="#"><img src="creatememeIMG/frythmb.png" alt="Fry"></a></li>
+            <li class="gallery" id="gggt"><a href="#"><img src="creatememeIMG/gggthmb.png" alt="GGG"></a></li>
+            <li class="gallery" id="mpt"><a href="#"><img src="creatememeIMG/morphthmb.png" alt="Morpheus"></a></li>
+            <li class="gallery" id="odt"><a href="#"><img src="creatememeIMG/onedoesthmb.png" alt="One Does"></a></li>
+            <li class="gallery" id="pbt"><a href="#"><img src="creatememeIMG/pedobearthmb.png" alt="Pedo Bear"></a></li>
+            <li class="gallery" id="wdt"><a href="#"><img src="creatememeIMG/whoadudethmb.png" alt="Whoa Dude"></a></li>
+            <li class="gallery" id="iwt"><a href="#"><img src="creatememeIMG/wolfthmb.png" alt="Insanity"></a></li>
+            <li class="gallery" id="myt"><a href="#"><img src="creatememeIMG/yodathmb.png" alt="Master Yoda"></a></li>
         </ul>
         <div class="memetext">
-          <h4>Input Text</h4>
-          <input type="text" id="toptext" placeholder="Top Text">
-          <input type="text" id="bottext" placeholder="Bottom Text"></div></aside></div></div></div>
+          <h4>Input Text</h4><br>
+          <form class="tptext">
+            <input type="text" id="toptext" placeholder="Top Text" maxlength="54"></form>
+          <form class="bttext">
+            <input type="text" id="bottext" placeholder="Bottom Text" maxlength="54"></form>
+          <form class="createit">
+            <input type="button" value="Create Meme"></form></div></aside></div></div></div>
+    
+            <img id="ph" src="http://placehold.it/400x400" alt="placeholder" style="display: none">
+            <img id="ad" src="creatememeIMG/asiandad.png" alt="Asian Dad" style="display: none">
+            <img id="sb" src="creatememeIMG/baby.png" alt="Success Baby" style="display: none">
+            <img id="by" src="creatememeIMG/brace.png" alt="Brace Yourself" style="display: none">
+            <img id="db" src="creatememeIMG/drunkbaby.png" alt="Drunk Baby" style="display: none">
+            <img id="fr" src="creatememeIMG/fry.png" alt="Fry" style="display: none">
+            <img id="ggg" src="creatememeIMG/ggg.png" alt="GGG" style="display: none">
+            <img id="mp" src="creatememeIMG/morph.png" alt="Morpheus" style="display: none">
+            <img id="od" src="creatememeIMG/onedoes.png" alt="One Does" style="display: none">
+            <img id="pb" src="creatememeIMG/pedobear.png" alt="Pedo Bear" style="display: none">
+            <img id="wd" src="creatememeIMG/whoadude.png" alt="Whoa Dude" style="display: none">
+            <img id="iw" src="creatememeIMG/wolf.png" alt="Insanity" style="display: none">
+            <img id="my" src="creatememeIMG/yoda.png" alt="Master Yoda" style="display: none">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//www.parsecdn.com/js/parse-1.2.19.min.js"></script>
+    <script src="init.js"></script>
+    <script src="uploader.js"></script>
+    <script>
+    
+    var placehold = "ph";
+    $( "li.gallery#adt" ).click(function(){
+       placehold = "ad";
+       memeDraw("ad");
+    });
+    $( "li.gallery#sbt" ).click(function(){
+       placehold ="sb";
+       memeDraw("sb");
+    });  
+    $( "li.gallery#byt" ).click(function(){
+       placehold="by";
+       memeDraw("by");
+    });  
+    $( "li.gallery#dbt" ).click(function(){
+       placehold="db";
+       memeDraw("db");
+    });
+    $( "li.gallery#frt" ).click(function(){
+       placehold="fr";
+       memeDraw("fr");
+    });
+    $( "li.gallery#gggt" ).click(function(){
+       placehold="ggg";
+       memeDraw("ggg");
+    });
+    $( "li.gallery#mpt" ).click(function(){
+       placehold="mp";
+       memeDraw("mp");
+    });
+    $( "li.gallery#odt" ).click(function(){
+       placehold="od";
+       memeDraw("od");
+    });
+    $( "li.gallery#pbt" ).click(function(){
+       placehold="pb";
+       memeDraw("pb");
+    });
+    $( "li.gallery#wdt" ).click(function(){
+       placehold="wd";
+       memeDraw("wd");
+    });
+    $( "li.gallery#iwt" ).click(function(){
+       placehold="iw";
+       memeDraw("iw");
+    });
+    $( "li.gallery#myt" ).click(function(){
+        placehold="my";
+       memeDraw("my");
+    });
+      
+    var memeDraw = function( imgID ){
+         var c = document.getElementById("disCanvas");
+         var bccv = c.getContext("2d");   
+         var img = document.getElementById( imgID );
+         bccv.drawImage(img, 0,0);
+         var tpt = document.getElementById("toptext").value;
+         var btt = document.getElementById("bottext").value;
+         bccv.font="30px Helvetica";
+         bccv.strokeStyle="black";
+         bccv.lineWidth=5;
+         bccv.strokeText(tpt, 200, 36, 375);
+         bccv.strokeText(btt, 200, 384, 375);
+         bccv.fillStyle="white";
+         bccv.textAlign = "center";
+         bccv.fillText(tpt, 200, 36, 375);
+         bccv.fillText(btt, 200, 384, 375);
+         }; 
+      
+    $( "form.tptext" ).keyup(function( event ) {
+         var c = document.getElementById("disCanvas");
+         var bccv = c.getContext("2d");   
+         var img = document.getElementById( placehold );
+         bccv.drawImage(img, 0,0);
+         var tpt = document.getElementById("toptext").value;
+         var btt = document.getElementById("bottext").value;
+         bccv.lineWidth=5;
+         bccv.strokeText(tpt, 200, 36, 375);
+         bccv.strokeText(btt, 200, 384, 375);
+         bccv.fillStyle="white";
+         bccv.font="30px Helvetica";
+         bccv.textAlign = "center";
+         bccv.fillText(tpt, 200, 36, 375);
+         bccv.fillText(btt, 200, 384, 375);
+         event.preventDefault();
+         });
+      
+    $( "form.bttext" ).keyup(function( event ) {
+         var c = document.getElementById("disCanvas");
+         var bccv = c.getContext("2d");   
+         var img = document.getElementById( placehold );
+         bccv.drawImage(img, 0,0);
+         var tpt = document.getElementById("toptext").value;
+         var btt = document.getElementById("bottext").value;
+         bccv.lineWidth=5;
+         bccv.strokeText(tpt, 200, 36, 375);
+         bccv.strokeText(btt, 200, 384, 375);
+         bccv.fillStyle="white";
+         bccv.font="30px Helvetica";
+         bccv.textAlign = "center";
+         bccv.fillText(tpt, 200, 36, 375);
+         bccv.fillText(btt, 200, 384, 375);
+         event.preventDefault();
+         });
+      
+      $( "form.createit" ).click(function(){saveCanvas();});
+     
+      var saveCanvas = function(){
+        alert("yeah boyyyyy");
+        var thiscanvas = document.getElementById("disCanvas");
+        var dataURL = thiscanvas.toDataURL("image/jpeg");
+        
+        var base64 = dataURL.split('base64,')[1];
+                  var parseFileThumb = new Parse.File(nameth, { base64: base64 });
+                  // Now we save orignal file
+      }
+    </script>
+    
     <footer id="common-footer">
       <div id="footer-left"><ul class="footer">
         <li class="footer"><a href="#" class="footer">About This Site</a></li>
@@ -65,5 +214,66 @@
         </ul></div>
     
       <div id="footer-right"><a href="#" class="footer">Jump to Top</a></div></footer>
+    
+    
+    <!-- Upload Modal -->
+  <div id="upload-modal">
+      <div style="display:inline-block;margin: 0 0 8px 0;">
+      <section class="upload-modal-heading">
+        <ul class="upload-modal">
+          <li id="upload-modal-local-option" class="upload-modal-menu upload-modal-menu-selected">
+            <a class="upload-modal" href="#">From Your Computer</a>
+          </li>
+          <li id="upload-modal-web-option" class="upload-modal-menu">
+            <a class="upload-modal" href="#">From the Web</a>
+          </li>
+          
+        </ul>
+      </section>
+      
+      <aside class="upload-modal-heading">
+        <div class="upload-modal-close modal-close"></div>
+      </aside>
+      </div>
+      
+      <section id="upload-modal-file-landing" class="upload-modal-file-landing">
+        <article class="upload-modal-file-landing">
+          <button id="upload-modal-browse" type="button">Browse</button><input type="file" id="input-upload-modal-browse"  accept="image/*" multiple>
+        </article>
+        <aside class="upload-modal-file-landing" id="upload-modal-drag-drop">
+          Drag and Drop
+        </aside>
+      </section>
+    
+    <section id="upload-modal-url-landing" class="upload-modal-url-landing" style="display:none;">
+        <article class="upload-modal-url-landing">
+          <textarea class="url-entry" cols="30" rows="5" id="url-entry" placeholder="Enter in URL's separated by newlines"></textarea>
+        </article>
+      </section>
+    
+      <section class="upload-modal-option">
+        <label for="upload-modal-gallery-option" style="margin:6px;float:right;">Gallery</label>
+        <input type="checkbox" id="upload-modal-gallery-option" style="vertical-align:top;margin:8px 0 0 8px;float:right;">
+         <input type="text" class="upload-modal-gallery-title" id="upload-modal-gallery-title" style="float:right;" placeholder="Gallery Title">
+         
+         
+      </section>
+      <section id="upload-modal-files-container" class="upload-modal-files-container">
+        
+        
+        
+        
+        
+      </section>
+      <footer class="upload-modal-footer">
+        <section class="upload-modal-footer">
+          <button class="upload-modal-close" type="button">Cancel</button>
+          <button id="upload-modal-done" type="button">Upload &raquo;</button>
+        </section>
+      </footer>
+      
+
+    </div>
+    <!-- End Upload Modal -->
 	</body>
 </html>

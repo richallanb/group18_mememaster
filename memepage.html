@@ -11,17 +11,18 @@
    </style>
 </head>
 	<body>
+    <div id="blackout" style="display:none;z-index:300;position:fixed;width:100%;height:100%;background-color:rgba(0,0,0,0.4);"></div>
+    <div id="popup-container" style="display:none;z-index:200;position:absolute;"></div>
     <header class="nav-container">
       <div class="logo-container">
-        <a href="./home.html"><img src="logo4.png" alt="MemeMaster" class="logo-img"></a></div>
+        <a href="./"><img src="logo4.png" alt="MemeMaster" class="logo-img"></a></div>
       
       
       <nav class="nav-head">      
         <ul class="navglobal">
           <li class="navmenu"><a class="navmenu" href="home.html">Home</a></li>
-          <li class="navmenu"><a class="navmenu" href="#">Upload</a></li>
+          <li class="navmenu"><a class="navmenu" id="upload-modal-show" title="Need Javascript to create popup for meme sumbition" href="#">Upload</a></li>
           <li class="navmenu"><a class="navmenu" href="creatememe.html">Create</a></li>
-          <li class="navmenu"><a class="navmenu" href="trending.html">Trending</a></li>
           <li class="navmenu"><a class="navmenu" href="#">Help</a></li>
           <li class="nav-search"><div class="search-container"><form method="get" name="search" action="searchpage.html">
           <input class="search" type="text" name="globalq" placeholder="Search"></form></div></li>
@@ -29,48 +30,49 @@
 
         </nav>
       
-      <div class="nav-user-container">
-        <article class="nav-user-welcome"><h5>Welcome back, <a href="userpage.html">Username</a>!</h5></article>
-       <a href="userpage.html"><aside class="nav-userpic"><img id="userimg" src="logo00.png" alt="Username" style="width:100%;height:100%;"></aside></a></div>
+      <div id="user-container" class="nav-user-container">
+        <article class="nav-user-welcome" id="welcome-message"></article>
+       <aside class="nav-userpic stretch-container" id="userimg"></aside></div>
     </header>
+    
+    
+    
     <div class="everything-container">
+      
     <div class="meme-container">
+      <div id="not-valid-meme" style="display:none;"></div>
       <div id="meme-view">
-      <header id="meme-title"><h2>Meme Name</h2></header>
+      <header class="meme-title" ><h2 id="meme-title" contenteditable="false">Meme Name</h2></header>
       <div class="gen-container">
       <article id="memefield">
-        <!-- The Style Tags should be replaced with javascript -->
-        <div class="meme-img-flex" style="max-width: 400px;" data-max-width="400px"><img class ="meme-img-flex" src="http://placehold.it/400x400" alt="Meme Name"></div>
-        <div class="meme-img-flex" style="max-width: 400px;" data-max-width="400px"><img class ="meme-img-flex" src="http://placehold.it/400x400" alt="Meme Name"></div>
-        <div class="meme-rating" style="max-width: 400px;"><a href="#"><img class="lower-button" src="http://placehold.it/25x25" alt="Upvote"></a>
-          <a href="#"><img class="lower-button" src="http://placehold.it/25x25" alt="Downvote"></a>
-          <div class="progress-flex"><progress class="meme-rating" max="100" value="80"></progress></div></div>
+        <div id="meme-landing">
+        <!-- The Style Tags should be replaced with javascript 
+        <div class="meme-img-flex" id="meme-img"><img class ="meme-img-flex" id="meme-img-disp" src="http://placehold.it/600x400" alt="Meme Name">
+          <footer class="meme-description" id="meme-description-" contenteditable="true">Enter a description...</footer></div>-->
+        </div>
+        <div class="meme-rating">
+          <div class="upvote-button" id="upvote-button"></div><div class="favorite-button" id="favorite-button"></div><div class="downvote-button" id="downvote-button"></div>
+          <div class="progress-flex"><progress class="meme-rating" id="meme-rating" max="100" value="80"></progress></div><div class="edit-button" id="edit-button"></div><div id="pub-button"></div></div>
         </article>
       
-      <aside class="gallerybox">
-        <div class="gallerybox"><header class="gallerybox"><h3>Gallery</h3></header>
-          <ul class="gallerybox">
-            <li class="gallery"><a href="#"><img src="http://placehold.it/50x50" alt="Meme #1"></a></li>
-            <li class="gallery"><a href="#"><img src="http://placehold.it/50x50" alt="Meme #2"></a></li>
-            <li class="gallery"><a href="#"><img src="http://placehold.it/50x50" alt="Meme #3"></a></li>
-            <li class="gallery"><a href="#"><img src="http://placehold.it/50x50" alt="Meme #4"></a></li>
-            <li class="gallery"><a href="#"><img src="http://placehold.it/50x50" alt="Meme #5"></a></li>
-            <li class="gallery"><a href="#"><img src="http://placehold.it/50x50" alt="Meme #6"></a></li>
-            <li class="gallery"><a href="#"><img src="http://placehold.it/50x50" alt="Meme #7"></a></li>
-            <li class="gallery"><a href="#"><img src="http://placehold.it/50x50" alt="Meme #8"></a></li>
-            <li class="gallery"><a href="#"><img src="http://placehold.it/50x50" alt="Meme #9"></a></li>
+      <aside id="gallerybox-container" style="display:none;" class="gallerybox">
+        <div class="gallerybox"><header class="gallerybox" id="gallerybox-title"><h3>Gallery</h3></header>
+          <ul id ="gallerybox" class="gallerybox">
+            <!--<li class="gallery"><a href="#"><img class = "gallerybox" src="http://placehold.it/50x50" alt="Meme #1"></a></li>-->
+            
           </ul></div></aside></div>
       <div class="gen-container">
     <div class="comment-box">
       <footer class="comment-box">
         <h3 class="comment-new">Type a Comment:</h3>
         <div class="comment-new">
-          <article class="comment-new"><textarea class="comment-new" cols="64" rows="1"></textarea></article>
-          <aside class="comment-new"><button class="comment-new" type="button">Post &raquo;</button></aside>
+          <article class="comment-new"><textarea class="comment-new" id="comment-new-body" cols="64" rows="1"></textarea></article>
+          <aside class="comment-new"><button class="comment-new" id="comment-new-submit" type="button">Post &raquo;</button></aside>
         </div>
       </footer>
-      <article class="comment-box"><header class="comment-box"><h3>Comments:</h3></header>
-      
+      <article class="comment-box"><header class="comment-box" id="comment-box-header"><h3>Comments:</h3></header>
+      <div id="comment-landing">
+        <!--
         <div class="comment-container">
         <article class="comment-img"></article><div class="comment">
           <aside class="comment-body">These place holders are getting dull.</aside>
@@ -101,7 +103,8 @@
         <footer class="comment">
           <a href="#" class="comment-user">Eric_Cartmenez</a>
           <span class="comment">3 minutes ago</span>
-          </footer></div></div>
+          </footer></div></div>-->
+</div>
       </article>
       
     </div>
@@ -114,5 +117,590 @@
         </ul></div>
     
       <div id="footer-right"><a href="#" class="footer">Jump to Top</a></div></footer>
+    
+    <!-- Upload Modal -->
+  <div id="upload-modal">
+      <div style="display:inline-block;margin: 0 0 8px 0;">
+      <section class="upload-modal-heading">
+        <ul class="upload-modal">
+          <li id="upload-modal-local-option" class="upload-modal-menu upload-modal-menu-selected">
+            <a class="upload-modal" href="#">From Your Computer</a>
+          </li>
+          <li id="upload-modal-web-option" class="upload-modal-menu">
+            <a class="upload-modal" href="#">From the Web</a>
+          </li>
+          
+        </ul>
+      </section>
+      
+      <aside class="upload-modal-heading">
+        <div class="upload-modal-close modal-close"></div>
+      </aside>
+      </div>
+      
+      <section id="upload-modal-file-landing" class="upload-modal-file-landing">
+        <article class="upload-modal-file-landing">
+          <button id="upload-modal-browse" type="button">Browse</button><input type="file" id="input-upload-modal-browse"  accept="image/*" multiple>
+        </article>
+        <aside class="upload-modal-file-landing" id="upload-modal-drag-drop">
+          Drag and Drop
+        </aside>
+      </section>
+    
+    <section id="upload-modal-url-landing" class="upload-modal-url-landing" style="display:none;">
+        <article class="upload-modal-url-landing">
+          <textarea class="url-entry" cols="30" rows="5" id="url-entry" placeholder="Enter in URL's separated by newlines"></textarea>
+        </article>
+      </section>
+    
+      <section class="upload-modal-option">
+        <label for="upload-modal-gallery-option" style="margin:6px;float:right;">Gallery</label>
+        <input type="checkbox" id="upload-modal-gallery-option" style="vertical-align:top;margin:8px 0 0 8px;float:right;">
+         <input type="text" class="upload-modal-gallery-title" id="upload-modal-gallery-title" style="float:right;" placeholder="Gallery Title">
+         
+         
+      </section>
+      <section id="upload-modal-files-container" class="upload-modal-files-container">
+        
+        
+        
+        
+        
+      </section>
+      <footer class="upload-modal-footer">
+        <section class="upload-modal-footer">
+          <button class="upload-modal-close" type="button">Cancel</button>
+          <button id="upload-modal-done" type="button">Upload &raquo;</button>
+        </section>
+      </footer>
+      
+
+    </div>
+    <!-- End Upload Modal -->
+    
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//www.parsecdn.com/js/parse-1.2.19.min.js"></script>
+    <script src="init.js"></script>
+    <script src="uploader.js"></script>
+    <script>
+    // Our gallery object
+    var galleryObj = new galleryQuery(parseURL("gal"));
+    // Initializing our events
+    var queryComplete = document.createEvent('Event');
+    queryComplete.initEvent('queryComplete', true, true);
+    var imagesComplete = document.createEvent('Event');
+    imagesComplete.initEvent('imagesComplete', true, true);
+    var commentsComplete = document.createEvent('Event');
+    commentsComplete.initEvent('commentsComplete', true, true);
+    var likesDirty = document.createEvent('Event');
+    likesDirty.initEvent('likesDirty', true, true);
+    var commentsDirty = document.createEvent('Event');
+    commentsDirty.initEvent('commentsDirty', true, true);
+      
+    var galOwner = false;
+    var galPublic = true;
+    var galDisplay = false;
+      
+    function showGallery(){
+      $("#meme-view").slideDown(400);
+    }
+      
+    function galleryBoxDisplay(images){
+      var body = "";
+      //images.length > 3
+      if (false) {
+        
+        for (var i =0; i < images.length; i++) {
+          body = body + galleryBoxFill(i, images[i].get("thumb").url());
+        }
+        document.getElementById("gallerybox").innerHTML = body;
+        document.getElementById("gallerybox-title").innerHTML = "<h3>Gallery</h3> <h4>(" + images.length + " Pictures)</h4>";
+        stretchContainers();
+        $("#gallerybox-container").fadeIn(600);
+      } else
+        $("#meme-view").css("max-width", "600px");
+    }
+      
+    function galleryBoxFill (i, src){
+       return ("<li class=\"gallery stretch-container\"><a href=\"#meme-img-"+i+"\"><img class = \"gallerybox\" src=\""+ src + "\" alt=\"" + src + "\"></a></li>");
+    }
+      
+    function fillGalleryTitle(title){
+      if (title.length < 1)
+        title = "Untitled Gallery";
+      document.getElementById("meme-title").innerHTML = title;
+      document.title= title;
+    }
+    function fillRating(){
+      $("#meme-rating").attr("max",galleryObj.total_likes);
+      $("#meme-rating").attr("value",galleryObj.likes);
+
+    }
+    function fillPic(i, src, note){
+      var body ="";
+      body="<div class=\"meme-img-flex\" id=\"meme-img-"+i+"\"><img class =\"meme-img-flex\" id=\"meme-img-disp-"+i+"\" src=\""+src+"\" alt=\""+src+"\">";
+      if ((note.length > 0)) {
+        body= body+ "<footer class=\"meme-description\" id=\"meme-description-"+i+"\" contenteditable=\"false\">"+note+"</footer></div>";
+      } else if (galOwner&&!galPublic){
+        body= body+ "<footer class=\"meme-description\" id=\"meme-description-"+i+"\" contenteditable=\"true\">"+defaultDesc+"</footer></div>";
+      }
+      else
+        body += "</div>"
+      return body;
+    }
+    /*function galleryChangePic(i){
+      fillPic(i, galleryObj.images[i].get("pic").url(), galleryObj.images[i].get("note")); 
+    }*/
+    function fillComment (userid, username, body, date){
+      var body = "<div class=\"comment-container\">\
+        <article class=\"comment-img\"></article><div class=\"comment\">\
+          <aside class=\"comment-body\">"+body+"</aside>\
+        <footer class=\"comment\">\
+          <a href=\"userpage?user=\"" + userid + " class=\"comment-user\">"+username+"</a>\
+<span class=\"comment\" style=\"margin-left:10px;\">" + date +"</span>\
+      </footer></div></div>";
+      return body;
+    }
+    function setEditStatus(){
+                            if (galOwner && (!galPublic)) {
+                                 $( "[contenteditable]" ).each(function(){
+                                   $(this).attr("contenteditable", "true");
+                                 });
+                               } else {
+                                 $( "[contenteditable]" ).each(function(){
+                                   $(this).attr("contenteditable", "false");
+                                 });
+                               }
+    }
+    // Gallery object listener
+    document.addEventListener('queryComplete',
+                             function(){
+                               // If the user is logged in we check if they're the owner
+                               if (Parse.User.current())
+                                 galOwner = (galleryObj.user.id == Parse.User.current().id)
+                               // We check if the gallery is public
+                               galPublic = galleryObj.public;
+                               // If the gallery is public or the owner is visiting then we display
+                               galDisplay = (galPublic || galOwner);
+                               // If the gallery is being visited by the owner & it's not public
+                               // we allow editing
+                               
+                               // We display only if owner or public
+                               if (galDisplay) {
+                                 
+                                 fillGalleryTitle(galleryObj.title);
+                                 fillRating();
+                                 showGallery();
+                                 
+                                 setInterval(galleryObj.checkDirty(), 5000);
+                               } else {
+                                 $("#not-valid-meme").html(dunGoofed());
+                                 $("#not-valid-meme").show();
+                               }
+                              
+                               if(!galOwner){
+                                 $("#edit-button").hide();
+                                 $("#pub-button").hide();
+                               } else {
+                                 var pbutton = $("#pub-button");
+                           
+                                 if (galPublic){
+                                  $("#edit-button").hide();
+                                   pbutton.addClass("pub-button-public");
+                                   pbutton.removeClass("pub-button-private")
+
+                                 }
+                                 else{
+                                  $("#edit-button").show();
+                                   pbutton.removeClass("pub-button-public");
+                                   pbutton.addClass("pub-button-private")
+                                 }
+                                 $("#pub-button").show();
+                                 
+                               }
+                               
+                             });
+      function dunGoofed(){
+        var body ="<img src=\"images/oops.gif\" alt=\"You dun goofed\"><h2>This gallery does not exist!</h2>";
+        return body;
+      }
+      function getDesc(){
+        var desc = [];
+        for (var i =0; i < galleryObj.images.length; i++){
+          var inDesc = $("#meme-description-"+i).html();
+          if (inDesc !=  defaultDesc)
+            desc[i] = inDesc;
+        }
+        return desc;
+      }
+      function getTitle(){
+        return $("#meme-title").html();
+      }
+      $("#edit-button").click(function(){
+
+           if (confirm("Are you sure you want to save these changes?") == true) {
+             galleryObj.saveChanges(getTitle(), getDesc(), (function(){location.reload()}))
+           }
+      });
+      $("#favorite-button").click(function(){
+
+           alert("Not implemented as Parse is horrible for checking for unique entries");
+      });
+      var defaultDesc = "Enter a description...";
+      $("#pub-button").click(function(){
+        if (galPublic) {
+           if (confirm("Are you sure you want to make this gallery Private?") == true) {
+            galleryObj.changePublic(false, (function(){location.reload()}));
+           }
+        }
+        else{
+          if (confirm("Are you sure you want to make this gallery Public?") == true) {
+            galleryObj.changePublic(true, (function(){location.reload()}));
+           }
+          
+        }
+      });
+    document.addEventListener('imagesComplete',
+                             function(){
+                               if (galDisplay) {
+                                 var totalBody = "";
+                                 galleryBoxDisplay(galleryObj.images);
+                                 for (var i = 0; i < galleryObj.images.length; i++) {
+                                   totalBody += fillPic(i, galleryObj.images[i].get("pic").url(), galleryObj.images[i].get("note"));
+                                 }
+                                 $("#meme-landing").html(totalBody);
+                                 setEditStatus();
+                                 $("img.meme-img-flex").load(function(){
+                                   if (this.naturalWidth > $(this).width()){
+                                     $(this).css("cursor", "url(sprites/zoom.png),url(sprites/zoom.cur),pointer");
+                                   }
+                                 });
+                                 $("img.meme-img-flex").click(function(){
+                                   if (this.naturalWidth > $(this).width()) {
+                                  var src = this.src;
+                                  var mwidth = window.innerWidth-40 < 1000?window.innerWidth-40:1000;
+                                   $("#popup-container").css("max-width", mwidth + "px");
+                                  var body = "<a onclick=\"$('#popup-container').hide()\"><img id=\"popup-img\" style=\"width:100%;\" src=\"" + src + "\" alt=\"\"></a>";
+                                  $("#popup-container").html(body);
+                                  // var ratio = this.naturalWidth/this.naturalHeight;
+                                   
+                                   var nwidth = this.naturalWidth<1000?this.naturalWidth:1000;
+                                   //var mHeight = nwidth * ratio;
+                                  // var nheight = this.naturalHeight<mHeight?this.naturalHeight:mHeight;
+                                   var wdiff = (nwidth-$(this).width())/2;
+                                   //var hdiff = (nheight - $(this).height())/2;
+                                   var tleft = ($(this).position().left -wdiff);
+                                     tleft = tleft < 0?0:tleft;
+                                   $("#popup-container").css("left", tleft + "px");
+                                  $("#popup-container").css("top", ($(this).position().top-40) + "px");
+                               $("#popup-container").fadeIn(200);
+                                   }
+                                  
+                               });
+                               }
+                             });
+      document.addEventListener('commentsComplete',
+                             function(){
+                               if (galDisplay) {
+                                 var totalBody = "";
+                                 
+                                 for (var i = 0; i < galleryObj.comments.length ; i++) {
+                                   var userid = galleryObj.comments[i].get("user");
+                                   var username = galleryObj.comments[i].get("username");
+                                   var body = galleryObj.comments[i].get("body");
+                                   var date = galleryObj.comments[i].createdAt;
+                                   var time = "Posted " + dateDiff(Date(), date);
+                                   totalBody += fillComment(userid, username, body, time);
+                                 }
+                                 if (!totalBody.length > 0)
+                                   $("#comment-box-header").html("<h3><em>No Comments</em></h3>");
+                                 else
+                                   $("#comment-landing").html(totalBody);
+                               }
+                             });
+      document.addEventListener('commentsDirty',
+                             function(){
+                               if (galDisplay) {
+                                 var oldBody  = $("#comment-landing").html();
+                                 var newBody = ""
+                                 
+                                 for (var i = 0; i < galleryObj.dirtyCommentsDiff ; i++) {
+                                   var userid = galleryObj.comments[i].get("user");
+                                   var username = galleryObj.comments[i].get("username");
+                                   var body = galleryObj.comments[i].get("body");
+                                   var date = galleryObj.comments[i].createdAt;
+                                   var time = "Posted " + dateDiff(Date(), date);
+                                   //alert(body);
+                                   newBody += fillComment(userid, username, body, time);
+                                 }
+                                 
+                                 if (newBody.length > 0)
+                                   $("#comment-landing").html(newBody + oldBody);
+                               }
+                             });
+      document.addEventListener('likesDirty',
+                             function(){
+                               if (galDisplay) {
+                                 fillRating();
+                               }
+                             });
+      
+      $("#comment-new-submit").click(function(){
+        var body = $("#comment-new-body").val();
+        if (body.length > 0 && galPublic && loggedIn)
+          {
+            $("#comment-new-submit").attr('disabled','disabled');
+            $("#comment-new-body").attr('disabled','disabled');
+            galleryObj.newComment(body, (function(){galleryObj.checkDirty();
+                                                   $("#comment-new-submit").removeAttr('disabled');
+                                                    $("#comment-new-body").removeAttr('disabled');
+                                                    $("#comment-new-body").val("");
+                                                   }));
+            
+          }
+        else{
+          alert("Either an empty comment or trying to post on a non-public gallery or you're not logged in..");
+          $("#comment-new-body").val("");
+        }
+      });
+      $("#downvote-button").click(function(){
+        if (galPublic && loggedIn)
+          {
+            
+            galleryObj.downvote((function(){galleryObj.checkDirty();}));
+            
+          }
+      });
+      $("#upvote-button").click(function(){
+        if (galPublic && loggedIn)
+          {
+            
+            galleryObj.upvote((function(){galleryObj.checkDirty();}));
+            
+          }
+      });
+      
+      
+        
+ 
+    /* ---------------------------- */    
+    /* ---------------------------- */
+    /* --- Gallery Query Object --- */
+    /* ---------------------------- */
+    /* ---------------------------- */
+ 
+    function galleryQuery(id){
+      this.cover;
+      this.public = true;
+      this.images = [];
+      this.title="";
+      this.id = id;
+      this.user;
+      this.gallery;
+      this.dirtyCommentsDiff = 0;
+      this.tags="";
+      this.likes=0;
+      this.total_likes=0;
+      this.comments = [];
+      this.title_to_lower="";
+      this.date="";
+      // Required for child functions to reach parent members
+      var parent = this;
+      (function(id){
+        var gallery = Parse.Object.extend("gallery");
+        var galquery = new Parse.Query(gallery);
+        galquery.include("cover"); // Fetches pointer information
+        galquery.include("user"); // Fetches the pointer information
+        galquery.equalTo("objectId", id);
+        galquery.find({
+          success: function(galresults) {
+              
+              
+              /* Fill object values */
+              parent.gallery = galresults[0];
+              parent.title = galresults[0].get('title');
+              parent.cover = galresults[0].get("cover");
+              parent.likes = galresults[0].get("likes");
+              parent.total_likes = galresults[0].get("total_likes");
+              parent.tags = galresults[0].get("tags");
+              parent.user = galresults[0].get("user");
+              parent.date = galresults[0].get("updatedAt");
+              parent.public = galresults[0].get("public");
+              parent.title_to_lower = galresults[0].get("title_to_lower");
+            
+              /* Query finished. Dispatch event */
+              document.dispatchEvent(queryComplete);
+              var imagesQuery = galresults[0].relation("images");
+              var comments = Parse.Object.extend("comments");
+              var commentsQuery = new Parse.Query(comments);
+              
+              commentsQuery.descending("createdAt");
+              commentsQuery.include("user"); // Fetches the pointer information
+              commentsQuery.equalTo("gallery", galresults[0]);
+              // On the off chance we get a gallery with no images.
+              if (imagesQuery) {
+                imagesQuery.query().find({
+                  success: function (imgresults) {
+                    /* Fill object values */
+                    parent.images = imgresults;
+
+                    /* Query finished. Dispatch event */
+                    document.dispatchEvent(imagesComplete);
+
+                  }
+                });
+              }
+              // If we get a gallery with no comments
+              if (commentsQuery) {
+                commentsQuery.find({
+                  success: function (commentresults) {
+                    /* Fill object values */
+                    parent.comments = commentresults;
+
+                    /* Query finished. Dispatch event */
+                    document.dispatchEvent(commentsComplete);
+
+                  }
+                });
+              }
+            },
+          error: function(error) {
+            alert("Error: " + error.code + " " + error.message);
+          }
+        });
+      }(id));
+      this.upvote=function(action){
+        var Gallery = Parse.Object.extend("gallery");
+        var gallery = new Gallery();
+        gallery.id = this.id;
+        gallery.increment("total_likes");
+        gallery.increment("likes");
+        gallery.save(null, {
+          success: function() {action();}
+        });
+      };
+      this.downvote=function(action){
+        var Gallery = Parse.Object.extend("gallery");
+        var gallery = new Gallery();
+        gallery.id = this.id;
+        gallery.increment("total_likes");
+        gallery.save(null, {
+          success: function() {action();}
+        });
+      };
+      this.changePublic=function(public, action){
+        var Gallery = Parse.Object.extend("gallery");
+        var gallery = new Gallery();
+        gallery.id = this.id;
+        gallery.set("public", public);
+        gallery.save(null, {
+          success: function() {action();}
+        });
+      };
+      this.favorite=function(favorite, action){
+        var User = Parse.Object.extend("user");
+        var user = new User();
+        user.id = Parse.User.current().id;
+        var user_fav_rel = user.relation("favorites");
+        user_fav_rel.add(parent.gallery);
+        user.save(null, {
+          success: function() {action();}
+        });
+      }
+      this.saveChanges=function(title, descriptions, action){
+        var Gallery = Parse.Object.extend("gallery");
+        var gallery = new Gallery();
+        gallery.id = this.id;
+        gallery.set("title", title);
+        
+        
+        gallery.save(null, {
+          success: function() {
+            var Images = Parse.Object.extend("images");
+            var images = []
+            var sent = 0;
+            for (var i = 0; i < parent.images.length; i++){
+              images[i] = new Images();
+              images[i].id = parent.images[i].id;
+              images[i].set("note", descriptions[i]);
+              images[i].save().then(
+                function(){
+                  sent += 1;
+                  if (sent == parent.images.length){
+                    action();
+                  }
+                });
+              }
+            }
+        });
+      };
+      this.newComment=function(body,action){
+        var user = Parse.User.current();
+        if (user){
+          var Gallery = Parse.Object.extend("gallery");
+          var gallery = new Gallery();
+          gallery.id = parent.id;
+          var gal_comment_rel = gallery.relation("comments");
+          var comment = new Parse.Object("comments");
+          var username = user.get("username");
+          comment.set("user", user);
+          comment.set("username",username);
+          comment.set("body", body);
+          comment.set("gallery", gallery);
+          
+          comment.save(null, {
+            success: function(comments){
+              gal_comment_rel.add(comments);
+              gallery.save(null,{
+                success: function(){
+                  action();
+                }
+              });
+            }
+          });
+            
+          
+        }
+      };
+      this.checkDirty = function(){
+        var gallery = Parse.Object.extend("gallery");
+        var galquery = new Parse.Query(gallery);
+        galquery.equalTo("objectId", id);
+        galquery.find({
+                  success: function(galresults) {
+                      var totalLikes =galresults[0].get("total_likes");
+                      var likes = galresults[0].get("likes");
+                      if (parent.total_likes != totalLikes ) {
+                        parent.likes = likes
+                        parent.total_likes = totalLikes; 
+                        document.dispatchEvent(likesDirty);
+                      }
+                      
+                  }
+              });
+       var comments = Parse.Object.extend("comments");
+       var commentsQuery = new Parse.Query(comments);
+       commentsQuery.descending("createdAt");
+       commentsQuery.include("user"); // Fetches the pointer information
+       commentsQuery.equalTo("gallery", parent.gallery);
+          commentsQuery.find({
+             success: function (commentresults) {
+              /* Fill object values */
+             if (commentresults.length != parent.comments.length) {
+               parent.dirtyCommentsDiff = commentresults.length - parent.comments.length;
+               parent.comments = commentresults;
+               document.dispatchEvent(commentsDirty);
+               
+             }
+                            
+
+                  }
+       });
+     
+      };
+    }
+     
+  </script>
 	</body>
 </html>

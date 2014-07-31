@@ -2,8 +2,8 @@
 #meme-view{
       background-color:#2E3136;
       border-radius:10px;
-      
-      display:flex;
+      display:none;
+      /*display:flex;*/
       flex-wrap: wrap;
       justify-content: flex-start;
       align-items: flex-start;
@@ -11,35 +11,58 @@
       border-radius:10px;
       padding: 15px 15px 15px 15px;
       max-width:100%;
-      min-width:257px;
+      min-width:629px;
+      box-shadow:0 0 10px rgba(0,0,0,.3);
+}
+.stretch-container{
+  display:inline-block;
+  padding:0;
+}
+.stretch-container img{
+  display:block;
 }
 
-     
+     /*img.gallerybox{
+       max-width:65px;
+       min-width:65px;
+     }*/
     li.gallery{
        list-style-type:none;
        display:inline-block;
+       width:65px;
+       height:65px;
        margin:1px;
+      overflow:hidden;
      }
       h2{
         padding:0 0 10px 0;
         margin:0;
       }
-     #meme-title{
+     .meme-title{
        width:100%;
        
+     }
+     h4.meme-title{
+       padding: 6px 8px 5px 8px;
+       border-radius:5px;
+       background-color:#07141C;
      }
      .meme-container{
        display:flex;
        flex-wrap:wrap;
        padding: 0 15px 20px 15px;
-       max-width: 725px; /* base 325px + (400px To be replaced with max image width if < 800px)  aka Javascript*/
+       max-width: 975px; /* base 325px + (400px To be replaced with max image width if < 800px)  aka Javascript*/
        margin: 7px auto 0 auto;
        min-width: 325px;
      }
      div.comment-box{
-       width:100%;
+       margin: 0 0px 0 0;
+      width:100%;
+      
+      max-width:610px;
+      min-width:200px;
        display:block;
-       padding: 14px 7px 7px 7px;
+       padding: 14px 0px 7px 0px;
        
      }
      header.comment-box{
@@ -62,24 +85,29 @@
      
      .gen-container{
        width:100%;
-       
+       justify-content:center;
        display:flex;
        
      }
     #memefield{
-       
+      margin: 0 0px 0 0;
       width:100%;
+      
+      max-width:610px;
       min-width:200px;
-
+      
      }
      aside.gallerybox{
-       width:425px;
+       min-width:253px;
+       max-width:315px;
        display:block;
        
      }
+     
+
      div.gallerybox{
        padding: 10px 10px 10px 10px;
-       margin: 13px 0 0 0;
+       margin: 13px 0 0 10px;
        border-radius:10px;
        background-color:#07141C;
      }
@@ -87,26 +115,91 @@
        margin:0;
        padding: 0 0 15px 5px;
      }
-     .gallerybox > h3{
+     .gallerybox h3, .gallerybox h4{
+       display:inline;
        margin:0;
      }
      ul.gallerybox{
        padding:0;
        margin:0 0 0 5px;
-       max-height: 125px;
+       max-height: 140px;
        overflow:auto;
      }
      img.meme-img-flex{
-       width: 100%; 
+       max-width:600px;
+       height:auto;
        display:flex;
      }
      div.meme-img-flex{
+       display:flex;
+       justify-content:center;
+       flex-wrap:wrap;
+       min-width:200px;
+       background-color:#202225;
+       padding:10px;
+       border-radius:10px;
+       max-width:600px;
+  
        margin: 15px auto 15px auto
+     }
+    .meme-description{
+      display:inline-block;
+      
+      width:100%;
+      min-width:200px;
+      max-width:586px;
+      padding: 6px 8px 5px 8px;
+      margin: 6px 0 6px 0;
+      border-radius:5px;
+      
+      background-color:#07141C;
+    }
+    @-webkit-keyframes myfirst 
+    {
+    0%   {box-shadow: 0 0 5px 1px rgba(255,255,255,0.7);}
+    33%   {box-shadow: 0 0 10px 1px rgba(255,255,255,0.7);}
+    100%   {box-shadow: 0 0 5px 1px rgba(255,255,255,0.7);}
+    }
+    @keyframes myfirst 
+    {
+    0%   {box-shadow: 0 0 5px 1px rgba(255,255,255,0.7);}
+    33%   {box-shadow: 0 0 10px 1px rgba(255,255,255,0.7);}
+    100%   {box-shadow: 0 0 5px 1px rgba(255,255,255,0.7);}
+    }
+    @-moz-keyframes myfirst 
+    {
+    0%   {box-shadow: 0 0 5px 1px rgba(255,255,255,0.7);}
+    33%   {box-shadow: 0 0 10px 1px rgba(255,255,255,0.7);}
+    100%   {box-shadow: 0 0 5px 1px rgba(255,255,255,0.7);}
+    }
+     *[contenteditable="true"]{
+       padding: 6px 8px 5px 8px;
+       border-radius:5px;
+       transition: all .4s ease;
+       background-color:white; !important
+       animation:myfirst 1s;
+  -moz-animation:myfirst 1s infinite;
+-webkit-animation:myfirst 1s infinite; 
+       
+       color:#313131;
+       cursor:text;
+       font-style:oblique;
+     }
+
+     *[contenteditable="true"]:focus{
+       color: black;
+       background-color:white; !important
+       animation: none;
+       -moz-animation: none;
+       -webkit-animation: none;
+       box-shadow:none;
+       font-style:normal;
      }
      div.meme-rating{
        padding: 5px 5px 5px 5px;
        display:flex;
-      
+       min-width:200px;
+       max-width:600px;
        margin: 15px auto 0 auto;
        border-radius:10px;
        background-color:#07141C;
@@ -166,6 +259,7 @@
      
       height:30px;
       width:100%;
+      height:100px;
       font-size: 12px;
       font-family: sans-serif;
       background-color:#2E3136;
@@ -177,7 +271,7 @@
     }  
     textarea.comment-new:focus {
       background-color:white;
-      height:100px;
+      
       border: solid 1px #707070;
       box-shadow: 0 0 5px 1px #969696;
     }
@@ -226,3 +320,114 @@
     a.comment-reference{
       color:#34FA00;
     }
+    .upvote-button {
+      padding:2px;
+   margin: 5px 6px 4px 6px;
+  width:14px;
+  height:14px;
+  background: url('sprites/upvote.png') no-repeat;
+}
+.upvote-button:hover{
+  background: url('sprites/upvote_hover.png') no-repeat;
+}
+div.upvote-button:active{
+  background: url('sprites/upvote_selected.png') no-repeat;
+}
+.downvote-button{
+  padding:2px;
+  margin: 5px 6px 4px 6px;
+  width:14px;
+  height:14px;
+  background: url('sprites/downvote.png') no-repeat;
+}
+.downvote-button:hover{
+  background: url('sprites/downvote_hover.png') no-repeat;
+}
+div.downvote-button:active{
+  background: url('sprites/downvote_selected.png') no-repeat;
+}
+.favorite-button {
+  padding:2px;
+  margin: 5px 6px 4px 6px;
+  width:14px;
+  height:14px;
+  background: url('sprites/favorite.png') no-repeat;
+  background-position: -1px -1px;
+}
+.favorite-button:hover{
+  background: url('sprites/favorite_hover.png') no-repeat;
+  background-position: -1px -1px;
+}
+div.favorite-button:active{
+  background: url('sprites/favorite_selected.png') no-repeat;
+  background-position: -1px -1px;
+}
+
+.edit-button {
+  padding:2px;
+  display:none;
+  margin: 6px 6px 4px 6px;
+  width:14px;
+  height:14px;
+  background: url('sprites/edit.png') no-repeat;
+  background-position: -1px -1px;
+}
+.edit-button:hover{
+  background: url('sprites/edit_hover.png') no-repeat;
+  background-position: -1px -1px;
+}
+div.edit-button:active {
+  background: url('sprites/edit_selected.png') no-repeat;
+  background-position: -1px -1px;
+}
+.edit-button-selected{ 
+  background: url('sprites/edit_hover.png') no-repeat;
+  background-position: -1px -1px;
+}
+
+.pub-button-public {
+  padding:2px;
+  display:none;
+  margin: 4px 7px 4px 10px;
+  width:28px;
+  height:14px;
+  background: url('sprites/public.png') no-repeat;
+  background-position: 0px -1px;
+}
+.pub-button-public:hover{
+  background: url('sprites/non-public_hover.png') no-repeat;
+  background-position: 0px -1px;
+}
+div.pub-button-public:active {
+  background: url('sprites/non-public_selected.png') no-repeat;
+  background-position: 0px -1px;
+}
+.pub-button-private {
+  padding:2px;
+  display:none;
+  margin: 4px 7px 4px 10px;
+  width:28px;
+  height:14px;
+  background: url('sprites/non-public.png') no-repeat;
+  background-position: 0px -1px;
+}
+.pub-button-private:hover{
+  background: url('sprites/public_hover.png') no-repeat;
+  background-position: 0px -1px;
+}
+div.pub-button-private:active {
+  background: url('sprites/public_selected.png') no-repeat;
+  background-position: 0px -1px;
+}
+.edit-button-selected{ 
+  background: url('sprites/edit_hover.png') no-repeat;
+  background-position: -1px -1px;
+}
+
+#popup-container{
+  
+background-color:#202225;
+padding:10px;
+border-radius:10px;
+  box-shadow:5px 5px 25px rgba(0,0,0,.7);
+}

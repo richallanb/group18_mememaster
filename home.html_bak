@@ -1,101 +1,309 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">    
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" href="home.css" type="text/css"/>
   <title>MemeMaster Home Page</title>
+  <style type="text/css">
+    
+  </style>
+  
 </head>
-  <body>
-    <header>
-      <h1><img src="http://placehold.it/70x70" alt="MemeMaster"> MemeMaster </h1>
-      <a href="team/index.html">Download Chrome Extention</a>
-    <form method="get" name="search">
-    <input type="text" name="q" placeholder="Search for something funny...">
-    <select name="filter">
-    <option value="kw" selected>Keyword</option>
-    <option value="cat">Category</option>
-    <option value="url">URL</option>
-    </select>
-      <input type="submit" value="Search">
-      </form>
-      <nav>      
-        <ul class="nav.global">
-          <li class="nav.menu"><a href="#">Home</a></li>
-          <li class="nav.menu"><a href="#">Upload</a></li>
-          <li class="nav.menu"><a href="#">Create</a></li>
-          <li class="nav.menu"><a href="#">Trending</a></li>
-          <li class="nav.menu"><a href="#">Help</a></li>
+  <body onresize="memeresize('memes')" onload="memeresize('memes')">
+    <div id="blackout" style="display:none;z-index:300;position:fixed;width:100%;height:100%;background-color:rgba(0,0,0,0.4);"></div>
+    <header class="nav-container">
+      <div class="logo-container">
+        <a href="./"><img src="logo4.png" alt="MemeMaster" class="logo-img"></a></div>
+      <!-- testing -->
+      <nav class="nav-head">      
+        <ul class="navglobal">
+          <li class="navmenu-selected"><a class="navmenu-selected" href="home.html">Home</a></li>
+          <li class="navmenu"><a class="navmenu" id="upload-modal-show" title="Need Javascript to create popup for meme sumbition" href="#">Upload</a></li>
+          <li class="navmenu"><a class="navmenu" href="creatememe.html">Create</a></li>
+          <li class="navmenu"><a class="navmenu" href="./">Trending</a></li>
+          <li class="navmenu"><a class="navmenu" href="#">Help</a></li>
+          <li class="nav-search"><div class="search-container"><form method="get" name="search" action="searchpage.html">
+          <input class="search" type="text" name="globalq" placeholder="Search"></form></div></li>
         </ul>
-        <div class="nav.user">Welcome back, <a href="#">Username</a>!<br><a href="#">Signout</a></div><div class="nav.userpic"><img src="http://placehold.it/50x50" alt="Username"></div>
-      </nav>
+
+        </nav>
+    
+      <div id="user-container" class="nav-user-container">
+        <article class="nav-user-welcome" id="welcome-message"></article>
+       <aside class="nav-userpic stretch-container" id="userimg"></aside></div>
     </header>
+ <div class="everything-container">  
+  
+   <div id="js-container">
+    <div id="display-options">
+      <header id="display-opt-head"><h4>Display Options</h4></header>
+          <ul class="display-nav">
+            <li class="display-menu"><a href="#"><img src="../displayImage/detailedviewicon.png" alt="Detailed View"></a></li>
+            <li class="display-menu"><a href="#"><img src="../displayImage/picviewicon.png" alt="Picture View"></a></li>
+            <li class="display-menu"><a href="#"><img src="../displayImage/filterIcon2.png" alt="Filter Folders"></a></li>
+            <li class="display-menu"><a href="#"><img src="../displayImage/newfoldericon.png" alt="New Folder"></a></li>
+            <li class="display-menu"><a href="#"><img src="../displayImage/help-icon.png" alt="Help"></a></li>
+            <li class="display-search"><form method="get" name="localsearch"><input class="display-search" type="text" name ="mysearch" placeholder="Search your files"></form></li></ul></div>
+    <!-- Sidebar Trending starts-->
+     <div id="memes-trending-landing" class="trending-container" >
+       
+      
+
+     </div></div>  
    
-    <div id="Featured">
-      <h4>Your Top Memes</h4>
-        <article data-entry-id="seal">
-          <header>
-              <h4>
-                <a href ="onedoes.jpg">Professor told us to build...</a>
-              </h4>
-          </header>
-          <a href="onedoes.jpg" target="_blank">
-              <img src="http://placehold.it/250x250" alt="Professor told us to build a html wireframe">
-          </a>
-          <time datetime="2014-07-11"></time>
-          <form>
-            <input type="radio" id="rate1" value="1">
-            <input type="radio" id="rate2" value="2">
-            <input type="radio" id="rate3" value="3">
-            <input type="radio" id="rate4" value="4">
-            <input type="radio" id="rate5" value="5" checked>
-          </form>
-        </article>
-    </div> 
-    
-      <div id="Memes"><h4>Your Memes</h4>
-        <div id="localnav">Display Options<ul class="display.nav"><li class="display.menu"><a href="#"><img src="http://placehold.it/50x50" alt="Detailed View"></a></li>
-          <li class="display.menu"><a href="#"><img src="http://placehold.it/50x50" alt="Picture View"></a></li>
-          <li class="display.menu"><a href="#"><img src="http://placehold.it/50x50" alt="Filter Folders"></a></li>
-          <li class="display.menu"><a href="#"><img src="http://placehold.it/50x50" alt="New Folder"></a></li>
-          <li class="display.menu"><a href="#"><img src="http://placehold.it/50x50" alt="Help"></a></li></ul>
-          <form method="get" name="localsearch"><input type="text" name ="mysearch" placeholder="Search"></form></div>
-        <article data-entry-id="seal">
-          <header>
-              <h4>
-                <a href ="#">Favorites</a>
-              </h4>
-          </header>
-          <a href="#" target="_blank">
-              <img src="http://placehold.it/250x250" alt="Favorites"></a><br>
-          <time datetime="2014-07-11"></time>
-          <header> 
-              <h4>
-                <a href ="seal.jpg">Hanging out with my friend and...</a>
-              </h4>
-          </header>
-          <a href="seal.jpg" target="_blank">
-              <img src="http://placehold.it/250x250" alt="Hanging out with my friend and his brother in law whom I've never met"></a><br>
-          <time datetime="2014-07-11"></time>
-          <form>
-            <input type="radio" id="rate1" value="1">
-            <input type="radio" id="rate2" value="2">
-            <input type="radio" id="rate3" value="3" checked>
-            <input type="radio" id="rate4" value="4">
-            <input type="radio" id="rate5" value="5">
-          </form>
-        </article>
-      <hr>
+   <!-- Sidebar Trending ends-->
+   
+   <!-- Saved Meme starts-->   
+      <div id="memes" >
+        
+        <header id="memes-top-header"><h3>Saved Memes</h3></header>
+        <div id = "memes-savedmeme-landing">
+        <!-- Saved Meme ends-->
+        </div>
     </div>
-    
+   </div>
    
       
     
-    <footer>
-      <ul>
-        <li><a href="#">About This Site</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="team/index.html">Team Page</a></li>
-      </ul>
-    </footer>
-    <a href="#">Jump to Top</a>
+    <footer id="common-footer">
+      <div id="footer-left"><ul class="footer">
+        <li class="footer"><a href="#" class="footer">About This Site</a></li>
+        <li class="footer"><a href="#" class="footer">Privacy Policy</a></li>
+                <li class="footer"><a href="team/index.html" class="footer">Team Page</a></li>
+        </ul></div>
+    
+      <div id="footer-right"><a href="#" class="footer">Jump to Top</a></div></footer>
+    <a onclick="signOut();">Signout</a>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//www.parsecdn.com/js/parse-1.2.19.min.js"></script>
+    <script src="init.js"></script>
+    <script>
+      //Resize script to keep boxes on fixed intervals using browser window width
+    function memeresize(target) {
+    var boxsz = 275;
+    var offset = 295;
+    var width = Math.floor((window.innerWidth-offset)/boxsz);
+      document.getElementById(target).style.maxWidth=(width*boxsz)+"px";
+      
+    }
+    $(function() {  
+    $("h4").click(function() {  
+        $(".trending-container").toggleClass("trending-container-change");  
+    });  
+});  
+  </script>
+    
+    <script>
+     
+var currentUser = Parse.User.current();
+var galleryObj = new galleryQuery();
+      
+    galleryObj.sendQuery(40, 0);
+    // Initializing our events
+    var queryComplete = document.createEvent('Event');
+    queryComplete.initEvent('queryComplete', true, true);      
+           
+
+      
+    function getTrendingFill(title,id, cover, date,total_likes,likes){
+  var shortTitle = title;
+  if (title.length > 25)
+    shortTitle = title.substring(0,25); 
+  var body="<article class=\"trending-meme\"><header class=\"trending-title\"><h4><a href =\"memepage.html?gal="+id+"\">" + shortTitle +"</a></h4></header><a href =\"memepage.html?gal="+id+"\"><img class=\"meme\" src=\""+ cover +"\" alt=\""+title+"\" width=\"200\" height=\"200\"></a><br><time datetime=\"" +date+ "\"></time></article>";
+      
+      return body;
+      
+        }      
+      
+function getSavedFill(title,id, cover, date,total_likes,likes){
+  alert("hi");
+  var shortTitle = title;
+  if (title.length > 25)
+    shortTitle = title.substring(0,25); 
+  var body="<article class=\"meme\"><header class=\"meme-head\"><h4><a href =\"memepage.html?gal="+id+"\">" + shortTitle +"</a></h4></header><div class=\"meme-img stretch-container\"><a href =\"memepage.html?gal="+id+"\"><img class=\"meme\" src=\""+ cover +"\" alt=\""+title+"\"></a></div><br><time datetime=\"" +date+ "\"></time><progress max=\""+total_likes+"\" value=\""+likes+"\"></progress></article>";
+      
+      return body;
+      
+        }      
+      
+document.addEventListener('queryComplete',
+                                function(){
+                                  var body = "<header id=\"trending-head\"><h4>Trending Memes</h4></header><hr class=\"trending\">"
+                                  var body2 = ""
+                                  var tags =""
+                                  for (var i=0; i < 3; i++){
+                                    if (galleryObj.public[i]) {
+                                    body += getTrendingFill(galleryObj.title[i], galleryObj.myId[i], galleryObj.coverPic[i], galleryObj.date[i], galleryObj.total_likes[i], galleryObj.likes[i]);
+                                    }
+                                  }
+                                   for (var i=0; i < galleryObj.title.length; i++){
+                                     if (!galleryObj.public[i]){
+
+                                      body2 += getTrendingFill(galleryObj.title[i], galleryObj.myId[i], galleryObj.coverPic[i], galleryObj.date[i], galleryObj.total_likes[i], galleryObj.likes[i]); 
+                                     }
+                                   }
+                                  $("#memes-trending-landing").html(body);
+                                  $("#memes-savedmeme-landing").html(body2);
+                                  stretchContainers();
+                                  $("#memes").slideDown(200);
+                                });      
+      
+            
+ 
+      
+    /* ---------------------------- */    
+    /* ---------------------------- */
+    /* --- Gallery Query Object --- */
+    /* ---------------------------- */
+    /* ---------------------------- */
+ 
+    function galleryQuery(){
+      this.coverPic=[""];
+      this.public = [true];
+      this.images = [];
+      this.myId=[""];
+      this.nsfw=[false];
+      this.title=[""];
+      this.user=[];
+      this.tags=[""];
+      this.likes=[0];
+      this.total_likes=[0];
+      this.comments = [];
+      this.title_to_lower=[""];
+      this.date=[""];
+      this.humanReadableQuery=[""];
+      // Required for child functions to reach parent members
+      var parent = this;
+      
+      
+        this.sendQuery = (function(limit, skip){
+        var gallery = Parse.Object.extend("gallery");
+        var galquery = new Parse.Query(gallery);
+
+        galquery.include("cover"); // Fetches pointer information
+        galquery.include("user"); // Fetches the pointer information
+        
+        galquery.descending("likes");
+        galquery.limit(limit);
+        galquery.skip(skip);
+        galquery.find({
+          success: function(galresults) {
+              
+              //alert("query complete");
+              /* Fill object values */
+              for (var i = 0; i < galresults.length; i++) {
+                
+                parent.myId[i] = galresults[i].id;
+                parent.title[i] = galresults[i].get('title');
+                //alert ("Received: " + parent.title[i]);
+                parent.coverPic[i] = galresults[i].get("cover").get("thumb").url();
+                parent.likes[i] = galresults[i].get("likes");
+                parent.total_likes[i] = galresults[i].get("total_likes");
+                parent.tags[i] = galresults[i].get("tags");
+                parent.user[i] = galresults[i].get("user");
+                parent.nsfw[i] = galresults[i].get("nsfw");
+                parent.date[i] = galresults[i].updatedAt;
+                parent.public[i] = galresults[i].get("public");
+                parent.title_to_lower[i] = galresults[i].get("title_to_lower");
+                
+                
+              }
+              /* Query finished. Dispatch event */
+              document.dispatchEvent(queryComplete);
+              
+              
+              
+            },
+          error: function(error) {
+            alert("Error: " + error.code + " " + error.message);
+          }
+        });
+      });
+     
+    }      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </script>  
+    
+    
+    
+    
+
+ <!-- Upload Modal -->
+  <div id="upload-modal">
+      <div style="display:inline-block;margin: 0 0 8px 0;">
+      <section class="upload-modal-heading">
+        <ul class="upload-modal">
+          <li class="upload-modal-menu-selected">
+            <a class="upload-modal" href="#" id="upload-modal-local-option">From Your Computer</a>
+          </li>
+          <li class="upload-modal-menu">
+            <a class="upload-modal" href="#" id="upload-modal-web-option">From the Web</a>
+          </li>
+          
+        </ul>
+      </section>
+      
+      <aside class="upload-modal-heading">
+        <div href="#" class="upload-modal-close modal-close"></div>
+      </aside>
+      </div>
+      
+      <section class="upload-modal-file-landing">
+        <article class="upload-modal-file-landing">
+          <button id="upload-modal-browse" type="button">Browse</button><input type="file" id="input-upload-modal-browse"  accept="image/*" multiple>
+        </article>
+        <aside class="upload-modal-file-landing" id="upload-modal-drag-drop">
+          Drag and Drop
+        </aside>
+      </section>
+    
+      <section class="upload-modal-option">
+        <label for="upload-modal-gallery-option" style="margin:6px;float:right;">Gallery</label>
+        <input type="checkbox" id="upload-modal-gallery-option" style="vertical-align:top;margin:8px 0 0 8px;float:right;">
+         <input type="text" class="upload-modal-gallery-title" id="upload-modal-gallery-title" style="float:right;" placeholder="Gallery Title">
+         
+         
+      </section>
+      <section id="upload-modal-files-container" class="upload-modal-files-container">
+        
+        
+        
+        
+        
+      </section>
+      <footer class="upload-modal-footer">
+        <section class="upload-modal-footer">
+          <button class="upload-modal-close" type="button">Cancel</button>
+          <button id="upload-modal-done" type="button">Upload &raquo;</button>
+        </section>
+      </footer>
+      
+
+    </div>
+      
+      
+  <script src="uploader.js"></script>
+    <script>
+    function signOut(){
+      Parse.User.logOut();
+    }
+      
+  </script>
   </body>
 </html>

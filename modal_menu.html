@@ -1,0 +1,78 @@
+<head>
+  <style>
+    
+    body{margin:0;
+    font-family: "Helvetica", sans-serif;
+    color:white;
+    font-size:14px;
+    background-color:#081A26;
+    } 
+   
+#popup-menu-container{
+    list-style:none;
+    font-weight:bold;
+    margin-bottom:10px;
+    width:100%;
+}
+#popup-menu-container li{
+    float:left;
+    margin:10px;
+    position:relative;
+}
+#popup-menu-container li:hover{
+    background-color:#495261;
+}
+#popup-menu-container a:hover{
+    background-color:blue;
+}
+
+/*--- DROPDOWN ---*/
+#popup-menu-container ul{
+    background-color:gray; 
+    background:rgba(255,255,255,0);
+    list-style:none;
+    position:absolute;
+    left:-9999px;
+}
+#popup-menu-container ul li{
+    padding-top:3px;
+}
+#popup-menu-container ul.incep-item{
+    white-space:nowrap;
+}
+#popup-menu-container li:hover ul{
+    left:-42px;
+}
+#popup-menu-container li:hover{
+    background-color:#495261;
+}
+#popup-menu-container li:hover ul li a:hover{
+    background-color:#0C95F5;
+}
+    
+    
+  </style>
+  <body>
+    
+    <div id="modal-menu-display">
+      <nav class="mod-menu">
+        <ul id="popup-menu-container">
+          <li class="menu-item">Link 1
+          <ul class="inceptu">
+              <li class="incep-item"><a>Bull</a></li>
+              <li class="incep-item"><a>Shit</a></li></ul></li>
+          <li class="menu-item">Link 2
+            <ul class="inceptu">
+              <li class="incep-item"><a>More</a></li>
+              <li class="incep-item"><a>BUll</a></li>
+              <li class="incep-item"><a>SHIT</a></ul></li>
+          <li class="menu-item menu-picture"><a><img src="">Gator fade</a></li>
+          <li class="menu-picture-hover">YOU CANT HANDLE THE TRUTH</li>
+        </ul></nav></div>
+
+   
+    <script>
+    </script>
+    
+  </body>
+</head>
