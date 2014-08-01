@@ -134,12 +134,13 @@
        display:flex;
        justify-content:center;
        flex-wrap:wrap;
+       
      }
      div.meme-img-flex{
        display:inline-block;
        
        text-align:center;
-       
+       width:100%;
        min-width:200px;
        background-color:#202225;
        padding:10px;
