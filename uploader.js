@@ -380,7 +380,11 @@ function uploader () {
                                   if (gallery)
                                     completion_task(newgallery.id);
                                   else
+<<<<<<< HEAD
                                     location.href="home.html";
+=======
+                                    location.href="./home.html";
+>>>>>>> bac07af7d4175b2a51b4b9799b99cf8e6c887706
                                    });
                                   
                                 }
