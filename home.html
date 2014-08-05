@@ -182,8 +182,20 @@ var currentUser = Parse.User.current();
 var galleryObj = new galleryQuery();
 var userGalleryObj = new galleryQuery();
     galleryObj.sendQuery(10, 0, false);
-    userGalleryObj.sendQuery(40, 0, true);
+    userGalleryObj.sendQuery(20, 0, true);
+      var newContentCounter = 0;
+      var noNewContent = false;
+      $(window).scroll(function() {
+         if(($(window).scrollTop() + $(window).height() > $(document).height() - 100) && !noNewContent && userGalleryObj.coverPic.length > 0) {
+           noNewContent = true;
+           newContentCounter += 20;
+           userGalleryObj.coverPic.length = 0;
+           userGalleryObj.sendQuery(20, newContentCounter, true);
+         }
+      });
+var flushBody = false;
       $("#nsfw").change(function(){
+     
      userGalleryObj.nsfwSearch(this.checked);
    });
     // Initializing our events
@@ -229,7 +241,7 @@ function getSavedFill(title,id, cover, date,total_likes,likes, public){
   }
   if (title.length > 25)
     shortTitle = title.substring(0,25)+"..."; 
-  var body="<article class=\""+pubC+ "\" title=\""+title+"\"><header class=\"meme-head\"><h4>"+pub+"<a href =\"memepage.html?gal="+id+"\">" + shortTitle +"</a></h4></header><div class=\"meme-img stretch-container\"><a href =\"memepage.html?gal="+id+"\"><img  src=\""+ cover +"\" alt=\""+title+"\" width=\"200\" height=\"200\"></a></div><br><time datetime=\"" +date+ "\"></time><progress max=\""+total_likes+"\" value=\""+likes+"\"></progress></article>";
+  var body="<article class=\""+pubC+ "\" title=\""+title+"\" id=\""+id+"\"><header class=\"meme-head\"><h4>"+pub+"<a href =\"memepage.html?gal="+id+"\">" + shortTitle +"</a></h4><div class=\"trash-button\" onclick=\"userGalleryObj.deleteGal('"+id+"');\"></div></header><div class=\"meme-img stretch-container\"><a href =\"memepage.html?gal="+id+"\"><img  src=\""+ cover +"\" alt=\""+title+"\" width=\"200\" height=\"200\"></a></div><br><time datetime=\"" +date+ "\"></time><progress max=\""+total_likes+"\" value=\""+likes+"\"></progress></article>";
       
       return body;
       
@@ -253,16 +265,16 @@ document.addEventListener('queryComplete',
                                  // $("#memes").css("display", "flex");
                                 });      
       
-            
+                             var myPub = 0;
+                             var myPriv = 0;
  document.addEventListener('userQueryComplete',
                            function(){
                              var currentUser = Parse.User.current().id;
                              var body2 = "";
-                             var myPub = 0;
-                             var myPriv = 0;
+                             
                              var myNsfw = 0;
                              for (var i=0; i < userGalleryObj.coverPic.length; i++){
-                               if (userGalleryObj.coverPic[i] && userGalleryObj.coverPic[i].length > 0) {
+                               if (userGalleryObj.coverPic[i]) {
                                     if (userGalleryObj.public[i]) {
                                       myPub +=1;
                                     }else {
@@ -276,11 +288,23 @@ document.addEventListener('queryComplete',
                              }
                          
                              var pubBody = "You have " + myPub + " Public Galleries, and " + myPriv +" Private.";
-                             if (body2.length < 1) {
-                               body2 = "<h3>You've got nothin! You should feel pathetic.</h3>";
+                             if (userGalleryObj.coverPic.length == 0 & newContentCounter > 0) {
+                                    body2 ="<div style=\"width:100%;order:100;margin-top:20px;text-align:center;\"><h3>End of your content</h3></div>";
+                                    noNewContent = true;
+                                    newContentCounter -= 20;
+                                  }
+                             else if (userGalleryObj.coverPic.length == 0)
+                                    body2 = "<h3>You've got nothin! You should feel pathetic.</h3>";
+                             else
+                                    noNewContent = false;
+                                   
+                             document.getElementById("galstats").innerHTML= pubBody;
+                             if (!userGalleryObj.flushBody)
+                               document.getElementById("memes-savedmeme-landing").innerHTML += body2;
+                             else {
+                               document.getElementById("memes-savedmeme-landing").innerHTML = body2;
+                               userGalleryObj.flushBody = false;
                              }
-                             $("#galstats").html(pubBody);
-                             $("#memes-savedmeme-landing").html(body2);
                              stretchContainers();
                             // $(".trending-container").show();
                                    }
@@ -302,13 +326,20 @@ document.addEventListener('queryComplete',
               this.coverPic.length = 0;
               var plain = ["Most Popular", "Least Popular", "Newest", "Oldest", "Public", "Private"];
               $("#sorting-name").html(plain[val]);
-              this.sendQuery(40,0,true);
+              myPub=myPriv = 0;
+              this.flushBody = true;
+              this.sendQuery(20+newContentCounter,0,true);
             }
       this.nsfwSearch = function(nsfw){
               this.coverPic.length = 0;
               this.nsfwFilter = nsfw;
-              this.sendQuery(40,0,true);
+              myPub=myPriv = 0;
+              this.flushBody = true;
+              this.sendQuery(20+newContentCounter,0,true);
+              
             }
+      
+      this.flushBody = false;
       this.SortType = 2;
       this.coverPic=[""];
       this.public = [true];
@@ -327,7 +358,18 @@ document.addEventListener('queryComplete',
       // Required for child functions to reach parent members
       var parent = this;
       
-      
+        this.deleteGal= function(id){
+          var Gallery = Parse.Object.extend("gallery");
+          var gallery = new Gallery();
+          gallery.id = id;
+          if (confirm("Are you sure you want to delete this gallery?")){
+            gallery.destroy({
+            success: function() {
+              $("#"+id).hide(300);
+            }
+            });
+          }
+        }
         this.sendQuery = (function(limit, skip, personal){
         var gallery = Parse.Object.extend("gallery");
         var galquery = new Parse.Query(gallery);
@@ -357,6 +399,8 @@ document.addEventListener('queryComplete',
           galquery.descending("likes");
           galquery.limit(limit);
         }
+          galquery.limit(limit);
+    galquery.skip(skip);
         galquery.find({
           success: function(galresults) {
               

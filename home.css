@@ -700,6 +700,28 @@ ul{
   display:flex;
   width:100%;
 }
+.meme-head{
+  width:100%;
+  display:flex;
+}
+.meme-head> h4 {
+  width:100%;
+  display:inline-block;
+}
+.trash-button{
+  margin: 0 0 0 0;
+  width:11px;
+
+  height:14px;
+  background: url('sprites/trash.png') no-repeat;
+}
+.trash-button:hover{
+  background: url('sprites/trash_hover.png') no-repeat;
+}
+.trash-button:active{
+  background: url('sprites/trash_selected.png') no-repeat;
+}
+
 aside.trending{
       display:block;
       margin-top:25px;
@@ -735,3 +757,4 @@ ul.footer, ul.trending {
   color:white;
   background: url('sprites/down-arrow_hover.png') no-repeat 90% 50% ;
 }
+

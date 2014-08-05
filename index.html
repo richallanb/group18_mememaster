@@ -341,6 +341,17 @@
     // Initializing our events
     var queryComplete = document.createEvent('Event');
     queryComplete.initEvent('queryComplete', true, true);
+      var newContentCounter = 0;
+      var noNewContent = false;
+      $(window).scroll(function() {
+         if(($(window).scrollTop() + $(window).height() > $(document).height() - 100) && !noNewContent && galleryObj.coverPic.length > 0) {
+           noNewContent = true;
+           galleryObj.coverPic.length = 0;
+           newContentCounter += 40;
+           galleryObj.sendQuery(40, newContentCounter);
+           
+         }
+      });
       
       function trendingEntry(title, id, cover, date, total_likes, likes){
         var shortTitle =title;
@@ -378,7 +389,20 @@
                                     body += displayResult(galleryObj.title[i], galleryObj.myId[i], galleryObj.coverPic[i], galleryObj.date[i], galleryObj.total_likes[i], galleryObj.likes[i]);
                                 //    }
                                   }
-                                  $("#memes-trending-landing").html(body);
+                                  
+                                  if (galleryObj.coverPic.length == 0) {
+                                    body ="<div style=\"width:100%;order:100;margin-top:20px;text-align:center;\"><h2>End of new content</h2></div>";
+                                    newContentCounter -= 40;
+                                    noNewContent = true;
+                                  }
+                                  else
+                                    noNewContent = false;
+                                  if (!galleryObj.flushBody)
+                                    document.getElementById("memes-trending-landing").innerHTML += body;
+                                  else {
+                                    document.getElementById("memes-trending-landing").innerHTML = body;
+                                    galleryObj.flushBody = false;
+                                  }
                                   stretchContainers();
                                   
                                   $("div.landing-container").slideDown(200);
@@ -402,14 +426,17 @@
         this.SortType = val;
         var plain = ["Most Popular", "Least Popular", "Newest", "Oldest"];
         $("#sorting-name").html(plain[val]);
-        this.sendQuery(40,0);
+        this.flushBody = true;
+        this.sendQuery(40+newContentCounter,0);
       }
       this.nsfwSearch = function(nsfw){
         this.coverPic.length = 0;
         this.nsfwFilter = nsfw;
-        this.sendQuery(40,0);
+        this.flushBody = true;
+        this.sendQuery(40+newContentCounter,0);
       }
       this.SortType = 0;
+      this.flushBody = false;
       this.title=[""];
       this.user=[];
       this.tags=[""];
